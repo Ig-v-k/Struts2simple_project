@@ -6,8 +6,8 @@
 <body>
  	<div align="center">
  		<jsp:include page="_menu.jsp" />
- 
-    	<h2>Hello Struts2</h2>
+    	<h2>You must be Autorization!</h2>
+    	
     </div>	
  
 </body>

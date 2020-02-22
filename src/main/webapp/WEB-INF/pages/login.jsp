@@ -14,8 +14,8 @@
 	    <s:actionerror />
 	 
 	    <s:form action="/login" method="post">
-	        <s:textfield name="username" key="label.username" size="20" />
-	        <s:password name="password" key="label.password" size="20" />
+	        <s:textfield name="user.username" key="label.username" size="20" />
+	        <s:password name="user.password" key="label.password" size="20" />
 	        <s:submit method="execute" key="label.login" align="center" />
 	    </s:form>
 	     
