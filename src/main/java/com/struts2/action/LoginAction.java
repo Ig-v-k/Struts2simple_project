@@ -35,7 +35,7 @@ public class LoginAction extends ActionSupport {
 //    private String username;
 //    private String password;
     private Users user;
-    private HttpSession session = null;
+    private HttpSession session;
     public byte check_switch;
     
     @Override

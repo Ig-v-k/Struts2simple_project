@@ -8,6 +8,7 @@
   
 <body>
 	<div align="center">
+		<jsp:include page="_menu.jsp" />
 	    <h2>Hello, ${loginedUsername}...!</h2>
     	<h3><s:property value="username"/></h3>
 	</div>
