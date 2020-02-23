@@ -13,14 +13,14 @@
 	    <h2>Struts 2 - Login Application</h2>
 	    <s:actionerror />
 	 
-	    <s:form action="/login" method="post">
-	        <s:textfield name="user.username" key="label.username" size="20" />
-	        <s:password name="user.password" key="label.password" size="20" />
-	        <s:submit method="execute" key="label.login" align="center" />
+	    <s:form action="/login" method="post" validate="true" namespace="/">
+	        <s:textfield name="username" key="label.username" size="20" />
+	        <s:password name="password" key="label.password" size="20" />
+	        <s:submit method="execute" key="label.submit" align="center" />
 	    </s:form>
 	     
 	    <br>
-	    Username: admin, password: admin123
+	    Username: 'admin', password: 'admin123'
  	</div>
 
  
