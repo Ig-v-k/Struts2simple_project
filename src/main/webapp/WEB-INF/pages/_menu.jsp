@@ -3,11 +3,7 @@
  
 <%--  	<s:set name="logined" value="username"/> --%>
 	<a href="${pageContext.request.contextPath}/">Home</a>
-	 |
-	<s:if test="%{(#logined != null) || (!#logined.equals(''))}">
-		<a href="${pageContext.request.contextPath}/userInfo">Info</a>
-	</s:if>
-	
-<%-- 	<a href="${pageContext.request.contextPath}/login">Login</a> --%>
+	 |	
+	<a href="${pageContext.request.contextPath}/login">Login</a>
 
 <br>
