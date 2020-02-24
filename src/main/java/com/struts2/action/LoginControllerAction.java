@@ -1,16 +1,17 @@
 package com.struts2.action;
  
-import java.util.logging.Logger;  
+import java.util.logging.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
-import org.apache.struts2.convention.annotation.InterceptorRef;
+//import org.apache.struts2.convention.annotation.InterceptorRef;
 import org.apache.struts2.convention.annotation.Namespace;
-import org.apache.struts2.convention.annotation.ParentPackage;
+//import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
+import org.apache.struts2.convention.annotation.ResultPath;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.struts2.dao.UsersRepository;
@@ -19,10 +20,18 @@ import com.struts2.dao.UsersRepository;
  * @author iw
  *
  */
-@Namespace(value="/")
-//@ResultPath(value="/auth")
-@InterceptorRef(value = "customStack")
-@ParentPackage(value = "default")
+@Namespace("/")
+@ResultPath(value="/")
+@Action(value = "login",
+	results = {
+        @Result(name = "input", location = "/WEB-INF/pages/login.jsp"), // --> jsp
+        @Result(name = "error" , location = "/WEB-INF/pages/login.jsp"), // --> jsp
+        @Result(name = "success", type="redirect", location= "/userInfo") //  --> Action
+	} // results
+) // Action
+//@ResultPath(value="/")
+//@InterceptorRef(value = "customStack")
+//@ParentPackage(value = "default")
 public class LoginControllerAction extends ActionSupport {
 	 
     private static final long serialVersionUID = 1L;
@@ -57,19 +66,10 @@ public class LoginControllerAction extends ActionSupport {
 	    } // else
     } // m:validate()
     
-    @Action(value = "/login",
-    		results = {
-    		        @Result(name = "input", location = "/WEB-INF/pages/login.jsp"), // --> jsp
-    		        @Result(name = "error" , location = "/WEB-INF/pages/login.jsp"), // --> jsp
-    		        @Result(name = "success", type="redirect", location= "/userInfo") //  --> Action
-    		} // results
-    	) // Action
     @Override
     public String execute() {
     	LOGGER.info("---LOGGER: method - execute()");
     	LOGGER.info("---LOGGER: check_switch = " + this.check_switch);
-    	if(check_switch < 1)
-    		this.validate();
         switch (check_switch) {
 		case 1:
 			return INPUT;
@@ -84,10 +84,6 @@ public class LoginControllerAction extends ActionSupport {
     public String getUsername() {
     	return this.username;
     }
-    
-    public HttpSession getSession() {
-		return this.session;
-	}
  
     public void setUsername(String username) {
     	LOGGER.info("---LOGGER: username - " + username);
@@ -102,4 +98,8 @@ public class LoginControllerAction extends ActionSupport {
     	LOGGER.info("---LOGGER: password - " + password);
         this.password = password;
     }
+    
+    public HttpSession getSession() {
+		return this.session;
+	}
 }
