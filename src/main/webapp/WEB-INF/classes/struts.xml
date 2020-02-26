@@ -5,9 +5,10 @@
  
 <struts>
  
-	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
 	<constant name="struts.devMode" value="false" />
 	<constant name="struts.custom.i18n.resources" value="ApplicationResources" />
+	
 <!-- 	<package name="qwe" namespace="/" extends="struts-default">
 		<action name="hello" class="com.struts2.action.HelloAction">
 			<result name="success">/WEB-INF/pages/helloPageMain.jsp</result>

@@ -1,13 +1,15 @@
 package com.struts2.action;
 
 import org.apache.struts2.convention.annotation.Action;
+import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.Result;
  
 import com.opensymphony.xwork2.ActionSupport;
- 
-@Action(value = "hello",
+
+@Namespace(value="/")
+@Action(value = "/hello",
 	results = {
-	        @Result(name = "success", location = "/WEB-INF/pages/helloPageMain.jsp")
+	        @Result(name = "success", location = "/WEB-INF/helloPageMain.jsp")
 	}
 )
 public class HelloAction  extends ActionSupport {

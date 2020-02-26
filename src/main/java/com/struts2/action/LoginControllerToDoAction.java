@@ -11,7 +11,7 @@ import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 //import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
-import org.apache.struts2.convention.annotation.ResultPath;
+//import org.apache.struts2.convention.annotation.ResultPath;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.struts2.dao.UsersRepository;
@@ -20,22 +20,22 @@ import com.struts2.dao.UsersRepository;
  * @author iw
  *
  */
-@Namespace("/")
-@ResultPath(value="/")
+@Namespace(value="")
+//@ResultPath(value="/")
 @Action(value = "login",
 	results = {
-        @Result(name = "input", location = "/WEB-INF/pages/login.jsp"), // --> jsp
-        @Result(name = "error" , location = "/WEB-INF/pages/login.jsp"), // --> jsp
+        @Result(name = "input", location = "/WEB-INF/login.jsp"), // --> jsp
+        @Result(name = "error" , location = "/WEB-INF/login.jsp"), // --> jsp
         @Result(name = "success", type="redirect", location= "/userInfo") //  --> Action
 	} // results
 ) // Action
 //@ResultPath(value="/")
 //@InterceptorRef(value = "customStack")
 //@ParentPackage(value = "default")
-public class LoginControllerAction extends ActionSupport {
+public class LoginControllerToDoAction extends ActionSupport {
 	 
     private static final long serialVersionUID = 1L;
-    private static final Logger LOGGER = Logger.getLogger(LoginControllerAction.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(LoginControllerToDoAction.class.getName());
     private UsersRepository repository = new UsersRepository();
     private String username, password;
     private HttpSession session;
@@ -50,7 +50,7 @@ public class LoginControllerAction extends ActionSupport {
         	return;
 	    } // if
 	    HttpServletRequest request = ServletActionContext.getRequest();
-	    if (this.getUsername() == repository.returnAllUsers().get(this.getUsername()).getUsername() && this.getPassword() == repository.returnAllUsers().get(this.getUsername()).getPassword()) {
+	    if (this.getUsername().equals(repository.returnAllUsers().get(this.getUsername()).getUsername()) && this.getPassword().equals(repository.returnAllUsers().get(this.getUsername()).getPassword())) {
 	    	LOGGER.info("---LOGGER: SUCCESS");
 	    	check_switch = 2;
 	    	addActionMessage(getText("success.login"));

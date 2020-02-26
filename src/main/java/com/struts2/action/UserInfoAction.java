@@ -12,7 +12,7 @@ import com.opensymphony.xwork2.ActionSupport;
 @Namespace("/")
 @Action(value = "userInfo",
 	results = {
-	        @Result(name = "userInfoPage", location = "/WEB-INF/pages/userInfo.jsp")
+	        @Result(name = "userInfoPage", location = "/WEB-INF/userInfo.jsp")
 	}
 )
 public class UserInfoAction  extends ActionSupport {
