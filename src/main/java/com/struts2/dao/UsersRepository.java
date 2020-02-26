@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.struts2.beans.Users;
+import com.struts2.todo.UserRole;
 
 public class UsersRepository {
 	
@@ -14,7 +15,7 @@ public class UsersRepository {
 	}
 	
 	private static void initDB() {
-		Users admin = new Users("admin", "admin123");
+		Users admin = new Users("admin", "admin123", UserRole.ADMIN);
 		map.put(admin.getUsername(), admin);
 	}
 	
