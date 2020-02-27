@@ -31,7 +31,7 @@ public class CheckLogInUserInterceptor extends AbstractInterceptor {
 
 		Map<String, Object> session = actionInvocation.getInvocationContext().getSession();
 		if(session.get("user") == null)
-			return ActionSupport.ERROR;
+			return ActionSupport.INPUT;
 		
         LOGGER.info("****");
         LOGGER.info("********* Request END  *********");

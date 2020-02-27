@@ -61,7 +61,7 @@ public class LoginControllerToDoAction extends ActionSupport {
     	return this.username;
     }
  
-    @RequiredStringValidator(message = "please enter correctly 'username'")
+//    @RequiredStringValidator(message = "please enter correctly 'username'")
     public void setUsername(String username) {
     	this.username = username;
     }
@@ -70,7 +70,7 @@ public class LoginControllerToDoAction extends ActionSupport {
         return this.password;
     }
  
-    @RequiredStringValidator(message = "please enter correctly 'password'")
+//    @RequiredStringValidator(message = "please enter correctly 'password'")
     public void setPassword(String password) {
         this.password = password;
     }

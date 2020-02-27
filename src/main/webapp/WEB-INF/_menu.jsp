@@ -2,8 +2,13 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
  
 <%--  	<s:set name="logined" value="username"/> --%>
-	<a href="${pageContext.request.contextPath}/">Home</a>
+	<a href="${pageContext.request.contextPath}/hello">Home</a>
 	 |	
 	<a href="${pageContext.request.contextPath}/login">Login</a>
+	 |
+	<a href="${pageContext.request.contextPath}/register">Register</a>
+	 |	
+	<a href="${pageContext.request.contextPath}/logout">Logout</a>
+	 
 
 <br>

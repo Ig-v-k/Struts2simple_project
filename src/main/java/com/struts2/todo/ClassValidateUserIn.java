@@ -1,6 +1,6 @@
 package com.struts2.todo;
 
-//import java.util.logging.Logger;
+import java.util.logging.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -11,12 +11,13 @@ import com.struts2.interfaces.ActionsTexts;
 
 public class ClassValidateUserIn {
 
-//    private static final Logger LOGGER = Logger.getLogger(LoginControllerToDoAction.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(ClassValidateUserIn.class.getName());
     
     private HttpServletRequest request = ServletActionContext.getRequest();
     private UsersRepository repository = new UsersRepository();
     
 	public String checkIn(String username, String password) {
+		LOGGER.info("---LOGGER: method - checkIn");
 		return username == null && password == null ? ActionsTexts.INPUT : checkIn(username, password, this.request);
 	}
 	
