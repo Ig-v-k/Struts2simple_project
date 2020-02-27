@@ -2,7 +2,8 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <html>
 <head>
-<title>Struts 2 - Login Application</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Struts 2 - Login Application</title>
 </head>
  
 <body>

@@ -2,14 +2,15 @@ package com.struts2.action;
  
 import java.util.logging.Logger;
 
-import org.apache.struts2.convention.annotation.Action;
+//import org.apache.struts2.convention.annotation.Action;
 //import org.apache.struts2.convention.annotation.InterceptorRef;
 import org.apache.struts2.convention.annotation.Namespace;
 //import org.apache.struts2.convention.annotation.ParentPackage;
-import org.apache.struts2.convention.annotation.Result;
+//import org.apache.struts2.convention.annotation.Result;
 //import org.apache.struts2.convention.annotation.ResultPath;
 
 import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
 import com.struts2.todo.ClassValidateUserIn;
 
 /**
@@ -17,14 +18,13 @@ import com.struts2.todo.ClassValidateUserIn;
  *
  */
 @Namespace(value="")
-//@ResultPath(value="/")
-@Action(value = "login",
-	results = {
-        @Result(name = "input", location = "/WEB-INF/login.jsp"), // --> jsp
-        @Result(name = "error" , location = "/WEB-INF/login.jsp"), // --> jsp
-        @Result(name = "success", type="redirect", location= "/userInfo") //  --> Action
-	} // results
-) // Action
+//@Action(value = "login",
+//	results = {
+//        @Result(name = "input", location = "/WEB-INF/login.jsp"), // --> jsp
+//        @Result(name = "error" , location = "/WEB-INF/login.jsp"), // --> jsp
+//        @Result(name = "success", type="redirect", location= "/userInfo") //  --> Action
+//	} // results
+//) // Action
 //@ResultPath(value="/")
 //@InterceptorRef(value = "customStack")
 //@ParentPackage(value = "default")
@@ -39,7 +39,7 @@ public class LoginControllerToDoAction extends ActionSupport {
     @Override
     public String execute() {
     	this.classValidateUserIn = new ClassValidateUserIn();
-    	switch ((this.classValidateUserIn.checkIn(this.getUsername(), this.getPassword()))) {
+    	switch (this.classValidateUserIn.checkIn(this.getUsername(), this.getPassword())) {
 		case INPUT:
 			LOGGER.info("---LOGGER: INPUT");
 			return INPUT;
@@ -52,12 +52,16 @@ public class LoginControllerToDoAction extends ActionSupport {
     		addActionError(getText("error.login"));
     		return ERROR;
     	} // switch
+    	
     } // m:execute()
     
+    
+    // GETTERS & SETTERS
     public String getUsername() {
     	return this.username;
     }
  
+    @RequiredStringValidator(message = "please enter correctly 'username'")
     public void setUsername(String username) {
     	this.username = username;
     }
@@ -66,6 +70,7 @@ public class LoginControllerToDoAction extends ActionSupport {
         return this.password;
     }
  
+    @RequiredStringValidator(message = "please enter correctly 'password'")
     public void setPassword(String password) {
         this.password = password;
     }

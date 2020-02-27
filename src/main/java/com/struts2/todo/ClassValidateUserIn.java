@@ -22,7 +22,7 @@ public class ClassValidateUserIn {
 	
 	public String checkIn(String username, String password, HttpServletRequest request) {
 		if(username.equals(repository.returnAllUsers().get(username).getUsername()) && password.equals(repository.returnAllUsers().get(username).getPassword())) {
-			request.getSession().setAttribute("loginedUsername", repository.returnAllUsers().get(username).getUsername());
+			request.getSession().setAttribute("user", repository.returnAllUsers().get(username).getUsername());
 			return ActionsTexts.SUCCESS;
 		}
 		return ActionsTexts.ERROR;
