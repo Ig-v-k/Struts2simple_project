@@ -12,26 +12,26 @@ public class Users {
 	}
 	
 	public Users(String username, String password, UserRole userRole) {
-		this.username = username;
-		this.password = password;
-		this.userRole = userRole;
+		this.setUsername(username);
+		this.setPassword(password);
+		this.setUserRole(userRole);
 	}
 	
-//	public void setUserRole(UserRole userRole) {
-//		this.userRole = userRole;
-//	}
+	public void setUserRole(UserRole userRole) {
+		this.userRole = userRole;
+	}
 	
 	public UserRole getUserRole() {
 		return userRole;
 	}
 	
-//	public void setUsername(String username) {
-//		this.username = username;
-//	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
 	
-//	public void setPassword(String password) {
-//		this.password = password;
-//	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	
 	public String getUsername() {
 		return username;

@@ -10,7 +10,7 @@ import org.apache.struts2.convention.annotation.Namespace;
 //import org.apache.struts2.convention.annotation.ResultPath;
 
 import com.opensymphony.xwork2.ActionSupport;
-import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
+//import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
 import com.struts2.todo.ClassValidateUserIn;
 
 /**
@@ -32,14 +32,14 @@ public class LoginControllerToDoAction extends ActionSupport {
 	 
     private static final long serialVersionUID = 1L;
     private static final Logger LOGGER = Logger.getLogger(LoginControllerToDoAction.class.getName());
-    
     private ClassValidateUserIn classValidateUserIn;
     private String username, password;
     
     @Override
     public String execute() {
+		LOGGER.info("---LOGGER: method - execute()");
     	this.classValidateUserIn = new ClassValidateUserIn();
-    	switch (this.classValidateUserIn.checkIn(this.getUsername(), this.getPassword())) {
+    	switch (this.classValidateUserIn.checkOne(this.getUsername(), this.getPassword())) {
 		case INPUT:
 			LOGGER.info("---LOGGER: INPUT");
 			return INPUT;
@@ -56,7 +56,7 @@ public class LoginControllerToDoAction extends ActionSupport {
     } // m:execute()
     
     
-    // GETTERS & SETTERS
+    // *** GETTERS & SETTERS ***
     public String getUsername() {
     	return this.username;
     }

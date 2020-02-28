@@ -15,8 +15,10 @@ public class UsersRepository {
 	}
 	
 	private static void initDB() {
-		Users admin = new Users("admin", "admin123", UserRole.ADMIN);
-		map.put(admin.getUsername(), admin);
+		Users user1 = new Users("admin", "admin123", UserRole.ADMIN);
+		Users user2 = new Users("user", "user", UserRole.USER);
+		map.put(user1.getUsername(), user1);
+		map.put(user2.getUsername(), user2);
 	}
 	
 	public  Users getUsersById(String id){

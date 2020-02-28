@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%--@elvariable id="db" type="java.util.Map<String, com.struts2.beans.Users>"--%>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -21,7 +22,11 @@
 	    </s:form>
 	     
 	    <br>
-	    Username: 'admin', password: 'admin123'
+	    Username | Password<br>
+	    admin      admin<br>
+	    user       user
+	    <br>
+	    
  	</div>
 
  

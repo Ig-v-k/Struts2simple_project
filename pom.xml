@@ -20,6 +20,15 @@
   </properties>
 
   <dependencies>
+  
+<!--
+	<dependency>
+	    <groupId>net.sourceforge.pmd</groupId>
+	    <artifactId>pmd</artifactId>
+	    <version>6.21.0</version>
+	    <type>pom</type>
+	</dependency> -->
+
   	<dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -124,6 +133,9 @@
         <plugin>
           <artifactId>maven-war-plugin</artifactId>
           <version>3.2.2</version>
+          <configuration>
+          	<failOnMissingWebXml>false</failOnMissingWebXml>
+          </configuration>
         </plugin>
         <plugin>
           <artifactId>maven-install-plugin</artifactId>
