@@ -1,19 +1,19 @@
 package com.struts2.todo;
 
-import com.struts2.dao.UsersRepository;
+import com.struts2.DB.UsersDB;
 
 final class ClassRepositoryInitProcessing {
-	private static UsersRepository repository;
+	private static UsersDB repository;
 	
 	static {
 		init_ion();
 	}
 	
 	private static final void init_ion() {
-		repository = new UsersRepository();
+		repository = new UsersDB();
 	}
 	
-	public static UsersRepository getRepository() {
+	public static UsersDB getRepository() {
 		return repository;
 	}
 }

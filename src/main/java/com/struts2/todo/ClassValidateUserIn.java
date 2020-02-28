@@ -6,14 +6,14 @@ import java.util.logging.Logger;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ModelDriven;
+import com.struts2.DB.UsersDB;
 import com.struts2.beans.Users;
-import com.struts2.dao.UsersRepository;
 import com.struts2.interfaces.ActionsTexts;
 import com.struts2.interfaces.UserAware;
 
 public class ClassValidateUserIn implements UserAware, SessionAware, ModelDriven<Users>{
     private static final Logger LOGGER = Logger.getLogger(ClassValidateUserIn.class.getName());
-    private UsersRepository repository = new UsersRepository();
+    private UsersDB repository = new UsersDB();
     private Map<String, Object> session = null;
     private Users user = null;
     

@@ -11,15 +11,15 @@ import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
+import com.struts2.DB.UsersDB;
 import com.struts2.beans.Users;
-import com.struts2.dao.UsersRepository;
 import com.struts2.interfaces.UserAware;
 
 public class CheckLogInUserInterceptor extends AbstractInterceptor {
 	private static final long serialVersionUID = 1L;
 //	protected String loggerName;
     private static final Logger LOGGER = Logger.getLogger(CheckLogInUserInterceptor.class.getName());
-    UsersRepository usersRepository = new UsersRepository();
+    UsersDB usersRepository = new UsersDB();
 	
 	public String intercept(ActionInvocation actionInvocation) throws Exception {
         HttpServletRequest request = (HttpServletRequest) actionInvocation.getInvocationContext().get(StrutsStatics.HTTP_REQUEST);
