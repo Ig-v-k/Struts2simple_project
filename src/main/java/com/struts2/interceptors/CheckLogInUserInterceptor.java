@@ -26,6 +26,7 @@ public class CheckLogInUserInterceptor extends AbstractInterceptor {
         String url = request.getRequestURI();
 		Map<String, Object> session = actionInvocation.getInvocationContext().getSession();
         Users user = (Users) session.get("USER");
+        
         if (request.getQueryString() != null) {
             url = url + "?" + request.getQueryString();
         }

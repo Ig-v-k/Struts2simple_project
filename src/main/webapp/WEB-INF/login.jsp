@@ -22,9 +22,9 @@
 	    </s:form>
 	     
 	    <br>
-	    Username | Password<br>
-	    admin      admin<br>
-	    user       user
+	    Username --- Password<br>
+	    'admin' - 'admin123'<br>
+	    'user' - 'user'
 	    <br>
 	    
  	</div>

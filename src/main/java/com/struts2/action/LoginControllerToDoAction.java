@@ -28,7 +28,7 @@ import com.struts2.todo.ClassValidateUserIn;
 //@ResultPath(value="/")
 //@InterceptorRef(value = "customStack")
 //@ParentPackage(value = "default")
-public class LoginControllerToDoAction extends ActionSupport {
+public class LoginControllerToDoAction extends ActionSupport{
 	 
     private static final long serialVersionUID = 1L;
     private static final Logger LOGGER = Logger.getLogger(LoginControllerToDoAction.class.getName());
@@ -39,10 +39,10 @@ public class LoginControllerToDoAction extends ActionSupport {
     public String execute() {
 		LOGGER.info("---LOGGER: method - execute()");
     	this.classValidateUserIn = new ClassValidateUserIn();
-    	switch (this.classValidateUserIn.checkOne(this.getUsername(), this.getPassword())) {
-		case INPUT:
-			LOGGER.info("---LOGGER: INPUT");
-			return INPUT;
+    	switch (this.classValidateUserIn.checkTwo(this.getUsername(), this.getPassword())) {
+//		case INPUT:
+//			LOGGER.info("---LOGGER: INPUT");
+//			return INPUT;
 		case SUCCESS:
 			LOGGER.info("---LOGGER: SUCCESS");
 			addActionMessage(getText("success.login"));
@@ -56,7 +56,9 @@ public class LoginControllerToDoAction extends ActionSupport {
     } // m:execute()
     
     
-    // *** GETTERS & SETTERS ***
+	/**** 
+	 * GETTERS & SETTERS 
+	****/
     public String getUsername() {
     	return this.username;
     }
