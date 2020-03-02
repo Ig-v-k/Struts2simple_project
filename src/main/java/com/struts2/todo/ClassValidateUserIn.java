@@ -13,16 +13,17 @@ import com.struts2.interfaces.UserAware;
 
 public class ClassValidateUserIn implements UserAware, SessionAware, ModelDriven<Users>{
     private static final Logger LOGGER = Logger.getLogger(ClassValidateUserIn.class.getName());
-    private UsersDB repository = new UsersDB();
     private Map<String, Object> session = null;
     private Users user = null;
+    private UsersDB repository;
     
-//	public String checkOne(String username, String password) {
-//		LOGGER.info("---LOGGER: method - checkIn");
-//		return username == null && password == null ? ActionsTexts.INPUT : this.checkTwo(username, password);
-//	}
+    
+	public final String checkOne(String username, String password) {
+		LOGGER.info("---LOGGER: method - checkIn");
+		return username == null && password == null ? ActionsTexts.INPUT : this.checkTwo(username, password);
+	}
 	
-	public String checkTwo(String username, String password) {
+	public final String checkTwo(String username, String password) {
 		LOGGER.info("---LOGGER: method - checkTwo()");
 		if(username.equals(repository.returnAllUsers().get(username).getUsername()) && password.equals(repository.returnAllUsers().get(username).getPassword())) {
 			session.put("USER", this.user = new Users(username, password, UserRole.USER));
@@ -34,10 +35,10 @@ public class ClassValidateUserIn implements UserAware, SessionAware, ModelDriven
 	
 	/**** 
 	 * GETTERS & SETTERS 
-	****/
+	 ****/
 	@Override
 	public void setUser(Users user) {
-		this.user=user;
+		this.user = user;
 	}
 	
 	public Users getUser(Users user){
@@ -52,5 +53,9 @@ public class ClassValidateUserIn implements UserAware, SessionAware, ModelDriven
 	@Override
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
+	}
+	
+	public UsersDB getRepository() {
+		return repository;
 	}
 }

@@ -10,8 +10,7 @@ import com.opensymphony.xwork2.ActionSupport;
 @Action(value = "/hello",
 	results = {
 	        @Result(name = "success", location = "/WEB-INF/helloPageMain.jsp")
-	}
-)
+	})
 public class HelloAction  extends ActionSupport {
     private static final long serialVersionUID = 1L;
     

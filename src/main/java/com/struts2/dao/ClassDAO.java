@@ -3,7 +3,7 @@ package com.struts2.dao;
 import java.util.ArrayList;
 import java.util.Map;
 
-public interface ClassDAO<S ,T extends Integer, U> {
+public interface ClassDAO<S ,T, U> {
     Map<S, U> getAllDB();
     ArrayList<U> returnAllUsers();
     U getUser();

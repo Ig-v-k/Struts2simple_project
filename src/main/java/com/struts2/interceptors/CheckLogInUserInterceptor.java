@@ -9,7 +9,6 @@ import org.apache.struts2.StrutsStatics;
 
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionInvocation;
-import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
 import com.struts2.DB.UsersDB;
 import com.struts2.beans.Users;
@@ -17,7 +16,6 @@ import com.struts2.interfaces.UserAware;
 
 public class CheckLogInUserInterceptor extends AbstractInterceptor {
 	private static final long serialVersionUID = 1L;
-//	protected String loggerName;
     private static final Logger LOGGER = Logger.getLogger(CheckLogInUserInterceptor.class.getName());
     UsersDB usersRepository = new UsersDB();
 	
@@ -35,27 +33,12 @@ public class CheckLogInUserInterceptor extends AbstractInterceptor {
         LOGGER.info("HttpRequestInterceptor URL -> " + url);
         LOGGER.info("****");
         
-		if(user == null) {
-			LOGGER.info("---LOGGER: if()");
-			return ActionSupport.INPUT;
+		Action action = (Action) actionInvocation.getAction();
+		if(action instanceof UserAware) {
+			((UserAware) action).setUser(user);
 		}
-		else {
-			LOGGER.info("---LOGGER: if()-else");
-			Action action = (Action) actionInvocation.getAction();
-			if(action instanceof UserAware) {
-				((UserAware) action).setUser(user);
-			}
-			return actionInvocation.invoke();
-		}
+		return actionInvocation.invoke();
+						
+	} // m:intercept()
 		
-//		return actionInvocation.invoke();
-	}
-	
-//    public void setLoggerName(String loggerName) {
-//        this.loggerName = loggerName;
-//    }
-//
-//    private Logger getLogger() {
-//        return Logger.getLogger(this.loggerName);
-//    }
-}
+} // c:CheckLogInUserInterceptor

@@ -5,7 +5,7 @@ Info
 
 ---
 
-1. Логика - Registration + Info
-2. Расширение - Users до Admin/Employee/Users
-3. Задействовать - Pattern Design
-4. Реализация - DAO
+. Логика - Registration + Info
+. Расширение - Users до Admin/Employee/Users
+. Задействовать - Pattern Design
+. Реализация - DAO
