@@ -4,24 +4,19 @@ import java.util.Date;
 import java.util.Map;
 import java.util.logging.Logger;
 
-import org.apache.struts2.convention.annotation.Action;
-//import org.apache.struts2.convention.annotation.InterceptorRef;
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Namespace;
-import org.apache.struts2.convention.annotation.ParentPackage;
-import org.apache.struts2.convention.annotation.Result;
-//import org.apache.struts2.convention.annotation.Results;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
+import com.struts2.interfaces.ActionsTexts;
 import com.struts2.todo.ClassValidateUserIn;
 
 /**
  * @author iw
  *
  */
-//@ParentPackage(value = "default")
-@Namespace(value="")
-//@InterceptorRef(value = "check_stack")
+@Namespace(value="/")
 public class LoginControllerToDoAction extends ActionSupport implements SessionAware{
 	 
     private static final long serialVersionUID = 1L;
@@ -30,60 +25,27 @@ public class LoginControllerToDoAction extends ActionSupport implements SessionA
     private String username, password;
     private Date timedate;
     
+    public String GET_login() {
+		LOGGER.info("---LOGGER: method - GET_login()");
+		return ActionsTexts.INPUT;
+    }
     
-//    @Action(value = "GET_login",
-//    		results = {
-//    				@Result(name = "input", location = "/WEB-INF/login.jsp"),
-//    				@Result(name = "succes_redirect", location = "POST_login")
-//    		})
-//    public String GET_login() {
-//		if(session.get("USER") != null)
-//			return "success_redirect";
-//		return INPUT;
-//    } // m:GET_login()
-    
-//    @Action(value = "POST_login",
-//    		results = {
-//    				@Result(name = "input", location = "/WEB-INF/login.jsp"),
-//    				@Result(name = "error", location = "/WEB-INF/login.jsp"),
-//    				@Result(name = "success", type = "redirect", location = "userInfo"),
-//    		})
-//    private String POST_login() {
-//    	LOGGER.info("---LOGGER: method - execute()");
-//    	switch (new ClassValidateUserIn().checkOne(this.getUsername(), this.getPassword())) {
-//		case INPUT:
-//			LOGGER.info("---LOGGER: INPUT");
-//			timedate = new Date();
-//			return INPUT;
-//		case SUCCESS:
-//			LOGGER.info("---LOGGER: SUCCESS");
-//			addActionMessage(getText("success.login"));
-//			return SUCCESS;
-//    	default:
-//    		LOGGER.info("---LOGGER: ERROR");
-//    		addActionError(getText("error.login"));
-//    		return ERROR;
-//    	} // switch
-//    } // m:POST_login()
-    
-    @Override
-    public String execute() {
-		LOGGER.info("---LOGGER: method - execute()");
-    	switch (new ClassValidateUserIn().checkOne(this.getUsername(), this.getPassword())) {
-//		case INPUT:
-//			LOGGER.info("---LOGGER: INPUT");
-//			return INPUT;
+    public String POST_login() {
+    	LOGGER.info("---LOGGER: method - POST_login()");
+    	switch (new ClassValidateUserIn().checkOne(this.username, this.password, this.session, ServletActionContext.getRequest())) {
+		case NONE:
+			LOGGER.info("---LOGGER: NONE");
+			return ActionsTexts.NONE;
 		case SUCCESS:
 			LOGGER.info("---LOGGER: SUCCESS");
 			addActionMessage(getText("success.login"));
-			return SUCCESS;
+			return ActionsTexts.SUCCESS;
     	default:
     		LOGGER.info("---LOGGER: ERROR");
     		addActionError(getText("error.login"));
-    		return ERROR;
-    	} // switch
-    	
-    } // m:execute()
+    		return ActionsTexts.ERROR;
+    	}
+    }
     
     
 	/**** 
@@ -112,4 +74,5 @@ public class LoginControllerToDoAction extends ActionSupport implements SessionA
     public Date getDate() {
 		return timedate;
 	}
+    
 } // c:LoginControllerToDoAction

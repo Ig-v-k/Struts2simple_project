@@ -1,5 +1,14 @@
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/action/HelloAction.java
-/home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/action/MainAction.java
-/home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/beans/Users.java
-/home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/action/LoginAction.java
+/home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/todo/ClassRepositoryInitProcessing.java
+/home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/interfaces/UserAware.java
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/action/UserInfoAction.java
+/home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/dao/ClassDAO.java
+/home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/interfaces/ActionsTexts.java
+/home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/todo/UserRole.java
+/home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/action/LogoutAction.java
+/home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/todo/ClassValidateUserIn.java
+/home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/beans/Users.java
+/home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/interceptors/CheckLogInUserInterceptor.java
+/home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/action/LoginControllerToDoAction.java
+/home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/DB/UsersDB.java
+/home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/action/RegisterAction.java

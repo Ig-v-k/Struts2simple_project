@@ -10,21 +10,40 @@
 	<constant name="struts.enable.SlashesInActionNames" value="false"/>
 	
  	<package name="default" namespace="/" extends="struts-default">
+ 	
+ 	 	<!-- 
+ 	 	*** Interceptors *** 
+ 	 	-->
     	<interceptors>
         	<interceptor name="check_logInInterceptor" class="com.struts2.interceptors.CheckLogInUserInterceptor" />
-        	
             <interceptor-stack name="check_stack">
                 <interceptor-ref name="check_logInInterceptor"/>
                 <interceptor-ref name="defaultStack"/>
             </interceptor-stack>
    		</interceptors>
-   		<action name="login" class="com.struts2.action.LoginControllerToDoAction">
+
+ 		<!-- 
+ 		*** Global-results ***
+ 		-->   		
+		<global-results >
+ 			<result name="input, error, none">/WEB-INF/login.jsp</result>
+ 		</global-results>
+ 		
+ 		<!-- 
+		*** Actions ***
+ 		-->
+   		<action name="GET_login" class="com.struts2.action.LoginControllerToDoAction" method="GET_login">
 			<interceptor-ref name="params" />
    			<interceptor-ref name="check_stack" />
-   			<result name="input">/WEB-INF/login.jsp</result>
-   			<result name="error">/WEB-INF/login.jsp</result>
-   			<result name="success" type="redirect">/userInfo</result>
+   			<result name="success" type="redirectAction">POST_login</result>
    		</action>
+   		<action name="POST_login" class="com.struts2.action.LoginControllerToDoAction" method="POST_login">
+   			<result name="success" type="redirectAction">userInfo</result>
+   		</action>
+   		<action name="register" class="com.struts2.action.RegisterAction" method="register">
+   			<result name="success" type="redirectAction">userInfo</result>
+   		</action>
+   		
    	</package>
 
 </struts>

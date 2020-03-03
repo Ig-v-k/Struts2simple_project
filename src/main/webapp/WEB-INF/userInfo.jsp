@@ -9,7 +9,7 @@
 <body>
 	<div align="center">
 		<jsp:include page="_menu.jsp" />
-	    <h2>Hello, ${USER}...!</h2>
+	    <h2>Hello, ${USER.getUsername()}...!</h2>
     	<h3><s:property value="username"/></h3>
 	</div>
 </body>

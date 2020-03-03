@@ -1,4 +1,4 @@
-package com.struts2.interceptors;
+ package com.struts2.interceptors;
 
 import java.util.Map;
 import java.util.logging.Logger;

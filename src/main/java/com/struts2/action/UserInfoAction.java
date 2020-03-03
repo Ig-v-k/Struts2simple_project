@@ -13,8 +13,7 @@ import com.opensymphony.xwork2.ActionSupport;
 @Action(value = "userInfo",
 	results = {
 	        @Result(name = "userInfoPage", location = "/WEB-INF/userInfo.jsp")
-	}
-)
+	})
 public class UserInfoAction  extends ActionSupport {
     private static final long serialVersionUID = 1L;
     

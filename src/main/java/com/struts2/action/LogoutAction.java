@@ -2,10 +2,12 @@ package com.struts2.action;
 
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
+import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.Result;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+@Namespace(value="/")
 @Action(value="logout", results = @Result(name = "logout", location = "/WEB-INF/logout.jsp"))
 public class LogoutAction extends ActionSupport{
 	private static final long serialVersionUID = 1L;
