@@ -1,27 +1,23 @@
 package com.struts2.beans;
 
-import com.struts2.todo.UserRole;
-
 public class Users {
 	private String username = null;
 	private String password = null;
-	private UserRole userRole;
+	private String userRole = null;
 	
-	public Users() {
-		// TODO Auto-generated constructor stub
-	}
+	public Users() {}
 	
-	public Users(String username, String password, UserRole userRole) {
+	public Users(String username, String password, String userRole) {
 		this.setUsername(username);
 		this.setPassword(password);
-		this.setUserRole(userRole);
+		this.setUserRole(userRole.toString());
 	}
 	
-	public void setUserRole(UserRole userRole) {
+	public void setUserRole(String userRole) {
 		this.userRole = userRole;
 	}
 	
-	public UserRole getUserRole() {
+	public String getUserRole() {
 		return userRole;
 	}
 	

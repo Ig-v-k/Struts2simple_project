@@ -17,7 +17,7 @@ public class RegisterAction extends ActionSupport {
 	}
 	
 	public String register() {
-		return new ClassRegisterUserIn().registerUserIn(this.username, this.password);
+		return new ClassRegisterUserIn().registerUserAddIn(username, password);
 	}
 	
 	

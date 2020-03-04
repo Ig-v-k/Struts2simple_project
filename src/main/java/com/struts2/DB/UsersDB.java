@@ -21,12 +21,12 @@ public class UsersDB {
 	}
 	
 	private static void init() {
-		Users userADMIN = new Users("admin", "admin123", UserRole.ADMIN);
-		Users userEMPLOYEE = new Users("employee", "employee", UserRole.EMPLOYEE);
+		Users userADMIN1 = new Users("admin", "admin123", UserRole.ADMIN);
+		Users userEMPLOYEE1 = new Users("employee", "employee", UserRole.EMPLOYEE);
 		
-		usersADMIN.add(userADMIN);
+		usersADMIN.add(userADMIN1);
 		
-		usersEMPLOYEE.add(userEMPLOYEE);
+		usersEMPLOYEE.add(userEMPLOYEE1);
 		
 		map.put(UserRole.ADMIN.toString().toLowerCase(), usersADMIN);
 		map.put(UserRole.EMPLOYEE.toString().toLowerCase(), usersEMPLOYEE);
@@ -34,6 +34,6 @@ public class UsersDB {
 	}
 	
 	public Map<String, List<Users>> returnAllUsers(){
-		return map;
+		return map.forEach(action);;
 	}
 }
