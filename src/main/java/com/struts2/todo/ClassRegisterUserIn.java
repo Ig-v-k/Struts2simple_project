@@ -3,6 +3,10 @@ package com.struts2.todo;
 import com.struts2.abstractClasses.ClassRegisterUserInMethods;
 
 public class ClassRegisterUserIn extends ClassRegisterUserInMethods {
+	public ClassRegisterUserIn() {
+		
+	}
+	
 	@Override
 	public String registerUserAddIn(String username, String password) {
 		return super.registerUserAddIn(username, password);

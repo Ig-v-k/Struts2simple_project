@@ -4,10 +4,12 @@
 <%--  	<s:set name="logined" value="username"/> --%>
 	<a href="${pageContext.request.contextPath}/hello">Home</a>
 	 |	
-	<a href="${pageContext.request.contextPath}/GET_login">Login</a>
+	<a href="${pageContext.request.contextPath}/login_GET">Login</a>
 	 |
-	<a href="${pageContext.request.contextPath}/register">Register</a> 
+	<a href="${pageContext.request.contextPath}/register_GET">Register</a> 
 	 |	
 	<a href="${pageContext.request.contextPath}/logout">Logout</a>
+	<br>
+	<s:date name="#session.dateTime"/>
 	 
 <br>

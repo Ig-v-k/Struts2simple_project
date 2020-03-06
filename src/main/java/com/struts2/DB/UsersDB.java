@@ -21,8 +21,8 @@ public class UsersDB {
 	}
 	
 	private static void init() {
-		Users userADMIN1 = new Users("admin", "admin123", UserRole.ADMIN);
-		Users userEMPLOYEE1 = new Users("employee", "employee", UserRole.EMPLOYEE);
+		Users userADMIN1 = new Users("admin", "admin123", UserRole.ADMIN.toString());
+		Users userEMPLOYEE1 = new Users("employee", "employee", UserRole.EMPLOYEE.toString());
 		
 		usersADMIN.add(userADMIN1);
 		
@@ -34,6 +34,6 @@ public class UsersDB {
 	}
 	
 	public Map<String, List<Users>> returnAllUsers(){
-		return map.forEach(action);;
+		return map;
 	}
 }

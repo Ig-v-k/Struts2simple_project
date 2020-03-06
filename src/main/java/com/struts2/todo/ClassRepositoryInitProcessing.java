@@ -2,7 +2,7 @@ package com.struts2.todo;
 
 import com.struts2.DB.UsersDB;
 
-final class ClassRepositoryInitProcessing {
+public final class ClassRepositoryInitProcessing {
 	private static UsersDB repository;
 	
 	static {

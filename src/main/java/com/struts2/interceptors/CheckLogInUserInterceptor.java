@@ -19,6 +19,7 @@ public class CheckLogInUserInterceptor extends AbstractInterceptor {
     private static final Logger LOGGER = Logger.getLogger(CheckLogInUserInterceptor.class.getName());
     UsersDB usersRepository = new UsersDB();
 	
+    @Override
 	public String intercept(ActionInvocation actionInvocation) throws Exception {
         HttpServletRequest request = (HttpServletRequest) actionInvocation.getInvocationContext().get(StrutsStatics.HTTP_REQUEST);
         String url = request.getRequestURI();

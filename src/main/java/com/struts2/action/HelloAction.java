@@ -5,6 +5,7 @@ import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.Result;
  
 import com.opensymphony.xwork2.ActionSupport;
+import com.struts2.interfaces.ActionsTexts;
 
 @Namespace(value="/")
 @Action(value = "/hello",
@@ -16,6 +17,6 @@ public class HelloAction  extends ActionSupport {
     
     @Override
     public String execute() {
-        return SUCCESS;
+        return ActionsTexts.SUCCESS;
     }
 }

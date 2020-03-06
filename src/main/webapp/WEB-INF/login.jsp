@@ -16,7 +16,7 @@
 	    <h2>Struts 2 - Login Application</h2>
 	    <s:actionerror />
 	 
-	    <s:form action="GET_login" method="post">
+	    <s:form action="login_POST" method="post">
 	        <s:textfield name="username" key="label.username" size="20" />
 	        <s:password name="password" key="label.password" size="20" />
 	        <s:submit method="execute" key="label.submit" align="center" />

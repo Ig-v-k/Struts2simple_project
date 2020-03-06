@@ -7,11 +7,9 @@ import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 
 import com.opensymphony.xwork2.ModelDriven;
-import com.struts2.DB.UsersDB;
 import com.struts2.beans.Users;
 import com.struts2.interfaces.ActionsTexts;
 import com.struts2.interfaces.UserAware;
-import com.struts2.interfaces.ValidateUserRoleMethod;
 
 public class ClassValidateUserIn implements UserAware, ModelDriven<Users> {
     private static final Logger LOGGER = Logger.getLogger(ClassValidateUserIn.class.getName());
@@ -46,11 +44,10 @@ public class ClassValidateUserIn implements UserAware, ModelDriven<Users> {
 //		return ActionsTexts.ERROR;
 //	}
 	
-	public String checktwo(String username, String password, Map<String, Object> session) {
-		if(ClassValidateIsToBe.isToBe(mapDatabase, username, password, request_parametr)) {
+	public String checkTwo(String username, String password, Map<String, Object> session) {
+		if(ClassValidateIsToBe.isToBe(mapDatabase, username, password, request_parametr))
 			session.put("USER", this.user = new Users(username, password, request_parametr));
-		}
-		return null;
+		return ActionsTexts.ERROR;
 	}
 	
 	
@@ -69,9 +66,5 @@ public class ClassValidateUserIn implements UserAware, ModelDriven<Users> {
 	@Override
 	public Users getModel() {
 		return this.user;
-	}
-	
-	public UsersDB getRepository() {
-		return repository;
 	}
 }
