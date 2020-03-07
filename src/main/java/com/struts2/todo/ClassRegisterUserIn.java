@@ -1,25 +1,26 @@
 package com.struts2.todo;
 
-import com.struts2.abstractClasses.ClassRegisterUserInMethods;
+import java.util.List;
+import java.util.Map;
 
-public class ClassRegisterUserIn extends ClassRegisterUserInMethods {
-	public ClassRegisterUserIn() {
-		
+import com.struts2.beans.Users;
+import com.struts2.interfaces.ActionsTexts;
+
+public class ClassRegisterUserIn extends Users{
+	private Users user;
+	
+	public ClassRegisterUserIn(Users user) {
+		this.user = user;
 	}
 	
 	@Override
-	public String registerUserAddIn(String username, String password) {
-		return super.registerUserAddIn(username, password);
+	public String conformity() {
+		return registerUser(this.user);
 	}
-//    private static final Logger LOGGER = Logger.getLogger(ClassValidateUserIn.class.getName());
-	
-//	@Override
-//	public String registerUserAddIn(String username, String password) {
-//		LOGGER.info("action -> ClassRegisterUserIn -> registerUserAddIn - method()");
-//		if(username.length() == 0 && password.length() == 0)
-//			throw new NullPointerException("username or password is = null");
-//		
-//		repository.returnAllUsers().get(UserRole.USER.toString().toLowerCase()).add(new Users(username, password, UserRole.USER));
-//		return ActionsTexts.SUCCESS;
-//	}
+
+	public String registerUser(Users user) {
+	    Map<String, List<Users>> mapDatabase = ClassRepositoryInitProcessing.getRepository().returnAllUsers();
+		mapDatabase.get(UserRole.USER.toString().toLowerCase()).add(user);
+		return ActionsTexts.SUCCESS;
+	}
 }

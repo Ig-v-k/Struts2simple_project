@@ -5,6 +5,7 @@ import java.util.logging.Logger;
 import org.apache.struts2.convention.annotation.Namespace;
 
 import com.opensymphony.xwork2.ActionSupport;
+import com.struts2.beans.Users;
 import com.struts2.interfaces.ActionsTexts;
 import com.struts2.todo.ClassRegisterUserIn;
 
@@ -20,7 +21,11 @@ public class RegistrationAction extends ActionSupport {
 	
 	public String POST_register() {
 		LOGGER.info("---LOGGER: method - POST_register");
-		return new ClassRegisterUserIn().registerUserAddIn(username, password);
+		assert username.length() != 0;
+		assert password.length() != 0;
+		assert passwordR.length() != 0;
+		
+		return new ClassRegisterUserIn(new Users(username, password, passwordR)).conformity();
 	}
 	
 	

@@ -12,26 +12,15 @@ public class ClassValidateIsToBe {
 		assert username.length() != 0;
 		assert password.length() != 0;
 		
-//		if (username.equals(map.get(new ClassImplementsValidateInterface()
-//				.checkRole((parametr) -> {
-//					if(parametr.equalsIgnoreCase("admin"))
-//						return UserRole.ADMIN.toString();
-//					if(parametr.equalsIgnoreCase("employee"))
-//						return UserRole.EMPLOYEE.toString();
-//					return UserRole.USER.toString();
-//				}, request_parametr)))) {
-//			
-//		}
 		if(isToBeAssist(map.get(new ClassImplementsValidateInterface()
 				.checkRole((parametr) -> {
-					if(parametr.equalsIgnoreCase("admin"))
+					if(parametr.equalsIgnoreCase(UserRole.ADMIN.toString()))
 						return UserRole.ADMIN.toString();
-					if(parametr.equalsIgnoreCase("employee"))
+					if(parametr.equalsIgnoreCase(UserRole.EMPLOYEE.toString()))
 						return UserRole.EMPLOYEE.toString();
 					return UserRole.USER.toString();
-				}, request_parametr)), username, password)) {
+				}, request_parametr)), username, password))
 			return true;
-		}
 		return false;
 	}
 	

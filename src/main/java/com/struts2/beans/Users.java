@@ -1,39 +1,21 @@
 package com.struts2.beans;
 
 public class Users {
-	private String username = null;
-	private String password = null;
-	private String userRole = null;
+	private String username;
+	private String password;
+	private String userRole;
 	
-	public Users() {}
-	
-	public Users(String username, String password, String userRole) {
-		this.setUsername(username);
-		this.setPassword(password);
-		this.setUserRole(userRole.toString());
+	public Users() {
+		this.username = "";
+		this.password = "";
+		this.userRole = "";
 	}
 	
-	public void setUserRole(String userRole) {
+	public Users(final String username, final String password, final String userRole) {
+		this.username = username;
+		this.password = password;
 		this.userRole = userRole;
 	}
 	
-	public String getUserRole() {
-		return userRole;
-	}
-	
-	public void setUsername(String username) {
-		this.username = username;
-	}
-	
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	
-	public String getUsername() {
-		return username;
-	}
-	
-	public String getPassword() {
-		return password;
-	}
+	public void conformity() {};
 }
