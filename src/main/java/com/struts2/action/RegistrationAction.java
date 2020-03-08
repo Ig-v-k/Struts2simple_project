@@ -7,7 +7,7 @@ import org.apache.struts2.convention.annotation.Namespace;
 import com.opensymphony.xwork2.ActionSupport;
 import com.struts2.beans.Users;
 import com.struts2.interfaces.ActionsTexts;
-import com.struts2.todo.ClassRegisterUserIn;
+import com.struts2.todo.ClassExtendingUsers;
 
 @Namespace(value="/")
 public class RegistrationAction extends ActionSupport {
@@ -25,7 +25,7 @@ public class RegistrationAction extends ActionSupport {
 		assert password.length() != 0;
 		assert passwordR.length() != 0;
 		
-		return new ClassRegisterUserIn(new Users(username, password, passwordR)).conformity();
+		return new ClassExtendingUsers(new Users(username, password, passwordR)). ...;
 	}
 	
 	
