@@ -7,15 +7,20 @@ import org.apache.struts2.convention.annotation.Namespace;
 import com.opensymphony.xwork2.ActionSupport;
 import com.struts2.beans.Users;
 import com.struts2.interfaces.ActionsTexts;
-import com.struts2.todo.AddUserToSession;
-import com.struts2.todo.ClassExtendingUsers;
-import com.struts2.todo.PasswordVerification;
+import com.struts2.todo.RegistrationUserToSession;
+import com.struts2.todo.ClassCenterRegistration;
+import com.struts2.todo.RegistrationCompareUsernamePassword;
+//import com.struts2.todo.ClassExtendingUsers;
+import com.struts2.todo.RegistrationPasswordRepeatVerification;
 
 @Namespace(value="/")
 public class RegistrationAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
     private static final Logger LOGGER = Logger.getLogger(LoginControllerToDoAction.class.getName());
-	private String username, password, passwordR;
+	private String username, password, passwordR, userRole;
+	
+	// -----------------------------------------------------------------
+	
 	
 	public String GET_register() {
 		return ActionsTexts.INPUT;
@@ -27,11 +32,17 @@ public class RegistrationAction extends ActionSupport {
 		assert password.length() != 0;
 		assert passwordR.length() != 0;
 		
-		return new PasswordVerification(
-				new AddUserToSession().registerUser(
-						new Users(this.username, this.password, this.passwordR))).passwordVer(password, this.passwordR);
+		return new RegistrationPasswordRepeatVerification(
+						new RegistrationUserToSession(
+								new ClassCenterRegistration(
+										new RegistrationCompareUsernamePassword(this.userRole)
+										), this.userRole
+								)
+						).descent(this.username, password) == true ? ActionsTexts.SUCCESS : ActionsTexts.ERROR;
 	}
 	
+	
+	// -----------------------------------------------------------------
 	
 	/*
 	 * GETTERS & SETTERS

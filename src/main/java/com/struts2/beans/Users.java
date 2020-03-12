@@ -1,8 +1,6 @@
 package com.struts2.beans;
 
-import com.struts2.interfaces.MethodsTodoUser;
-
-public class Users implements MethodsTodoUser<Users>{
+public class Users {
 	private String username;
 	private String password;
 	private String userRole;
@@ -18,11 +16,17 @@ public class Users implements MethodsTodoUser<Users>{
 		this.password = password;
 		this.userRole = userRole;
 	}
-
+	
+	public String getP_U(String value) {
+		if(value.equals(this.username))
+			return this.username;
+		if(value.equals(this.password))
+			return this.password;
+		return "";
+	}
+	
 	@Override
-	public boolean descent(String username, String password) {
-		if(this.username == username && this.password == password)
-			return true;
-		return false;
+	public String toString() {
+		return this.username;
 	}
 }
