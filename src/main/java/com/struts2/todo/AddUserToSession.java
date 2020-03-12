@@ -11,7 +11,7 @@ public class AddUserToSession extends ClassExtendMethodsToDoUser implements Sess
 	private Map<String, Object> session;
 	
 	public AddUserToSession() {
-		super();
+		super(new ClassExtendMethodsToDoUser());
 	}
 	public AddUserToSession(MethodsTodoUser<Users> userRoleExtendingMethods) {
 		super(userRoleExtendingMethods);

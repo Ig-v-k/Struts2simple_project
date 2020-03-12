@@ -6,7 +6,9 @@ import com.struts2.interfaces.MethodsTodoUser;
 public class ClassExtendMethodsToDoUser implements MethodsTodoUser<Users>{
 	private MethodsTodoUser<Users> methodsTodoUser;
 	
-	public ClassExtendMethodsToDoUser() {}
+	public ClassExtendMethodsToDoUser() {
+		
+	}
 	
 	public ClassExtendMethodsToDoUser(MethodsTodoUser<Users> userRoleExtendingMethods) {
 		this.methodsTodoUser = userRoleExtendingMethods;

@@ -4,9 +4,10 @@ import com.struts2.beans.Users;
 import com.struts2.interfaces.MethodsTodoUser;
 
 public class PasswordVerification extends ClassExtendMethodsToDoUser {
+//	private MethodsTodoUser<Users> valueMethodsTodoUser = new AddUserToSession();
 	
 	public PasswordVerification() {
-		super();
+		super(new AddUserToSession());
 	}
 	public PasswordVerification(MethodsTodoUser<Users> methodsTodoUser) {
 		super(methodsTodoUser);

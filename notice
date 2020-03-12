@@ -9,3 +9,17 @@ Info
 . Расширение - Users до Admin/Employee/Users
 . Задействовать - Pattern Design
 . Реализация - DAO
+
+-- classes
+	I MethodsToDoUser (
+		C Users(
+			C ClassExtendMethodsToDo(
+				C AddUserToSession(
+					C PasswordVerification(
+						0
+					)
+				)
+			)
+			1
+		)
+	)
