@@ -1,14 +1,11 @@
 package com.struts2.beans;
 
-import java.util.ArrayList;
+import com.struts2.interfaces.MethodsTodoUser;
 
-import com.struts2.interfaces.UserRoleExtendingMethods;
-
-public class Users implements UserRoleExtendingMethods<ArrayList<String>>{
+public class Users implements MethodsTodoUser<Users>{
 	private String username;
 	private String password;
 	private String userRole;
-	private ArrayList<String> list = new ArrayList<String>();
 	
 	public Users() {
 		this.username = "";
@@ -23,23 +20,9 @@ public class Users implements UserRoleExtendingMethods<ArrayList<String>>{
 	}
 
 	@Override
-	public void rename(ArrayList<String> list) {
-		int i = 0;
-		for(String a : list) {
-			this.username = list.get(i);
-			i++;
-		}
-	}
-	
-	@Override
-	public ArrayList<String> getAll() {
-		if(username.length() == 0 && password.length() == 0 && userRole.length() == 0)
-			new Exception().getMessage();
-		
-		this.list.add(username);
-		this.list.add(password);
-		this.list.add(userRole);
-		
-		return list;
+	public boolean descent(String username, String password) {
+		if(this.username == username && this.password == password)
+			return true;
+		return false;
 	}
 }
