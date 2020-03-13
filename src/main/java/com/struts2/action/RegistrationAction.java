@@ -8,7 +8,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.struts2.interfaces.ActionsTexts;
 import com.struts2.todo.RegistrationUserToSession;
 import com.struts2.todo.RegistrationClassCenter;
-import com.struts2.todo.RegistrationCompareUsernamePassword;
+import com.struts2.todo.ImplMethodsRegistration;
 //import com.struts2.todo.ClassExtendingUsers;
 import com.struts2.todo.RegistrationPasswordRepeatVerification;
 
@@ -16,7 +16,7 @@ import com.struts2.todo.RegistrationPasswordRepeatVerification;
 public class RegistrationAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
     private static final Logger LOGGER = Logger.getLogger(LoginControllerToDoAction.class.getName());
-	private String username, password, passwordR, userRole;
+	private String username, password, passwordR, role;
 	
 	// -----------------------------------------------------------------
 	
@@ -27,18 +27,26 @@ public class RegistrationAction extends ActionSupport {
 	
 	public String POST_register() {
 		LOGGER.info("---LOGGER: method - POST_register");
-		assert username.length() != 0;
-		assert password.length() != 0;
-		assert passwordR.length() != 0;
+		LOGGER.info("---LOGGER: \nUsername = " + this.username 
+				+ "\n" + "Password = " + this.password 
+				+ "\n" + "PasswordRepeat = " + this.passwordR
+				+ "\n" + "UserRole = " + this.role);
 		
-		return new RegistrationPasswordRepeatVerification(
-						new RegistrationUserToSession(
-								new RegistrationClassCenter(
-										new RegistrationCompareUsernamePassword(this.userRole)
-										), this.userRole
-								)
-						).descent(this.username, password) == true ? ActionsTexts.SUCCESS : ActionsTexts.ERROR;
-	}
+		if ((!this.username.equals("") || !(this.username.length() == 0)) && 
+				(!this.password.equals("") || !(this.password.length() == 0)) &&
+				(!this.passwordR.equals("") || !(this.passwordR.length() == 0))) {
+			if (new RegistrationUserToSession(
+					new RegistrationClassCenter(
+							new ImplMethodsRegistration()), this.passwordR).putToDB(username, password, this.role))
+				return ActionsTexts.SUCCESS;
+			else {
+				addActionError(getText("error.registration"));
+				return ActionsTexts.ERROR;
+			} //else
+		} //if
+		
+		return ActionsTexts.ERROR;
+	} //POST_register
 	
 	
 	// -----------------------------------------------------------------
@@ -57,5 +65,9 @@ public class RegistrationAction extends ActionSupport {
 	
 	public void setPasswordR(String passwordR) {
 		this.passwordR = passwordR;
+	}
+	
+	public void setRole(String role) {
+		this.role = role;
 	}
 }

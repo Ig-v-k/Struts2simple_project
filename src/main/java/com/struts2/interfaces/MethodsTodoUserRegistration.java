@@ -1,5 +1,5 @@
 package com.struts2.interfaces;
 
-public interface MethodsTodoUserRegistration<Users> {	
-	boolean descent(String username, String password);
+public interface MethodsTodoUserRegistration {
+	boolean putToDB(String username, String password, String userRole);
 }

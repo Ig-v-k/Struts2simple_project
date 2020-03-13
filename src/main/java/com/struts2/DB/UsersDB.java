@@ -8,7 +8,11 @@ import com.struts2.interfaces.MethodsToDoUserDatabase;
 import com.struts2.todo.UserRole;
 
 public class UsersDB implements MethodsToDoUserDatabase{
-	private static final Map<String, Users> mapUsers = new HashMap<String, Users>();
+	private static final Map<String, Users> mapADMIN = new HashMap<String, Users>();
+	private static final Map<String, Users> mapEMPLOYEE = new HashMap<String, Users>();
+	private static final Map<String, Users> mapUSER = new HashMap<String, Users>();
+	
+	private static final Map<String, Map<String, Users>> dbUSERS = new HashMap<String, Map<String,Users>>();
 	
 	static {
 		init();
@@ -19,13 +23,17 @@ public class UsersDB implements MethodsToDoUserDatabase{
 		Users userEMPLOYEE1 = new Users("employee", "employee123", UserRole.EMPLOYEE.toString());
 		Users userUSERS1 = new Users("user", "user123", UserRole.USER.toString());
 		
-		mapUsers.put(userADMIN1.toString(), userADMIN1);
-		mapUsers.put(userEMPLOYEE1.toString(), userEMPLOYEE1);
-		mapUsers.put(userUSERS1.toString(), userUSERS1);
+		mapADMIN.put(userADMIN1.toString(), userADMIN1);
+		mapEMPLOYEE.put(userEMPLOYEE1.toString(), userEMPLOYEE1);
+		mapUSER.put(userUSERS1.toString(), userUSERS1);
+		
+		dbUSERS.put(UserRole.ADMIN.toString(), mapADMIN);
+		dbUSERS.put(UserRole.EMPLOYEE.toString(), mapEMPLOYEE);
+		dbUSERS.put(UserRole.USER.toString(), mapUSER);
 	}
 	
 	@Override
-	public Map<String, Users> returnAllUsers() {
-		return mapUsers;
+	public Map<String, Users> returnAllUsers(String userRole) {
+		return dbUSERS.get(userRole);
 	}
 }

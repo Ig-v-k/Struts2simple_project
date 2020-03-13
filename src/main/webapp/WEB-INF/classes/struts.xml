@@ -21,13 +21,6 @@
                 <interceptor-ref name="defaultStack"/>
             </interceptor-stack>
    		</interceptors>
-
- 		<!-- 
- 		*** Global-results ***
- 		-->   		
-		<global-results >
- 			<result name="error, none">/WEB-INF/login.jsp</result>
- 		</global-results>
  		
  		<!-- 
 		*** Actions ***
@@ -39,14 +32,16 @@
    		</action>
    		<action name="login_POST" class="com.struts2.action.LoginControllerToDoAction" method="POST_login">
    			<result name="success" type="redirectAction">userInfo</result>
+			<result name="none, error">/WEB-INF/login.jsp</result>
    		</action>
    		<action name="register_GET" class="com.struts2.action.RegistrationAction" method="GET_register">
    			<result name="input">/WEB-INF/registrationForm.jsp</result>
    		</action>
    		<action name="register_POST" class="com.struts2.action.RegistrationAction" method="POST_register">
    			<result name="success" type="redirectAction">userInfo</result>
-   		</action>   		
-   		<action name="" class="com.struts2.action.FirstBootAction" method="regist">
+			<result name="error">/WEB-INF/registrationForm.jsp</result>
+   		</action>
+   		<action name="" class="com.struts2.action.FirstBootAction" method="boot">
    			<result name="success" type="redirectAction">hello</result>
    		</action>
    		

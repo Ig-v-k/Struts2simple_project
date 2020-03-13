@@ -1,48 +1,22 @@
 package com.struts2.todo;
 
-import java.util.Map;
-
-import org.apache.struts2.interceptor.SessionAware;
-
-import com.struts2.beans.Users;
 import com.struts2.interfaces.MethodsTodoUserRegistration;
 
-public class RegistrationUserToSession extends RegistrationClassCenter implements SessionAware{
-	private Map<String, Object> session;
-	private String userRole = "";
-	private String passwordR = "";
-			
-	public RegistrationUserToSession(MethodsTodoUserRegistration<Users> userRoleExtendingMethods, final String userRole) {
+public class RegistrationUserToSession extends RegistrationClassCenter{		
+	private String passwordRepeat = "";
+	public RegistrationUserToSession(MethodsTodoUserRegistration userRoleExtendingMethods, final String passwordRepeat) {
 		super(userRoleExtendingMethods);
-		this.userRole = userRole;
+		this.passwordRepeat = passwordRepeat;
 	}
-	
-	// -----------------------------------------------------------------
-	
-	
+
 	@Override
-	public boolean descent(String username, String password) {
-		return addUserToSession(new Users(username, password, this.userRole), super.descent(username, password), password);
+	public boolean putToDB(final String username, final String password, final String userRole) {
+		return this.passwordRepeatVer(password, this.passwordRepeat);
 	}
 	
-	public boolean addUserToSession(Users user, boolean val, String password) {
-		if(val) {
-			session.put("USER", user);
-			return passwordRepeatVer(password, this.passwordR);
-		}
-		else
-			return false;
-	}
-	
-	public boolean passwordRepeatVer(String password, String passwordRepeat) {
+	public boolean passwordRepeatVer(final String password, final String passwordRepeat) {
 		return password.equals(passwordRepeat) ? true : false;
 	}
 	
 	
-	// -----------------------------------------------------------------
-	
-	@Override
-	public void setSession(Map<String, Object> session) {
-		this.session = session;
-	}
 }

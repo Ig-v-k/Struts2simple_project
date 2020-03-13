@@ -14,7 +14,7 @@ import com.struts2.interfaces.UserAware;
 
 public class ClassValidateUserIn implements UserAware, ModelDriven<Users>,SessionAware {
     private static final Logger LOGGER = Logger.getLogger(ClassValidateUserIn.class.getName());
-    private Map<String, Users> mapDatabase = ClassRepositoryInitProcessing.getRepository().returnAllUsers();
+    private Map<String, Users> mapDatabase;
     private Map<String, Object> session;
     private String request_parametr;
     private String userRole = "";
@@ -24,13 +24,14 @@ public class ClassValidateUserIn implements UserAware, ModelDriven<Users>,Sessio
     
     public String checkOne(String username, String password, String userRole, HttpServletRequest request) {
     	this.userRole = userRole;
+    	mapDatabase = ClassRepositoryInitProcessing.getRepository().returnAllUsers(userRole);
 		return this.checkOne(username, password, this.session, request);
 	}
     
 	public String checkOne(String username, String password, Map<String, Object> session, HttpServletRequest request) {
 		LOGGER.info("---LOGGER: -------------------- ClassValidate --------------------");
-		if(!(username.equals(mapDatabase.get(userRole).getP_U(username)))
-				&& !(password.equals(mapDatabase.get(userRole).getP_U(password)))) {
+		if(!(username.equals(mapDatabase.get(userRole).getP_U(username)))&& 
+				!(password.equals(mapDatabase.get(userRole).getP_U(password)))) {
 			request.setAttribute("db", this.mapDatabase);
 			return ActionsTexts.NONE;
 		}
