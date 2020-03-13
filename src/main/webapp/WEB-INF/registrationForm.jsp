@@ -17,14 +17,14 @@
 	
 	    <label for="email"><b>Email</b></label>
 	    <input type="text" placeholder="Enter Email" name="username" required>
-	
+		<br>
 	    <label for="psw"><b>Password</b></label>
 	    <input type="password" placeholder="Enter Password" name="password" required>
-	
+		<br>
 	    <label for="psw-repeat"><b>Repeat Password</b></label>
 	    <input type="password" placeholder="Repeat Password" name="passwordR" required>
 	    <hr>
-	    
+	    <br>
 	    <input type="radio" id="male" name="role" value="admin">
 		<label for="male">Admin</label><br>
 		<input type="radio" id="female" name="role" value="employee">
