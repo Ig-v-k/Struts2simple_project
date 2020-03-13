@@ -1,28 +1,36 @@
 package com.struts2.todo;
 
-import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
 
 import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ModelDriven;
 import com.struts2.beans.Users;
 import com.struts2.interfaces.ActionsTexts;
 import com.struts2.interfaces.UserAware;
 
-public class ClassValidateUserIn implements UserAware, ModelDriven<Users> {
+public class ClassValidateUserIn implements UserAware, ModelDriven<Users>,SessionAware {
     private static final Logger LOGGER = Logger.getLogger(ClassValidateUserIn.class.getName());
-    private Users user = null;
-    private Map<String, List<Users>> mapDatabase = ClassRepositoryInitProcessing.getRepository().returnAllUsers();
+    private Map<String, Users> mapDatabase = ClassRepositoryInitProcessing.getRepository().returnAllUsers();
+    private Map<String, Object> session;
     private String request_parametr;
+    private String userRole = "";
+    private Users user;
     
     // -----------------------------------------------------------------
     
+    public String checkOne(String username, String password, String userRole, HttpServletRequest request) {
+    	this.userRole = userRole;
+		return this.checkOne(username, password, this.session, request);
+	}
     
 	public String checkOne(String username, String password, Map<String, Object> session, HttpServletRequest request) {
 		LOGGER.info("---LOGGER: -------------------- ClassValidate --------------------");
-		if(username == null && !password.equals()) {
+		if(!(username.equals(mapDatabase.get(userRole).getP_U(username)))
+				&& !(password.equals(mapDatabase.get(userRole).getP_U(password)))) {
 			request.setAttribute("db", this.mapDatabase);
 			return ActionsTexts.NONE;
 		}
@@ -30,8 +38,7 @@ public class ClassValidateUserIn implements UserAware, ModelDriven<Users> {
 	}
 	
 	public String checkTwo(String username, String password, Map<String, Object> session) {
-		if(ClassValidateIsToBe.isToBe(mapDatabase, username, password, request_parametr))
-			session.put("USER", this.user = new Users(username, password, request_parametr));
+		session.put("USER", this.user = new Users(username, password, request_parametr));
 		return ActionsTexts.ERROR;
 	}
 	
@@ -41,6 +48,11 @@ public class ClassValidateUserIn implements UserAware, ModelDriven<Users> {
 	/**** 
 	 * GETTERS & SETTERS 
 	 ****/
+	@Override
+	public void setSession(Map<String, Object> session) {
+		this.session = session;	
+	}
+	
 	@Override
 	public void setUser(Users user) {
 		this.user = user;

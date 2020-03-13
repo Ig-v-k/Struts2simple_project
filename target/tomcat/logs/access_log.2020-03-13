@@ -1,0 +1,6 @@
+127.0.0.1 - - [13/Mar/2020:01:59:22 +0200] "GET /struts2_web_iw HTTP/1.1" 302 - http-bio-8080-exec-1 0
+127.0.0.1 - - [13/Mar/2020:01:59:22 +0200] "GET /struts2_web_iw/ HTTP/1.1" 302 - http-bio-8080-exec-2 43
+127.0.0.1 - - [13/Mar/2020:01:59:22 +0200] "GET /struts2_web_iw/hello.action;jsessionid=063BAD9C21BCC8F93D2D8E9DF7462B87 HTTP/1.1" 200 3170 http-bio-8080-exec-3 130
+127.0.0.1 - - [13/Mar/2020:02:00:15 +0200] "GET /struts2_web_iw/ HTTP/1.1" 302 - http-bio-8080-exec-4 13
+127.0.0.1 - - [13/Mar/2020:02:00:15 +0200] "GET /struts2_web_iw/hello.action HTTP/1.1" 200 3170 http-bio-8080-exec-5 7
+127.0.0.1 - - [13/Mar/2020:02:00:27 +0200] "GET /struts2_web_iw/hello HTTP/1.1" 200 3170 http-bio-8080-exec-6 6

@@ -5,10 +5,9 @@ import java.util.logging.Logger;
 import org.apache.struts2.convention.annotation.Namespace;
 
 import com.opensymphony.xwork2.ActionSupport;
-import com.struts2.beans.Users;
 import com.struts2.interfaces.ActionsTexts;
 import com.struts2.todo.RegistrationUserToSession;
-import com.struts2.todo.ClassCenterRegistration;
+import com.struts2.todo.RegistrationClassCenter;
 import com.struts2.todo.RegistrationCompareUsernamePassword;
 //import com.struts2.todo.ClassExtendingUsers;
 import com.struts2.todo.RegistrationPasswordRepeatVerification;
@@ -34,7 +33,7 @@ public class RegistrationAction extends ActionSupport {
 		
 		return new RegistrationPasswordRepeatVerification(
 						new RegistrationUserToSession(
-								new ClassCenterRegistration(
+								new RegistrationClassCenter(
 										new RegistrationCompareUsernamePassword(this.userRole)
 										), this.userRole
 								)

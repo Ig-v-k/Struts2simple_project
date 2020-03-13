@@ -25,11 +25,11 @@
 	    <input type="password" placeholder="Repeat Password" name="passwordR" required>
 	    <hr>
 	    
-	    <input type="radio" id="male" name="gender" value="admin">
+	    <input type="radio" id="male" name="role" value="admin">
 		<label for="male">Admin</label><br>
-		<input type="radio" id="female" name="gender" value="employee">
+		<input type="radio" id="female" name="role" value="employee">
 		<label for="female">Employee</label><br>
-		<input type="radio" id="other" name="gender" value="user">
+		<input type="radio" id="other" name="role" value="user">
 		<label for="other">User</label>
 	
 	    <p>By creating an account you agree to our <!-- <a href="#">Terms & Privacy</a> -->.</p>

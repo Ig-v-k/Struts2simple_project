@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+   "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+   "http://struts.apache.org/dtds/struts-2.0.dtd">
+   
+<!-- <Context>
+  <JarScanner scanClassPath="false" scanManifest="false" scanBootstrapClassPath="false">
+    <JarScanFilter pluggabilitySkip="*.jar" defaultPluggabilityScan="false" tldSkip="*.jar" defaultTldScan="false"/>
+  </JarScanner>
+</Context> -->
+
+<!-- <Context path="/webapp" docBase="/mywebapp/src/main/webapp">
+  <Resources className="org.apache.naming.resources.VirtualDirContext"
+    extraResourcePaths="/WEB-INF/classes=/mywebapp/target/classes" />
+  <Loader className="org.apache.catalina.loader.VirtualWebappLoader"
+    virtualClasspath="/mywebapp/target/classes;/home/iw/.m2/repository/log4j/log4j/2.12.1/log4j-2.12.1.jar" />
+  <JarScanner scanAllDirectories="true" />
+</Context> -->

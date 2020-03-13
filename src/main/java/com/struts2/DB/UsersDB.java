@@ -1,7 +1,5 @@
 package com.struts2.DB;
 
-import java.util.List;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,12 +8,6 @@ import com.struts2.interfaces.MethodsToDoUserDatabase;
 import com.struts2.todo.UserRole;
 
 public class UsersDB implements MethodsToDoUserDatabase{
-	
-	private static final List<Users> usersADMIN = new ArrayList<Users>();
-	private static final List<Users> usersEMPLOYEE = new ArrayList<Users>();
-	private static final List<Users> usersUSER = new ArrayList<Users>();
-//	private static final Map<String, Users> users = new HashMap<String, Users>();
-//	private static final Map<String, Map<String, Users>> map = new HashMap<String, Map<String, Users>>(); 
 	private static final Map<String, Users> mapUsers = new HashMap<String, Users>();
 	
 	static {

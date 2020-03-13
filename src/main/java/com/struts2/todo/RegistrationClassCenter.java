@@ -3,10 +3,10 @@ package com.struts2.todo;
 import com.struts2.beans.Users;
 import com.struts2.interfaces.MethodsTodoUserRegistration;
 
-public class ClassCenterRegistration implements MethodsTodoUserRegistration<Users>{
+public class RegistrationClassCenter implements MethodsTodoUserRegistration<Users>{
 	private MethodsTodoUserRegistration<Users> methodsTodoUserRegistration;
 	
-	public ClassCenterRegistration(MethodsTodoUserRegistration<Users> userRoleExtendingMethods) {
+	public RegistrationClassCenter(MethodsTodoUserRegistration<Users> userRoleExtendingMethods) {
 		this.methodsTodoUserRegistration = userRoleExtendingMethods;
 	}
 	

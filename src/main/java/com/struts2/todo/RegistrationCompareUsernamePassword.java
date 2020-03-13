@@ -2,13 +2,12 @@ package com.struts2.todo;
 
 import java.util.Map;
 
-import com.struts2.DB.UsersDB;
 import com.struts2.beans.Users;
 import com.struts2.interfaces.MethodsTodoUserRegistration;
 
 public class RegistrationCompareUsernamePassword implements MethodsTodoUserRegistration<Users>{
 	private String userRole = "";
-	private Map<String, Users> usersDB = new UsersDB().returnAllUsers();
+	private Map<String, Users> usersDB = ClassRepositoryInitProcessing.getRepository().returnAllUsers();
 	
 	public RegistrationCompareUsernamePassword(String userRole) {
 		this.userRole = userRole;

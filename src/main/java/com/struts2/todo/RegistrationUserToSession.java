@@ -7,7 +7,7 @@ import org.apache.struts2.interceptor.SessionAware;
 import com.struts2.beans.Users;
 import com.struts2.interfaces.MethodsTodoUserRegistration;
 
-public class RegistrationUserToSession extends ClassCenterRegistration implements SessionAware{
+public class RegistrationUserToSession extends RegistrationClassCenter implements SessionAware{
 	private Map<String, Object> session;
 	private String userRole = "";
 	private String passwordR = "";
@@ -28,13 +28,13 @@ public class RegistrationUserToSession extends ClassCenterRegistration implement
 	public boolean addUserToSession(Users user, boolean val, String password) {
 		if(val) {
 			session.put("USER", user);
-			return passwordVer(password, this.passwordR);
+			return passwordRepeatVer(password, this.passwordR);
 		}
 		else
 			return false;
 	}
 	
-	public boolean passwordVer(String password, String passwordRepeat) {
+	public boolean passwordRepeatVer(String password, String passwordRepeat) {
 		return password.equals(passwordRepeat) ? true : false;
 	}
 	
