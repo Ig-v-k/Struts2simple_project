@@ -1,17 +1,17 @@
 package com.struts2.todo;
 
-import com.struts2.interfaces.MethodsTodoUserRegistration;
+import com.struts2.interfaces.MethodsToDoUserRegistration;
 
-public class RegistrationClassCenter implements MethodsTodoUserRegistration {
-	private MethodsTodoUserRegistration methodsTodoUserRegistration;
-	public RegistrationClassCenter(MethodsTodoUserRegistration userRoleExtendingMethods) {
-		this.methodsTodoUserRegistration = userRoleExtendingMethods;
+public class RegistrationClassCenter implements MethodsToDoUserRegistration {
+	private MethodsToDoUserRegistration methodsToDoUserRegistration;
+	public RegistrationClassCenter(MethodsToDoUserRegistration userRoleExtendingMethods) {
+		this.methodsToDoUserRegistration = userRoleExtendingMethods;
 	}
 	
 	
 	@Override
 	public boolean putToDB(String username, String password, String userRole) {
-		return this.methodsTodoUserRegistration.putToDB(username, password, userRole);	
+		return this.methodsToDoUserRegistration.putToDB(username, password, userRole);	
 	}
 	
 	

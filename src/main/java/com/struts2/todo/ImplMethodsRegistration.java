@@ -3,9 +3,9 @@ package com.struts2.todo;
 import java.util.Map;
 
 import com.struts2.beans.Users;
-import com.struts2.interfaces.MethodsTodoUserRegistration;
+import com.struts2.interfaces.MethodsToDoUserRegistration;
 
-public class ImplMethodsRegistration implements MethodsTodoUserRegistration{
+public class ImplMethodsRegistration implements MethodsToDoUserRegistration{
 	private Map<String, Users> usersDB;
 	
 	@Override

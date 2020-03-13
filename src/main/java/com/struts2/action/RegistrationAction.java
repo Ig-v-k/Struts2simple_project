@@ -9,8 +9,6 @@ import com.struts2.interfaces.ActionsTexts;
 import com.struts2.todo.RegistrationUserToSession;
 import com.struts2.todo.RegistrationClassCenter;
 import com.struts2.todo.ImplMethodsRegistration;
-//import com.struts2.todo.ClassExtendingUsers;
-import com.struts2.todo.RegistrationPasswordRepeatVerification;
 
 @Namespace(value="/")
 public class RegistrationAction extends ActionSupport {

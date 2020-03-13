@@ -1,0 +1,6 @@
+127.0.0.1 - - [14/Mar/2020:01:20:24 +0200] "GET /struts2_web_iw HTTP/1.1" 302 - http-bio-8080-exec-1 0
+127.0.0.1 - - [14/Mar/2020:01:20:24 +0200] "GET /struts2_web_iw/ HTTP/1.1" 302 - http-bio-8080-exec-2 82
+127.0.0.1 - - [14/Mar/2020:01:20:25 +0200] "GET /struts2_web_iw/hello.action HTTP/1.1" 200 409 http-bio-8080-exec-3 59
+127.0.0.1 - - [14/Mar/2020:01:20:28 +0200] "GET /struts2_web_iw/hello HTTP/1.1" 200 409 http-bio-8080-exec-4 32
+127.0.0.1 - - [14/Mar/2020:01:20:29 +0200] "GET /struts2_web_iw/login_GET HTTP/1.1" 200 1272 http-bio-8080-exec-5 181
+127.0.0.1 - - [14/Mar/2020:01:20:50 +0200] "GET /struts2_web_iw/register_GET HTTP/1.1" 200 1312 http-bio-8080-exec-6 11

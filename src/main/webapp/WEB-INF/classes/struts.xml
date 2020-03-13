@@ -44,6 +44,10 @@
    		<action name="" class="com.struts2.action.FirstBootAction" method="boot">
    			<result name="success" type="redirectAction">hello</result>
    		</action>
+   		<action name="logout" class="com.struts2.action.FirstBootAction" method="userLogout">
+   			<result name="success" type="redirectAction">hello</result>
+   		</action>
+   		
    		
    	</package>
 
