@@ -17,7 +17,14 @@
  	 	-->
     	<interceptors>
         	<interceptor name="check_logInInterceptor" class="com.struts2.interceptors.CheckLogInUserInterceptor" />
+        	<interceptor name="testInterceptor" class="com.struts2.interceptors.InterceptorTest" />
+        	
+        	<interceptor-stack name="test">
+        		<interceptor-ref name="testInterceptor" />
+        	</interceptor-stack>
+        	
             <interceptor-stack name="check_stack">
+<!-- 			
 				<interceptor-ref name="exception"/>
 			    <interceptor-ref name="alias"/>
 			    <interceptor-ref name="params"/>
@@ -29,7 +36,8 @@
 			    <interceptor-ref name="fileUpload"/>
 			    <interceptor-ref name="staticParams"/>
 			    <interceptor-ref name="params"/>
-			    <interceptor-ref name="conversionError"/>
+			    <interceptor-ref name="conversionError"/> 
+-->
                 <interceptor-ref name="check_logInInterceptor"/>
                 <interceptor-ref name="defaultStack"/>
             </interceptor-stack>
@@ -62,12 +70,13 @@
 			<result name="error">/WEB-INF/registrationForm.jsp</result>
    		</action>
    		<action name="" class="com.struts2.action.FirstBootAction" method="boot">
+   			<interceptor-ref name="test" />
    			<result name="success" type="redirectAction">hello</result>
    		</action>
-   		<action name="logout" class="com.struts2.action.FirstBootAction" method="userLogout">
+   		<action name="logout" class="com.struts2.action.LogoutAction" method="USER_logout">
    			<result name="success" type="redirectAction">hello</result>
    		</action>
-		<action name="profile" class="com.struts2.action.FirstBootAction" method="userLogout">
+		<action name="profile" class="com.struts2.action.FirstBootAction" method="USER_profile">
    			<result name="success" type="redirectAction"></result>
    		</action>   		
    		

@@ -13,7 +13,7 @@ public class LogoutAction extends ActionSupport{
 	private static final long serialVersionUID = 1L;
 	
 	
-	public String userLogout() {
+	public String USER_logout() {
 		new LogoutDecorator(
 				new ImplMethodsLogout()).logoutUser(ServletActionContext.getRequest());
 		addActionMessage("You are successfully logout!");

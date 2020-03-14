@@ -25,13 +25,18 @@ public class CheckLogInUserInterceptor extends AbstractInterceptor {
 		Map<String, Object> session = actionInvocation.getInvocationContext().getSession();
         String username = (String) session.get("USERlogin");
         
+        
+        
         if (request.getQueryString() != null) {
             url = url + "?" + request.getQueryString();
         }
 
-        LOGGER.info("********* Request START *********");
+        LOGGER.info("\t********* Request START *********");
         LOGGER.info("HttpRequestInterceptor URL -> " + url);
-        LOGGER.info("****");
+        LOGGER.info("actionInvocation.getAction() -> " + actionInvocation.getAction());
+        LOGGER.info("\t*********************************");
+        
+        
         
 		Action action = (Action) actionInvocation.getAction();
 		if(action instanceof UserAware) {

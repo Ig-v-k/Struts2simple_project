@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts2.ServletActionContext;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.struts2.interfaces.ActionsTexts;
 import com.struts2.todo.ClassValidateUserIn;
@@ -26,23 +27,18 @@ public class LoginControllerToDoAction extends ActionSupport{
 	 * main
 	 */
     public String GET_login() {
-		LOGGER.info("---LOGGER: method - GET_login()");
 		return ActionsTexts.INPUT;
     }
     
     public String POST_login() {
-    	LOGGER.info("---LOGGER: method - POST_login()");
     	switch (new ClassValidateUserIn(this.role).
     			initMetods(this.username, this.password, this.get_Request())) {
 		case NONE:
-			LOGGER.info("---LOGGER: NONE");
 			return ActionsTexts.NONE;
 		case SUCCESS:
-			LOGGER.info("---LOGGER: SUCCESS");
 			addActionMessage(getText("success.login"));
 			return ActionsTexts.SUCCESS;
     	default:
-    		LOGGER.info("---LOGGER: ERROR");
     		addActionError(getText("error.login"));
     		return ActionsTexts.ERROR;
     	}
