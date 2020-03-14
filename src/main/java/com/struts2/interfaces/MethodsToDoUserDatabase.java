@@ -5,5 +5,5 @@ import java.util.Map;
 import com.struts2.beans.Users;
 
 public interface MethodsToDoUserDatabase {
-	Map<String, Users> returnAllUsers(String userRole);
+	Map<String, Users> returnMapUsers(String userRole);
 }

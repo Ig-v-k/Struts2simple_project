@@ -2,8 +2,9 @@ package com.struts2.action;
 
 import java.util.logging.Logger;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.struts2.ServletActionContext;
-import org.apache.struts2.convention.annotation.Namespace;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.struts2.interfaces.ActionsTexts;
@@ -13,21 +14,27 @@ import com.struts2.todo.ClassValidateUserIn;
  * @author iw
  *
  */
-@Namespace(value="/")
 public class LoginControllerToDoAction extends ActionSupport{
 	 
     private static final long serialVersionUID = 1L;
     private static final Logger LOGGER = Logger.getLogger(LoginControllerToDoAction.class.getName());
     private String username, password, role;
     
+    
+	
+    /*
+	 * main
+	 */
     public String GET_login() {
 		LOGGER.info("---LOGGER: method - GET_login()");
+		new ClassValidateUserIn(this.role).setAttribute_DB(this.get_Request());
 		return ActionsTexts.INPUT;
     }
     
     public String POST_login() {
     	LOGGER.info("---LOGGER: method - POST_login()");
-    	switch (new ClassValidateUserIn().checkOne(this.username, this.password, this.role, ServletActionContext.getRequest())) {
+    	switch (new ClassValidateUserIn(this.role).
+    			initMetods(this.username, this.password, this.get_Request())) {
 		case NONE:
 			LOGGER.info("---LOGGER: NONE");
 			return ActionsTexts.NONE;
@@ -42,10 +49,15 @@ public class LoginControllerToDoAction extends ActionSupport{
     	}
     }
     
+    private HttpServletRequest get_Request() {
+    	return ServletActionContext.getRequest();
+    }
     
-	/**** 
-	 * GETTERS & SETTERS 
-	 ****/
+    
+    
+	/*
+	 * SETTERS 
+	 */
     public void setRole(String role) {
 		this.role = role;
 	}

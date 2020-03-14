@@ -1,11 +1,11 @@
-package com.struts2.todo;
+package com.struts2.todo.decorators;
 
 import com.struts2.interfaces.MethodsToDoUserLogin;
 
-public class LoginClassCenter implements MethodsToDoUserLogin{
+public class LoginDecorator implements MethodsToDoUserLogin{
 	private MethodsToDoUserLogin methodsTodoUserLogin;
 	
-	public LoginClassCenter(MethodsToDoUserLogin methodsToDoUserLogin) {
+	public LoginDecorator(MethodsToDoUserLogin methodsToDoUserLogin) {
 		this.methodsTodoUserLogin = methodsToDoUserLogin;
 	}
 	

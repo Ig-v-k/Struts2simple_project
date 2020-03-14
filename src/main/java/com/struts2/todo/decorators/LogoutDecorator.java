@@ -1,13 +1,13 @@
-package com.struts2.todo;
+package com.struts2.todo.decorators;
 
 import javax.servlet.http.HttpServletRequest;
 
 import com.struts2.interfaces.MethodsToDoUserLogout;
 
-public class LogoutClassCenter implements MethodsToDoUserLogout{
+public class LogoutDecorator implements MethodsToDoUserLogout{
 	private MethodsToDoUserLogout methodsToDoUserLogout;
 	
-	public LogoutClassCenter(MethodsToDoUserLogout methodsToDoUserLogout) {
+	public LogoutDecorator(MethodsToDoUserLogout methodsToDoUserLogout) {
 		this.methodsToDoUserLogout = methodsToDoUserLogout;
 	}
 	

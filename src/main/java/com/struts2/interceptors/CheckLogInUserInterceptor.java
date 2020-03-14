@@ -11,7 +11,6 @@ import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
 import com.struts2.DB.UsersDB;
-import com.struts2.beans.Users;
 import com.struts2.interfaces.UserAware;
 
 public class CheckLogInUserInterceptor extends AbstractInterceptor {
@@ -24,7 +23,7 @@ public class CheckLogInUserInterceptor extends AbstractInterceptor {
         HttpServletRequest request = (HttpServletRequest) actionInvocation.getInvocationContext().get(StrutsStatics.HTTP_REQUEST);
         String url = request.getRequestURI();
 		Map<String, Object> session = actionInvocation.getInvocationContext().getSession();
-        Users user = (Users) session.get("USER");
+        String username = (String) session.get("USERlogin");
         
         if (request.getQueryString() != null) {
             url = url + "?" + request.getQueryString();
@@ -36,10 +35,9 @@ public class CheckLogInUserInterceptor extends AbstractInterceptor {
         
 		Action action = (Action) actionInvocation.getAction();
 		if(action instanceof UserAware) {
-			((UserAware) action).setUser(user);
+			((UserAware) action).setUser(username);
 		}
 		return actionInvocation.invoke();
 						
 	} // m:intercept()
-		
 } // c:CheckLogInUserInterceptor

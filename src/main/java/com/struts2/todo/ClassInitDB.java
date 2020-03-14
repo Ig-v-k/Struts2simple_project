@@ -2,7 +2,7 @@ package com.struts2.todo;
 
 import com.struts2.DB.UsersDB;
 
-public final class ClassRepositoryInitProcessing {
+public final class ClassInitDB {
 	private static UsersDB repository;
 	
 	static {
@@ -13,7 +13,7 @@ public final class ClassRepositoryInitProcessing {
 		repository = new UsersDB();
 	}
 	
-	public static UsersDB getRepository() {
+	public static UsersDB getRepositoryUsers() {
 		return repository;
 	}
 }

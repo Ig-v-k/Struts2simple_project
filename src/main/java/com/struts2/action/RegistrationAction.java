@@ -6,9 +6,9 @@ import org.apache.struts2.convention.annotation.Namespace;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.struts2.interfaces.ActionsTexts;
-import com.struts2.todo.RegistrationUserToSession;
-import com.struts2.todo.RegistrationClassCenter;
 import com.struts2.todo.ImplMethodsRegistration;
+import com.struts2.todo.decorators.RegistrationDecorator;
+import com.struts2.todo.decorators.RegistrationUserToSession;
 
 @Namespace(value="/")
 public class RegistrationAction extends ActionSupport {
@@ -34,7 +34,7 @@ public class RegistrationAction extends ActionSupport {
 				(!this.password.equals("") || !(this.password.length() == 0)) &&
 				(!this.passwordR.equals("") || !(this.passwordR.length() == 0))) {
 			if (new RegistrationUserToSession(
-					new RegistrationClassCenter(
+					new RegistrationDecorator(
 							new ImplMethodsRegistration()), this.passwordR).putToDB(username, password, this.role))
 				return ActionsTexts.SUCCESS;
 			else {

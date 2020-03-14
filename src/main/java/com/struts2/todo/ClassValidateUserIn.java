@@ -8,63 +8,73 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ModelDriven;
-import com.struts2.beans.Users;
 import com.struts2.interfaces.ActionsTexts;
 import com.struts2.interfaces.UserAware;
+import com.struts2.todo.decorators.LoginDecorator;
+import com.struts2.todo.decorators.LoginUserSetAttribute;
 
-public class ClassValidateUserIn implements UserAware, ModelDriven<Users>,SessionAware {
+public class ClassValidateUserIn implements UserAware, ModelDriven<String>,SessionAware {
     private static final Logger LOGGER = Logger.getLogger(ClassValidateUserIn.class.getName());
-    private Map<String, Users> mapDatabase;
     private Map<String, Object> session;
-    private String request_parametr;
     private String userRole = "";
-    private Users user;
+    private String user;
     
-    // -----------------------------------------------------------------
-    
-    public String checkOne(String username, String password, String userRole, HttpServletRequest request) {
+    public ClassValidateUserIn(String userRole) {
     	this.userRole = userRole;
-    	mapDatabase = ClassRepositoryInitProcessing.getRepository().returnAllUsers(userRole);
-		return this.checkOne(username, password, this.session, request);
+    	new ClassInitDB();
 	}
     
-	public String checkOne(String username, String password, Map<String, Object> session, HttpServletRequest request) {
+    
+	/*
+	 * main
+	 */
+    public void setAttribute_DB(final HttpServletRequest request) {
+    	new LoginUserSetAttribute(
+				new LoginDecorator(
+						new ImplMethodsLogin())).setAttributeDB(request, ClassInitDB.
+																				getRepositoryUsers().
+																				returnMapUsers(this.userRole));
+    }
+    
+    public String initMetods(final String username, final String password, final HttpServletRequest request) {
+		return this.descentUser(username, password, this.session, request);
+	}
+    
+	private String descentUser(final String username, final String password, final Map<String, Object> session, final HttpServletRequest request) {
 		LOGGER.info("---LOGGER: -------------------- ClassValidate --------------------");
-		if(!(username.equals(mapDatabase.get(userRole).getP_U(username)))&& 
-				!(password.equals(mapDatabase.get(userRole).getP_U(password)))) {
-			request.setAttribute("db", this.mapDatabase);
+		if(new LoginUserSetAttribute(
+				new LoginDecorator(
+						new ImplMethodsLogin(this.userRole)), request, ClassInitDB.
+																			getRepositoryUsers().
+																			returnMapUsers(this.userRole)).descent(username, password))
 			return ActionsTexts.NONE;
-		}
-		return this.checkTwo(username, password, session);
+		return this.sessionPutUserName(username, password, session);
 	}
 	
-	public String checkTwo(String username, String password, Map<String, Object> session) {
-		session.put("USER", this.user = new Users(username, password, request_parametr));
+	private String sessionPutUserName(final String username, final String password, final Map<String, Object> session) {
+		session.put("USERlogin", ClassInitDB.
+										getRepositoryUsers().
+										returnMapUsers(this.userRole).
+										get(username).
+										getP_U(username));
 		return ActionsTexts.ERROR;
 	}
 	
 	
-	// -----------------------------------------------------------------
 	
-	/**** 
-	 * GETTERS & SETTERS 
-	 ****/
+	/*
+	 * SETTERS
+	 */
 	@Override
 	public void setSession(Map<String, Object> session) {
 		this.session = session;	
 	}
-	
 	@Override
-	public void setUser(Users user) {
+	public void setUser(String user) {
 		this.user = user;
 	}
-	
-	public Users getUser(Users user){
-		return this.user;
-	}
-
 	@Override
-	public Users getModel() {
+	public String getModel() {
 		return this.user;
 	}
 }

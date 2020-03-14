@@ -33,7 +33,7 @@ public class UsersDB implements MethodsToDoUserDatabase{
 	}
 	
 	@Override
-	public Map<String, Users> returnAllUsers(String userRole) {
+	public Map<String, Users> returnMapUsers(String userRole) {
 		return dbUSERS.get(userRole);
 	}
 }

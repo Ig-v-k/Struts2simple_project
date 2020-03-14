@@ -5,7 +5,7 @@ import org.apache.struts2.ServletActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.struts2.interfaces.ActionsTexts;
 import com.struts2.todo.ImplMethodsLogout;
-import com.struts2.todo.LogoutClassCenter;
+import com.struts2.todo.decorators.LogoutDecorator;
 
 //@Namespace(value="/")
 //@Action(value="logout", results = @Result(name = "logout", location = "/WEB-INF/logout.jsp"))
@@ -14,7 +14,7 @@ public class LogoutAction extends ActionSupport{
 	
 	
 	public String userLogout() {
-		new LogoutClassCenter(
+		new LogoutDecorator(
 				new ImplMethodsLogout()).logoutUser(ServletActionContext.getRequest());
 		addActionMessage("You are successfully logout!");
 		return ActionsTexts.SUCCESS;
