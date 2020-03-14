@@ -27,7 +27,6 @@ public class LoginControllerToDoAction extends ActionSupport{
 	 */
     public String GET_login() {
 		LOGGER.info("---LOGGER: method - GET_login()");
-		new ClassValidateUserIn(this.role).setAttribute_DB(this.get_Request());
 		return ActionsTexts.INPUT;
     }
     

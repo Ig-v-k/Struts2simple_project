@@ -9,6 +9,8 @@
 	<a href="${pageContext.request.contextPath}/register_GET">Register</a> 
 	 |	
 	<a href="${pageContext.request.contextPath}/logout">Logout</a>
+	 |
+	<a href="${pageContext.request.contextPath}/profile">Profile</a>
 	<br>
 	<s:date name="session.dateTime"/>
 	 

@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ModelDriven;
+import com.struts2.beans.Users;
 import com.struts2.interfaces.ActionsTexts;
 import com.struts2.interfaces.UserAware;
 import com.struts2.todo.decorators.LoginDecorator;
@@ -16,25 +17,18 @@ import com.struts2.todo.decorators.LoginUserSetAttribute;
 public class ClassValidateUserIn implements UserAware, ModelDriven<String>,SessionAware {
     private static final Logger LOGGER = Logger.getLogger(ClassValidateUserIn.class.getName());
     private Map<String, Object> session;
+    private Map<String, Users> map;
     private String userRole = "";
     private String user;
-    
     public ClassValidateUserIn(String userRole) {
     	this.userRole = userRole;
-    	new ClassInitDB();
+    	map = ClassInitDB.getRepositoryUsers().returnMapUsers(this.userRole);
 	}
     
     
 	/*
 	 * main
 	 */
-    public void setAttribute_DB(final HttpServletRequest request) {
-    	new LoginUserSetAttribute(
-				new LoginDecorator(
-						new ImplMethodsLogin())).setAttributeDB(request, ClassInitDB.
-																				getRepositoryUsers().
-																				returnMapUsers(this.userRole));
-    }
     
     public String initMetods(final String username, final String password, final HttpServletRequest request) {
 		return this.descentUser(username, password, this.session, request);
@@ -44,19 +38,13 @@ public class ClassValidateUserIn implements UserAware, ModelDriven<String>,Sessi
 		LOGGER.info("---LOGGER: -------------------- ClassValidate --------------------");
 		if(new LoginUserSetAttribute(
 				new LoginDecorator(
-						new ImplMethodsLogin(this.userRole)), request, ClassInitDB.
-																			getRepositoryUsers().
-																			returnMapUsers(this.userRole)).descent(username, password))
+						new ImplMethodsLogin(this.userRole)), request, this.map).descent(username, password))
 			return ActionsTexts.NONE;
 		return this.sessionPutUserName(username, password, session);
 	}
 	
 	private String sessionPutUserName(final String username, final String password, final Map<String, Object> session) {
-		session.put("USERlogin", ClassInitDB.
-										getRepositoryUsers().
-										returnMapUsers(this.userRole).
-										get(username).
-										getP_U(username));
+		session.put("USERlogin", this.map.get(username).getP_U(username));
 		return ActionsTexts.ERROR;
 	}
 	

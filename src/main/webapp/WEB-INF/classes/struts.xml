@@ -10,6 +10,7 @@
 	<constant name="struts.enable.SlashesInActionNames" value="false"/>
 	
  	<package name="qwe" namespace="/" extends="struts-default">
+ 		
  	
  	 	<!-- 
  	 	*** Interceptors *** 
@@ -17,14 +18,33 @@
     	<interceptors>
         	<interceptor name="check_logInInterceptor" class="com.struts2.interceptors.CheckLogInUserInterceptor" />
             <interceptor-stack name="check_stack">
+				<interceptor-ref name="exception"/>
+			    <interceptor-ref name="alias"/>
+			    <interceptor-ref name="params"/>
+			    <interceptor-ref name="servletConfig"/>
+			    <interceptor-ref name="prepare"/>
+			    <interceptor-ref name="i18n"/>
+			    <interceptor-ref name="chain"/>
+			    <interceptor-ref name="modelDriven"/>
+			    <interceptor-ref name="fileUpload"/>
+			    <interceptor-ref name="staticParams"/>
+			    <interceptor-ref name="params"/>
+			    <interceptor-ref name="conversionError"/>
                 <interceptor-ref name="check_logInInterceptor"/>
                 <interceptor-ref name="defaultStack"/>
             </interceptor-stack>
    		</interceptors>
+   		
+   		<default-interceptor-ref name="check_logInInterceptor" />
+ 		
+ 		<!-- <default-action-ref name="UnderConstruction"/> -->
  		
  		<!-- 
 		*** Actions ***
  		-->
+		<action name="hello" class="com.struts2.action.HelloAction">
+   			<result name="success">/WEB-INF/helloPageMain.jsp</result>
+   		</action>
    		<action name="login_GET" class="com.struts2.action.LoginControllerToDoAction" method="GET_login">
 			<interceptor-ref name="params" />
    			<interceptor-ref name="check_stack" />
@@ -47,7 +67,9 @@
    		<action name="logout" class="com.struts2.action.FirstBootAction" method="userLogout">
    			<result name="success" type="redirectAction">hello</result>
    		</action>
-   		
+		<action name="profile" class="com.struts2.action.FirstBootAction" method="userLogout">
+   			<result name="success" type="redirectAction"></result>
+   		</action>   		
    		
    	</package>
 

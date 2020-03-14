@@ -22,10 +22,12 @@
 	        <s:submit method="execute" key="label.submit" align="center" />
 	    </s:form>
 	    <br>
-	    Login: &emsp; Password:
+	    
+<%-- 	    Login: &emsp; Password:
 		<c:forEach items="${db}" var="i">
         	<p>${i.key} &nbsp; - &nbsp; ${i.value.password}</p>
-        </c:forEach>
+        </c:forEach> 
+--%>
 	    
  	</div>
 
