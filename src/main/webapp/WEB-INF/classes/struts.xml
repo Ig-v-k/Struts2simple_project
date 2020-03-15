@@ -21,6 +21,7 @@
         	
         	<interceptor-stack name="test">
         		<interceptor-ref name="testInterceptor" />
+        		<interceptor-ref name="defaultStack" />
         	</interceptor-stack>
         	
             <interceptor-stack name="check_stack">
@@ -43,7 +44,7 @@
             </interceptor-stack>
    		</interceptors>
    		
-   		<default-interceptor-ref name="check_logInInterceptor" />
+   		<!-- <default-interceptor-ref name="check_logInInterceptor" /> -->
  		
  		<!-- <default-action-ref name="UnderConstruction"/> -->
  		

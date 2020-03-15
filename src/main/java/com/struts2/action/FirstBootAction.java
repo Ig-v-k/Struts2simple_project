@@ -20,7 +20,7 @@ public class FirstBootAction extends ActionSupport implements SessionAware {
 	 * main
 	 */
     public String boot() {
-		LOGGER.info("---LOGGER: method - regist()");
+		LOGGER.info("---LOGGER: method - boot()");
     	setCurrentDate(new Date());
     	LOGGER.info("DAte = " + this.currentDate);
     	sessionDateTime.put("dateTime", this.currentDate);

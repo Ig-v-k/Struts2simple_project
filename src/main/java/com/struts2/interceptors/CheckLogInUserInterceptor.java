@@ -19,10 +19,10 @@ public class CheckLogInUserInterceptor extends AbstractInterceptor {
     UsersDB usersRepository = new UsersDB();
 	
     @Override
-	public String intercept(ActionInvocation actionInvocation) throws Exception {
-        HttpServletRequest request = (HttpServletRequest) actionInvocation.getInvocationContext().get(StrutsStatics.HTTP_REQUEST);
+	public String intercept(ActionInvocation invocation) throws Exception {
+        HttpServletRequest request = (HttpServletRequest) invocation.getInvocationContext().get(StrutsStatics.HTTP_REQUEST);
         String url = request.getRequestURI();
-		Map<String, Object> session = actionInvocation.getInvocationContext().getSession();
+		Map<String, Object> session = invocation.getInvocationContext().getSession();
         String username = (String) session.get("USERlogin");
         
         
@@ -31,18 +31,17 @@ public class CheckLogInUserInterceptor extends AbstractInterceptor {
             url = url + "?" + request.getQueryString();
         }
 
-        LOGGER.info("\t********* Request START *********");
-        LOGGER.info("HttpRequestInterceptor URL -> " + url);
-        LOGGER.info("actionInvocation.getAction() -> " + actionInvocation.getAction());
+        LOGGER.info("\t********* Request START *********\n"
+        		+ "HttpRequestInterceptor URL -> " + url);
         LOGGER.info("\t*********************************");
         
         
         
-		Action action = (Action) actionInvocation.getAction();
+		Action action = (Action) invocation.getAction();
 		if(action instanceof UserAware) {
 			((UserAware) action).setUser(username);
 		}
-		return actionInvocation.invoke();
+		return invocation.invoke();
 						
 	} // m:intercept()
 } // c:CheckLogInUserInterceptor
