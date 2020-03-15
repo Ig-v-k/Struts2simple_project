@@ -11,7 +11,7 @@ import com.struts2.todo.decorators.RegistrationDecorator;
 import com.struts2.todo.decorators.RegistrationUserToSession;
 
 @Namespace(value="/")
-public class RegistrationAction extends ActionSupport {
+public class RegistrationControllerAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
     private static final Logger LOGGER = Logger.getLogger(LoginControllerToDoAction.class.getName());
 	private String username, password, passwordR, role;
@@ -30,13 +30,16 @@ public class RegistrationAction extends ActionSupport {
 				+ "\n" + "PasswordRepeat = " + this.passwordR
 				+ "\n" + "UserRole = " + this.role);
 		
-		if ((!this.username.equals("") || !(this.username.length() == 0)) && 
-				(!this.password.equals("") || !(this.password.length() == 0)) &&
-				(!this.passwordR.equals("") || !(this.passwordR.length() == 0))) {
+		if ((!this.username.isEmpty() || !(this.username.length() == 0)) && 
+				(!this.password.isEmpty() || !(this.password.length() == 0)) &&
+				(!this.passwordR.isEmpty() || !(this.passwordR.length() == 0))) {
 			if (new RegistrationUserToSession(
 					new RegistrationDecorator(
-							new ImplMethodsRegistration()), this.passwordR).putToDB(username, password, this.role))
+							new ImplMethodsRegistration()
+					),
+				this.passwordR).putToDB(username, password, this.role)) {
 				return ActionsTexts.SUCCESS;
+			}
 			else {
 				addActionError(getText("error.registration"));
 				return ActionsTexts.ERROR;

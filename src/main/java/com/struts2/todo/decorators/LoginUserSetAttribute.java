@@ -1,18 +1,16 @@
 package com.struts2.todo.decorators;
 
-import java.util.Map;
+import java.util.logging.Logger;
 
-import javax.servlet.http.HttpServletRequest;
-
-import com.struts2.beans.Users;
 import com.struts2.interfaces.MethodsToDoUserLogin;
+import com.struts2.todo.ClassValidateUserIn;
 
 public class LoginUserSetAttribute extends LoginDecorator {
+	private static final Logger LOGGER = Logger.getLogger(ClassValidateUserIn.class.getName());
 	
-	public LoginUserSetAttribute(MethodsToDoUserLogin methodsToDoUserLogin, 
-			HttpServletRequest request, 
-			Map<String, Users> map) {
+	public LoginUserSetAttribute(MethodsToDoUserLogin methodsToDoUserLogin) {
 		super(methodsToDoUserLogin);
+		LOGGER.info("--- LOGGER: constructor()");
 	}
 	
 	
@@ -20,7 +18,8 @@ public class LoginUserSetAttribute extends LoginDecorator {
 	 * extends methods
 	 */
 	@Override
-	public boolean descent(String username, String password) {
+	public boolean descent(final String username, final String password) {
+		LOGGER.info("--- LOGGER: method - descent()");
 		return super.descent(username, password);
 	}
 	

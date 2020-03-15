@@ -9,7 +9,7 @@ import com.struts2.todo.decorators.LogoutDecorator;
 
 //@Namespace(value="/")
 //@Action(value="logout", results = @Result(name = "logout", location = "/WEB-INF/logout.jsp"))
-public class LogoutAction extends ActionSupport{
+public class LogoutControllerAction extends ActionSupport{
 	private static final long serialVersionUID = 1L;
 	
 	

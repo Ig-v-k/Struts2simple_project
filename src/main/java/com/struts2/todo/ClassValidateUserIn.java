@@ -14,37 +14,37 @@ import com.struts2.interfaces.UserAware;
 import com.struts2.todo.decorators.LoginDecorator;
 import com.struts2.todo.decorators.LoginUserSetAttribute;
 
-public class ClassValidateUserIn implements UserAware, ModelDriven<String>,SessionAware {
+public class ClassValidateUserIn implements SessionAware {
     private static final Logger LOGGER = Logger.getLogger(ClassValidateUserIn.class.getName());
     private Map<String, Object> session;
-    private Map<String, Users> map;
     private String userRole = "";
-    private String user;
     public ClassValidateUserIn(String userRole) {
     	this.userRole = userRole;
-    	map = ClassInitDB.getRepositoryUsers().returnMapUsers(this.userRole);
+    	new ClassInitDB();
 	}
+    
     
     
 	/*
 	 * main
 	 */
-    
     public String initMetods(final String username, final String password, final HttpServletRequest request) {
 		return this.descentUser(username, password, this.session, request);
 	}
     
 	private String descentUser(final String username, final String password, final Map<String, Object> session, final HttpServletRequest request) {
-		LOGGER.info("---LOGGER: -------------------- ClassValidate --------------------");
+		LOGGER.info("--- LOGGER: -------------------- ClassValidate --------------------");
+		LOGGER.info("--- LOGGER: -------------------- descnet --------------------");
+		LOGGER.info("--- LOGGER: -------------------- this.userRole --------------------" + this.userRole);
+		Map<String, Users> map = ClassInitDB.getRepositoryUsers().returnMapUsers(this.userRole);
+		LOGGER.info("--- LOGGER: -------------------- map --------------------" + map);
 		if(new LoginUserSetAttribute(
 				new LoginDecorator(
-						new ImplMethodsLogin(this.userRole)), request, this.map).descent(username, password))
-			return ActionsTexts.NONE;
-		return this.sessionPutUserName(username, password, session);
-	}
-	
-	private String sessionPutUserName(final String username, final String password, final Map<String, Object> session) {
-		session.put("USERlogin", this.map.get(username).getP_U(username));
+						new ImplMethodsLogin(this.userRole))).descent(username, password)) {
+			LOGGER.info("--- LOGGER: -------------------- if --------------------");
+			session.put("loginedUSER", map.get(username).getP_U(username));
+			return ActionsTexts.SUCCESS;
+		}
 		return ActionsTexts.ERROR;
 	}
 	
@@ -56,13 +56,5 @@ public class ClassValidateUserIn implements UserAware, ModelDriven<String>,Sessi
 	@Override
 	public void setSession(Map<String, Object> session) {
 		this.session = session;	
-	}
-	@Override
-	public void setUser(String user) {
-		this.user = user;
-	}
-	@Override
-	public String getModel() {
-		return this.user;
 	}
 }

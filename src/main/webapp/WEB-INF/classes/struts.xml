@@ -9,8 +9,7 @@
 	<constant name="struts.custom.i18n.resources" value="ApplicationResources" />
 	<constant name="struts.enable.SlashesInActionNames" value="false"/>
 	
- 	<package name="qwe" namespace="/" extends="struts-default">
- 		
+ 	<package name="default" namespace="/" extends="struts-default">
  	
  	 	<!-- 
  	 	*** Interceptors *** 
@@ -18,6 +17,7 @@
     	<interceptors>
         	<interceptor name="check_logInInterceptor" class="com.struts2.interceptors.CheckLogInUserInterceptor" />
         	<interceptor name="testInterceptor" class="com.struts2.interceptors.InterceptorTest" />
+        	<interceptor name="validateInterceptor" class="com.struts2.interceptors.InterceptorSessionUser" />
         	
         	<interceptor-stack name="test">
         		<interceptor-ref name="testInterceptor" />
@@ -44,11 +44,17 @@
             </interceptor-stack>
    		</interceptors>
    		
-   		<!-- <default-interceptor-ref name="check_logInInterceptor" /> -->
+   		<!-- <default-interceptor-ref name="validateInterceptor" /> -->
+   		
+<!-- 	  	<global-results>
+   			<result name="none" type="redirectAction">/WEB-INF/login.jsp</result>
+   		</global-results> 
+-->
+
  		
  		<!-- <default-action-ref name="UnderConstruction"/> -->
  		
- 		<!-- 
+ 		<!--
 		*** Actions ***
  		-->
 		<action name="hello" class="com.struts2.action.HelloAction">
@@ -60,26 +66,26 @@
    			<result name="input">/WEB-INF/login.jsp</result>
    		</action>
    		<action name="login_POST" class="com.struts2.action.LoginControllerToDoAction" method="POST_login">
-   			<result name="success" type="redirectAction">userInfo</result>
-			<result name="none, error">/WEB-INF/login.jsp</result>
+   			<result name="success" type="redirectAction">profile</result>
+			<result name="error">/WEB-INF/login.jsp</result>
    		</action>
-   		<action name="register_GET" class="com.struts2.action.RegistrationAction" method="GET_register">
+   		<action name="register_GET" class="com.struts2.action.RegistrationControllerAction" method="GET_register">
    			<result name="input">/WEB-INF/registrationForm.jsp</result>
    		</action>
-   		<action name="register_POST" class="com.struts2.action.RegistrationAction" method="POST_register">
-   			<result name="success" type="redirectAction">userInfo</result>
+   		<action name="register_POST" class="com.struts2.action.RegistrationControllerAction" method="POST_register">
+   			<result name="success" type="redirectAction">profile</result>
 			<result name="error">/WEB-INF/registrationForm.jsp</result>
    		</action>
    		<action name="" class="com.struts2.action.FirstBootAction" method="boot">
    			<interceptor-ref name="test" />
    			<result name="success" type="redirectAction">hello</result>
    		</action>
-   		<action name="logout" class="com.struts2.action.LogoutAction" method="USER_logout">
+   		<action name="logout" class="com.struts2.action.LogoutControllerAction" method="USER_logout">
    			<result name="success" type="redirectAction">hello</result>
    		</action>
 		<action name="profile" class="com.struts2.action.FirstBootAction" method="USER_profile">
-   			<result name="success" type="redirectAction"></result>
-   		</action>   		
+   			<result name="success" >/WEB-INF/profileUSER.jsp</result>
+   		</action>
    		
    	</package>
 

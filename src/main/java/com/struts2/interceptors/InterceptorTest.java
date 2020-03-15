@@ -6,14 +6,15 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts2.StrutsStatics;
 
+import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
+import com.struts2.interfaces.UserAware;
 
 public class InterceptorTest extends AbstractInterceptor{
 	private static final long serialVersionUID = 1L;
     private static final Logger LOGGER = Logger.getLogger(CheckLogInUserInterceptor.class.getName());
-
-
+    
 	@Override
 	public String intercept(ActionInvocation invocation) throws Exception {
 		HttpServletRequest request = (HttpServletRequest) invocation.getInvocationContext().get(StrutsStatics.HTTP_REQUEST);
@@ -161,6 +162,7 @@ public class InterceptorTest extends AbstractInterceptor{
         		+ "\ntoString() -> " + invocation.toString()
         		+ "\ninvoke() -> " + invocation.invoke()
         		+ "\ngetResult().toString() -> " + invocation.getResult().toString()
+        		+ "\n((Action) invocation.getAction() instanceof UserAware) -> " + ((Action) invocation.getAction() instanceof UserAware)
         		+ "\n\n\t*********************************");
 		
 		return invocation.invoke();

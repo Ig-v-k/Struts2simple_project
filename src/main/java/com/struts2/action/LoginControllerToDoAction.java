@@ -32,8 +32,6 @@ public class LoginControllerToDoAction extends ActionSupport{
     public String POST_login() {
     	switch (new ClassValidateUserIn(this.role).
     			initMetods(this.username, this.password, this.get_Request())) {
-		case NONE:
-			return ActionsTexts.NONE;
 		case SUCCESS:
 			addActionMessage(getText("success.login"));
 			return ActionsTexts.SUCCESS;
@@ -54,14 +52,20 @@ public class LoginControllerToDoAction extends ActionSupport{
 	 */
     public void setRole(String role) {
 		this.role = role;
+		if(role == null)
+			this.role = "";
 	}
     
     public void setUsername(String username) {
     	this.username = username;
+    	if(username == null)
+			this.username = "";
     }
 
     public void setPassword(String password) {
         this.password = password;
+        if(password == null)
+			this.password = "";
     }
     
 } // c:LoginControllerToDoAction

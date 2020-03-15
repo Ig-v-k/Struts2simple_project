@@ -1,29 +1,24 @@
  package com.struts2.interceptors;
 
-import java.util.Map;
 import java.util.logging.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts2.StrutsStatics;
 
-import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
-import com.struts2.DB.UsersDB;
-import com.struts2.interfaces.UserAware;
 
 public class CheckLogInUserInterceptor extends AbstractInterceptor {
 	private static final long serialVersionUID = 1L;
     private static final Logger LOGGER = Logger.getLogger(CheckLogInUserInterceptor.class.getName());
-    UsersDB usersRepository = new UsersDB();
 	
     @Override
 	public String intercept(ActionInvocation invocation) throws Exception {
         HttpServletRequest request = (HttpServletRequest) invocation.getInvocationContext().get(StrutsStatics.HTTP_REQUEST);
         String url = request.getRequestURI();
-		Map<String, Object> session = invocation.getInvocationContext().getSession();
-        String username = (String) session.get("USERlogin");
+//		Map<String, Object> session = invocation.getInvocationContext().getSession();
+//        String username = (String) session.get("USERlogin");
         
         
         
@@ -35,13 +30,10 @@ public class CheckLogInUserInterceptor extends AbstractInterceptor {
         		+ "HttpRequestInterceptor URL -> " + url);
         LOGGER.info("\t*********************************");
         
-        
-        
-		Action action = (Action) invocation.getAction();
-		if(action instanceof UserAware) {
-			((UserAware) action).setUser(username);
-		}
-		return invocation.invoke();
-						
+//		Action action = (Action) invocation.getAction();
+//		if(action instanceof UserAware) {
+//			((UserAware) action).setUser(username);
+//		}
+		return invocation.invoke();				
 	} // m:intercept()
 } // c:CheckLogInUserInterceptor

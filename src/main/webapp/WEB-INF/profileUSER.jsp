@@ -3,13 +3,13 @@
  
 <html>
 <head>
-<title>User Info</title>
+<title>Profile</title>
 </head>
   
 <body>
 	<div align="center">
 		<jsp:include page="_menu.jsp" />
-	    <h2>Hello, ${USERlogin}...!</h2>
+	    <h2>Profile, ${session.loginedUSER}!</h2>
 	</div>
 </body>
 </html>
