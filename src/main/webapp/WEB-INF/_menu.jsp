@@ -1,3 +1,4 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@ page language="java" contentType="text/html; charset=Ù-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 
@@ -10,12 +11,10 @@
 		<a href="${pageContext.request.contextPath}/register_GET">Register</a> 
 	</s:if>
 	 |
-	<s:if test="%{#session.loginedUSER}">
+	<s:if test="%{#session.loginedUSER || #session.registeredUSER}">
 		<a href="${pageContext.request.contextPath}/logout">Logout</a>
 	 	 |
 		<a href="${pageContext.request.contextPath}/profile">Profile</a> 	
 	</s:if>
 	<br>
-	<s:date name="session.dateTime"/>
-	 
 <br>

@@ -10,7 +10,6 @@ public class LoginUserSetAttribute extends LoginDecorator {
 	
 	public LoginUserSetAttribute(MethodsToDoUserLogin methodsToDoUserLogin) {
 		super(methodsToDoUserLogin);
-		LOGGER.info("--- LOGGER: constructor()");
 	}
 	
 	
@@ -18,9 +17,7 @@ public class LoginUserSetAttribute extends LoginDecorator {
 	 * extends methods
 	 */
 	@Override
-	public boolean descent(final String username, final String password) {
-		LOGGER.info("--- LOGGER: method - descent()");
+	public boolean descent(final String username, final String password) {	
 		return super.descent(username, password);
 	}
-	
 }

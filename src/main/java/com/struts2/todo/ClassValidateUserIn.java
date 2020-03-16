@@ -1,28 +1,23 @@
 package com.struts2.todo;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.struts2.interceptor.SessionAware;
-
-import com.opensymphony.xwork2.ModelDriven;
-import com.struts2.beans.Users;
 import com.struts2.interfaces.ActionsTexts;
-import com.struts2.interfaces.UserAware;
 import com.struts2.todo.decorators.LoginDecorator;
 import com.struts2.todo.decorators.LoginUserSetAttribute;
 
-public class ClassValidateUserIn implements SessionAware {
+public class ClassValidateUserIn{
     private static final Logger LOGGER = Logger.getLogger(ClassValidateUserIn.class.getName());
-    private Map<String, Object> session;
+    private Map<String, Object> session = new HashMap<String, Object>(0);
     private String userRole = "";
-    public ClassValidateUserIn(String userRole) {
+    public ClassValidateUserIn(final Map<String, Object> session, final String userRole) {
     	this.userRole = userRole;
-    	new ClassInitDB();
+    	this.session = session;
 	}
-    
     
     
 	/*
@@ -33,16 +28,9 @@ public class ClassValidateUserIn implements SessionAware {
 	}
     
 	private String descentUser(final String username, final String password, final Map<String, Object> session, final HttpServletRequest request) {
-		LOGGER.info("--- LOGGER: -------------------- ClassValidate --------------------");
-		LOGGER.info("--- LOGGER: -------------------- descnet --------------------");
-		LOGGER.info("--- LOGGER: -------------------- this.userRole --------------------" + this.userRole);
-		Map<String, Users> map = ClassInitDB.getRepositoryUsers().returnMapUsers(this.userRole);
-		LOGGER.info("--- LOGGER: -------------------- map --------------------" + map);
 		if(new LoginUserSetAttribute(
 				new LoginDecorator(
-						new ImplMethodsLogin(this.userRole))).descent(username, password)) {
-			LOGGER.info("--- LOGGER: -------------------- if --------------------");
-			session.put("loginedUSER", map.get(username).getP_U(username));
+						new ImplMethodsLogin(this.session, this.userRole))).descent(username, password)) {
 			return ActionsTexts.SUCCESS;
 		}
 		return ActionsTexts.ERROR;
@@ -53,8 +41,4 @@ public class ClassValidateUserIn implements SessionAware {
 	/*
 	 * SETTERS
 	 */
-	@Override
-	public void setSession(Map<String, Object> session) {
-		this.session = session;	
-	}
 }

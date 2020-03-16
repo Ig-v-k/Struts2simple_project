@@ -11,12 +11,10 @@ public class LoginDecorator implements MethodsToDoUserLogin{
 	
 	public LoginDecorator(MethodsToDoUserLogin methodsToDoUserLogin) {
 		this.methodsTodoUserLogin = methodsToDoUserLogin;
-		LOGGER.info("--- LOGGER: constructor()");
 	}
 	
 	@Override
 	public boolean descent(final String username, final String password) {
-		LOGGER.info("--- LOGGER: method - descent()");
 		return methodsTodoUserLogin.descent(username, password);
 	}
 }

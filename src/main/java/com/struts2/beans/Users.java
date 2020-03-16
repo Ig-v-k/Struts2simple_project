@@ -17,16 +17,18 @@ public class Users {
 		this.userRole = userRole;
 	}
 	
-	public String getP_U(String value) {
-		if(value.equals(this.username))
-			return this.username;
-		if(value.equals(this.password))
-			return this.password;
-		return "";
+	public boolean equals_PU(final String username, final String password) {
+		if(username.equals(this.username) || password.equals(this.password))
+			return true;
+		return false;
+	}
+	
+	public String getUsername() {
+		return this.username;
 	}
 	
 	@Override
 	public String toString() {
-		return this.username;
+		return "[" + this.username + ":" + this.password + ":" + this.userRole + "]";
 	}
 }

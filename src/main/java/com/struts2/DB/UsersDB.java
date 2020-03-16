@@ -19,21 +19,21 @@ public class UsersDB implements MethodsToDoUserDatabase{
 	}
 	
 	private static void init() {
-		Users userADMIN1 = new Users("admin", "admin123", UserRole.ADMIN.toString());
-		Users userEMPLOYEE1 = new Users("employee", "employee123", UserRole.EMPLOYEE.toString());
-		Users userUSERS1 = new Users("user", "user123", UserRole.USER.toString());
+		Users userADMIN = new Users("adminqwe", "admin123", UserRole.ADMIN.toString());
+		Users userEMPLOYEE = new Users("employeeqwe", "employee123", UserRole.EMPLOYEE.toString());
+		Users userUSERS = new Users("userqwe", "user123", UserRole.USER.toString());
 		
-		mapADMIN.put(userADMIN1.toString(), userADMIN1);
-		mapEMPLOYEE.put(userEMPLOYEE1.toString(), userEMPLOYEE1);
-		mapUSER.put(userUSERS1.toString(), userUSERS1);
+		mapADMIN.put(userADMIN.getUsername(), userADMIN);
+		mapEMPLOYEE.put(userEMPLOYEE.getUsername(), userEMPLOYEE);
+		mapUSER.put(userUSERS.getUsername(), userUSERS);
 		
-		dbUSERS.put(UserRole.ADMIN.toString(), mapADMIN);
-		dbUSERS.put(UserRole.EMPLOYEE.toString(), mapEMPLOYEE);
-		dbUSERS.put(UserRole.USER.toString(), mapUSER);
+		dbUSERS.put(UserRole.ADMIN.toString().toLowerCase(), mapADMIN);
+		dbUSERS.put(UserRole.EMPLOYEE.toString().toLowerCase(), mapEMPLOYEE);
+		dbUSERS.put(UserRole.USER.toString().toLowerCase(), mapUSER);
 	}
 	
 	@Override
-	public Map<String, Users> returnMapUsers(String userRole) {
+	public Map<String, Users> returnMapUsers(final String userRole) {
 		return dbUSERS.get(userRole);
 	}
 }

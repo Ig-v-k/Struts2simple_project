@@ -1,5 +1,6 @@
 package com.struts2.todo;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import com.struts2.beans.Users;
@@ -7,7 +8,7 @@ import com.struts2.interfaces.MethodsToDoUserRegistration;
 import com.struts2.todo.decorators.LoginDecorator;
 
 public class ImplMethodsRegistration implements MethodsToDoUserRegistration{
-	private Map<String, Users> usersDB;
+	private Map<String, Users> usersDB = new HashMap<String, Users>(0);
 	
 	@Override
 	public boolean putToDB(String username, String password, String userRole) {
