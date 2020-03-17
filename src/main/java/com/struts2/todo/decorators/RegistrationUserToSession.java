@@ -1,14 +1,11 @@
 package com.struts2.todo.decorators;
 
-import java.util.Map;
-
-import org.apache.struts2.interceptor.SessionAware;
+import org.apache.struts2.ServletActionContext;
 
 import com.struts2.interfaces.MethodsToDoUserRegistration;
 
-public class RegistrationUserToSession extends RegistrationDecorator implements SessionAware{		
+public class RegistrationUserToSession extends RegistrationDecorator {		
 	private String passwordRepeat = "";
-	private Map<String, Object> session;
 	
 	public RegistrationUserToSession(MethodsToDoUserRegistration userRoleExtendingMethods, final String passwordRepeat) {
 		super(userRoleExtendingMethods);
@@ -28,13 +25,7 @@ public class RegistrationUserToSession extends RegistrationDecorator implements 
 	}
 	
 	private void putToSession(final String username) {
-		session.put("registeredUSER", username);
+		ServletActionContext.getRequest().getSession().setAttribute("USER", username);
 	}
 	
-	
-	
-	@Override
-	public void setSession(final Map<String, Object> session) {
-		this.session = session;	
-	}
 }

@@ -2,6 +2,7 @@ package com.struts2.action;
 
 import java.util.logging.Logger;
 
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Namespace;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -38,6 +39,7 @@ public class RegistrationControllerAction extends ActionSupport {
 							new ImplMethodsRegistration()
 					),
 				this.passwordR).putToDB(username, password, this.role)) {
+				ServletActionContext.getRequest().getSession().setAttribute("logined_registeredUSER", true);
 				return ActionsTexts.SUCCESS;
 			}
 			else {

@@ -1,15 +1,12 @@
 package com.struts2.action;
 
-import java.util.Map;
 import java.util.logging.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts2.ServletActionContext;
-import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
-import com.struts2.beans.Users;
 import com.struts2.interfaces.ActionsTexts;
 import com.struts2.todo.ClassValidateUserIn;
 
@@ -17,12 +14,11 @@ import com.struts2.todo.ClassValidateUserIn;
  * @author iw
  *
  */
-public class LoginControllerToDoAction extends ActionSupport implements SessionAware{
+public class LoginControllerToDoAction extends ActionSupport {
 	 
     private static final long serialVersionUID = 1L;
     private static final Logger LOGGER = Logger.getLogger(LoginControllerToDoAction.class.getName());
     private String username = "", password = "", role = "";
-    private Map<String, Object> session;
     
     /*
 	 * main
@@ -32,12 +28,12 @@ public class LoginControllerToDoAction extends ActionSupport implements SessionA
     }
     
     public String post() {
-    	LOGGER.info("--- LOGGER: session -> " + session);
-    	switch (new ClassValidateUserIn(this.session, this.role).
+    	switch (new ClassValidateUserIn(this.get_Request().getSession(), this.role).
     				initMetods(this.username, this.password, this.get_Request())) {
 		case SUCCESS:
 			LOGGER.info("--- LOGGER: SUCCESS");
 			addActionMessage(getText("success.login"));
+			this.get_Request().getSession().setAttribute("logined_registeredUSER", true);
 			return ActionsTexts.SUCCESS;
     	default:
     		LOGGER.info("--- LOGGER: ERROR");
@@ -54,11 +50,6 @@ public class LoginControllerToDoAction extends ActionSupport implements SessionA
 	/*
 	 * SETTERS
 	 */
-    @Override
-    public void setSession(Map session) {
-    	this.session = session;
-    }
-    
     public void setRole(String role) {
 		this.role = role;
 	}

@@ -9,7 +9,7 @@
 <body>
 	<div align="center">
 		<jsp:include page="_menu.jsp" />
-	    <h2>Profile, ${session.loginedUSER}!</h2>
+	    <h2>Profile, ${USER}!</h2>
 	</div>
 </body>
 </html>
