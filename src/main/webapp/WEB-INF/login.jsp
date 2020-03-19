@@ -17,7 +17,7 @@
 	    <s:form action="login_POST" method="post">
 	        <s:textfield name="username" key="label.username" size="20" />
 	        <s:password name="password" key="label.password" size="20" />
-	        <s:submit method="execute" key="label.submit" align="center" />
+	        <s:submit method="execute" key="label.login" align="center" />
 	        <input type="radio" name="role" value="admin">
 			<label for="male">Admin</label><br>
 			<input type="radio" name="role" value="employee">

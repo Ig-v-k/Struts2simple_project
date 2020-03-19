@@ -2,8 +2,6 @@ package com.struts2.action;
 
 import java.util.logging.Logger;
 
-import org.apache.struts2.ServletActionContext;
-
 import com.opensymphony.xwork2.ActionSupport;
 import com.struts2.interfaces.ActionsTexts;
 
@@ -13,7 +11,6 @@ public class ProfileControllerAction extends ActionSupport {
 	
 	
 	public String GET_profile() throws Exception {
-		LOGGER.info("--- LOGGER: HttpSession.getAttribute() -> " + ServletActionContext.getRequest().getSession().getAttribute("logined_registeredUSER"));
 		return ActionsTexts.SUCCESS;
 	}
 }

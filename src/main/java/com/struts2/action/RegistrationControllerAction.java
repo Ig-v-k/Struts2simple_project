@@ -31,9 +31,7 @@ public class RegistrationControllerAction extends ActionSupport {
 				+ "\n" + "PasswordRepeat = " + this.passwordR
 				+ "\n" + "UserRole = " + this.role);
 		
-		if ((!this.username.isEmpty() || !(this.username.length() == 0)) && 
-				(!this.password.isEmpty() || !(this.password.length() == 0)) &&
-				(!this.passwordR.isEmpty() || !(this.passwordR.length() == 0))) {
+		if ((!this.username.isEmpty()) && (!this.password.isEmpty()) && (!this.passwordR.isEmpty())) {
 			if (new RegistrationUserToSession(
 					new RegistrationDecorator(
 							new ImplMethodsRegistration()

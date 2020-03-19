@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -9,6 +9,7 @@
 </head>
 <body>
 
+	<fmt:setBundle basename="ApplicationResources"/>
 	<form action="register_POST" method="post">
 	  <div class="container" align="center">
 	  	<jsp:include page="_menu.jsp" />
@@ -16,7 +17,7 @@
 	    <p>Please fill in this form to create an account.</p>
 	    <hr>
 		<s:actionerror />
-	    <label for="name"><b>Email</b></label>
+	    <label for="name"><b>Username</b></label>
 	    <input type="text" placeholder="Enter Username" name="username" required>
 		<br>
 	    <label for="psw"><b>Password</b></label>
