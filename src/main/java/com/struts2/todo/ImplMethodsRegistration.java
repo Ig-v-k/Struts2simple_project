@@ -14,8 +14,7 @@ public class ImplMethodsRegistration implements MethodsToDoUserRegistration{
 	private Map<String, Users> usersDB = new HashMap<String, Users>(0);
 	
 	@Override
-	public boolean putToDB(String username, String password, String userRole) {
-		LOGGER.info("--- LOGGER: <-- method -->");
+	public boolean putToDB(final String username, final String password, final String userRole) {
 		if(!(new LoginDecorator(
 				new ImplMethodsLogin(userRole)
 				).descent(username, password))) {

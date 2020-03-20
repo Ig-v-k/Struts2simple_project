@@ -13,7 +13,6 @@ public class RegistrationUserToSession extends RegistrationDecorator {
 	
 	public RegistrationUserToSession(MethodsToDoUserRegistration userRoleExtendingMethods, final String passwordRepeat) {
 		super(userRoleExtendingMethods);
-		LOGGER.info("--- LOGGER: <-- constructor -->");
 		this.passwordRepeat = passwordRepeat;
 	}
 
@@ -22,17 +21,14 @@ public class RegistrationUserToSession extends RegistrationDecorator {
 	 */
 	@Override
 	public boolean putToDB(final String username, final String password, final String userRole) {
-		LOGGER.info("--- LOGGER: <-- method -->");
-		if(password.equals(this.passwordRepeat)) {
+		if(password.equals(this.passwordRepeat) && super.putToDB(username, password, userRole)) {
 			this.putToSession(username);
-			return super.putToDB(username, password, userRole);
+			return true;
 		}
 		return false;
 	}
 	
 	private void putToSession(final String username) {
-		LOGGER.info("--- LOGGER: <-- method -->");
 		ServletActionContext.getRequest().getSession().setAttribute("USER", username);
 	}
-	
 }

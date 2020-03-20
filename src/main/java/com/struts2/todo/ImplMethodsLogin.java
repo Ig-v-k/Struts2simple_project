@@ -13,7 +13,7 @@ import com.struts2.interfaces.MethodsToDoUserLogin;
 public class ImplMethodsLogin implements MethodsToDoUserLogin{
 	private static final Logger LOGGER = Logger.getLogger(LoginControllerToDoAction.class.getName());
 	private String userRole = "";
-	private Map<String, Users> map = new HashMap<String, Users>(0);
+	private Users user = new Users();
 	private HttpSession session;
 	
 	public ImplMethodsLogin(final String userRole) {
@@ -33,11 +33,13 @@ public class ImplMethodsLogin implements MethodsToDoUserLogin{
 	 */
 	@Override
 	public boolean descent(final String username, final String password) {
-		map = ClassInitDB.getRepositoryUsers().returnMapUsers(this.userRole);
-		return map.get(username).equals_PU(username, password) ? this.toSetInSession(map, username) : false;
+		this.user = ClassInitDB.getRepositoryUsers().returnMapUsers(this.userRole).get(username);
+		return this.user == null ? 
+				false : user.equals_PU(username, password) ? 
+						this.toSetInSession(user, username) : false;
 	}
 	
-	private boolean toSetInSession(final Map<String, Users> map, final String username) {
+	private boolean toSetInSession(final Users user, final String username) {
 		this.session.setAttribute("USER", username);
 		return true;
 	}

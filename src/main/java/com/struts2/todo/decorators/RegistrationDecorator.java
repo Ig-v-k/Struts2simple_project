@@ -10,14 +10,12 @@ public class RegistrationDecorator implements MethodsToDoUserRegistration {
 	private MethodsToDoUserRegistration methodsToDoUserRegistration;
 	
 	public RegistrationDecorator(MethodsToDoUserRegistration userRoleExtendingMethods) {
-		LOGGER.info("--- LOGGER: <-- constructor -->");
 		this.methodsToDoUserRegistration = userRoleExtendingMethods;
 	}
 	
 	
 	@Override
 	public boolean putToDB(String username, String password, String userRole) {
-		LOGGER.info("--- LOGGER: <-- method -->");
 		return this.methodsToDoUserRegistration.putToDB(username, password, userRole);	
 	}
 	
