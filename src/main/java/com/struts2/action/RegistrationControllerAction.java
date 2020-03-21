@@ -37,6 +37,7 @@ public class RegistrationControllerAction extends ActionSupport {
 							new ImplMethodsRegistration()
 					),
 				this.passwordR).putToDB(username, password, this.role)) {
+				ServletActionContext.getRequest().getSession().setAttribute("labelLogin_Register", true);
 				ServletActionContext.getRequest().getSession().setAttribute("logined_registeredUSER", true);
 				return ActionsTexts.SUCCESS;
 			}

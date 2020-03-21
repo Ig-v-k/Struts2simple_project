@@ -1,7 +1,5 @@
 package com.struts2.todo;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.logging.Logger;
 
 import javax.servlet.http.HttpSession;

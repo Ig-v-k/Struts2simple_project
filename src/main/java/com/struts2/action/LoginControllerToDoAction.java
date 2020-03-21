@@ -33,6 +33,7 @@ public class LoginControllerToDoAction extends ActionSupport {
 		case SUCCESS:
 			LOGGER.info("--- LOGGER: SUCCESS");
 			addActionMessage(getText("success.login"));
+			this.get_Request().getSession().setAttribute("labelLogin_Register", true);
 			this.get_Request().getSession().setAttribute("logined_registeredUSER", true);
 			return ActionsTexts.SUCCESS;
     	default:
