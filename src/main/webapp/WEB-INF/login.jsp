@@ -1,6 +1,4 @@
-<%@ page contentType="text/html; charset=UTF-8"%>
-<%@ taglib prefix="s" uri="/struts-tags"%>
-<%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ include file="/WEB-INF/base.jsp"%>
 <%--@elvariable id="db" type="java.util.Map<String, com.struts2.beans.Users>"--%>
 <html>
 <head>

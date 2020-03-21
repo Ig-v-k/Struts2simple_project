@@ -65,14 +65,14 @@
    			<result name="input">/WEB-INF/login.jsp</result>
    		</action>
    		<action name="login_POST" class="com.struts2.action.LoginControllerToDoAction" method="post">
-   			<result name="success" type="redirectAction">profile</result>
+   			<result name="success" type="redirectAction">hello</result>
 			<result name="error">/WEB-INF/login.jsp</result>
    		</action>
    		<action name="register_GET" class="com.struts2.action.RegistrationControllerAction" method="GET_register">
    			<result name="input">/WEB-INF/registrationForm.jsp</result>
    		</action>
    		<action name="register_POST" class="com.struts2.action.RegistrationControllerAction" method="POST_register">
-   			<result name="success" type="redirectAction">profile</result>
+   			<result name="success" type="redirectAction">hello</result>
 			<result name="error">/WEB-INF/registrationForm.jsp</result>
    		</action>
    		<action name="" class="com.struts2.action.FirstBootAction" method="boot">

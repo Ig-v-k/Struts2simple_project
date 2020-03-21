@@ -1,21 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=Ù-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="s" uri="/struts-tags" %>
-<%@ page isELIgnored="false" %>
+<%--@elvariable id="labelLogin_Register" type="java.lang.Boolean"--%>
 
-<fmt:setBundle basename="ApplicationResources"/>
-
-<html>
-<head>
-<title>Struts 2 - Hello World</title>
-</head>
- 
-<body>
+<iwTag:qwe htmlTitle="Hello" bodyTitle="Hello">
  	<div align="center">
- 		<jsp:include page="_menu.jsp" />
-    	<h2>Hey, please to <fmt:message key="label.login"/> or <fmt:message key="label.register"/> in the service!</h2>
+ 		<c:if test="${labelLogin_Register}">
+ 			<h2> Welcome you to our service, 
+ 			here you will find many interesting tools for using our platform >> <a href='<c:url value="/profile"/>'><fmt:message key="label.profile"/></a></h2>
+ 		</c:if>
+ 		<c:if test="${!labelLogin_Register}">
+ 			<h2>Welcome, this service that provides banking services.
+	 		For more information, please 
+	 		<a href='<c:url value="/login_GET"/>'><fmt:message key="label.login"/></a> 
+	 		or <a href='<c:url value="/register_GET"/>'><fmt:message key="label.register"/></a>!</h2>
+ 		</c:if>
     </div>	
- 
-</body>
- 
-</html>
+</iwTag:qwe>
