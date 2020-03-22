@@ -4,6 +4,7 @@ import java.util.logging.Logger;
 
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
+import com.opensymphony.xwork2.interceptor.Interceptor;
 import com.struts2.interfaces.ActionsTexts;
 
 public class InterceptorSessionUser extends AbstractInterceptor{
@@ -17,15 +18,10 @@ public class InterceptorSessionUser extends AbstractInterceptor{
 	
 	@Override
 	public String intercept(ActionInvocation invocation) throws Exception {
-		
 		LOGGER.info("--- LOGGER: interceptor()");
-		
-		if(((String)invocation.getInvocationContext().getSession().get("loginedUSER")) != null || 
-				((String)invocation.getInvocationContext().getSession().get("loginedUSER")).length() != 0 || 
-				((String)invocation.getInvocationContext().getSession().get("loginedUSER")).isEmpty())
-			return ActionsTexts.NONE;
-		
-		return invocation.invoke();
+		if(invocation.getInvocationContext().getSession().get("logined_registeredUSER") != null)
+			return invocation.invoke();
+		return ActionsTexts.NONE;
 	}
 	
 	@Override

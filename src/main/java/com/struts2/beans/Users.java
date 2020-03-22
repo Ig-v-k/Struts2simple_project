@@ -18,7 +18,7 @@ public class Users {
 	}
 	
 	public boolean equals_PU(final String username, final String password) {
-		if(username.equals(this.username) || password.equals(this.password))
+		if(username.equals(this.username) && password.equals(this.password))
 			return true;
 		return false;
 	}

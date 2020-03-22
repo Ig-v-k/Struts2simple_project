@@ -34,7 +34,9 @@ public class LoginControllerToDoAction extends ActionSupport {
 			LOGGER.info("--- LOGGER: SUCCESS");
 			addActionMessage(getText("success.login"));
 			this.get_Request().getSession().setAttribute("labelLogin_Register", true);
+//			this.get_Request().setAttribute("labelLogin_Register", true);
 			this.get_Request().getSession().setAttribute("logined_registeredUSER", true);
+//			this.get_Request().setAttribute("logined_resteredUSER", true);
 			return ActionsTexts.SUCCESS;
     	default:
     		LOGGER.info("--- LOGGER: ERROR");

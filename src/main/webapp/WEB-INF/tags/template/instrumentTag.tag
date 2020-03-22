@@ -2,15 +2,24 @@
 <%@ attribute name="htmlTitle" type="java.lang.String" rtexprvalue="true" required="true" %>
 <%@ attribute name="bodyTitle" type="java.lang.String" rtexprvalue="true" required="true" %>
 <%@ attribute name="extraHeadContent" fragment="true" required="false" %>
-<%@ include file="/WEB-INF/base.jsp" %>
+<%@ include file="/WEB-INF/base.jspf" %>
 
-<iwTag:main htmlTitle="${htmlTitle}" bodyTitle="${bodyTitle}">
+<template:maiN htmlTitle="${htmlTitle}" bodyTitle="${bodyTitle}">
+
     <jsp:attribute name="headContent">
         <jsp:invoke fragment="extraHeadContent" />
     </jsp:attribute>
-    <jsp:attribute name="navigationContent" />
+    
+    <jsp:attribute name="navigationContent">
+    	<div align="center">
+    		<table>
+    			
+    		</table>
+    	</div>
+    </jsp:attribute>
+    
     <jsp:body>
         <jsp:doBody/>
     </jsp:body>
-
-</iwTag:main>
+    
+</template:maiN>

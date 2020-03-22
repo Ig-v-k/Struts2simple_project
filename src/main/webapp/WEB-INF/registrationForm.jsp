@@ -1,4 +1,3 @@
-<%@ include file="/WEB-INF/base.jsp"%>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -9,7 +8,7 @@
 	<fmt:setBundle basename="ApplicationResources"/>
 	<form action="register_POST" method="post">
 	  <div class="container" align="center">
-	  	<jsp:include page="_menu.jsp" />
+<%-- 	  	<jsp:include page="_menu.jsp" /> --%>
 	    <h1>Register</h1>
 	    <p>Please fill in this form to create an account.</p>
 	    <hr>

@@ -1,14 +1,8 @@
-<%@ include file="/WEB-INF/base.jsp"%>
 <%--@elvariable id="db" type="java.util.Map<String, com.struts2.beans.Users>"--%>
-<html>
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>Struts 2 - Login Application</title>
-</head>
- 
-<body>
+
+<template:menU htmlTitle="Login" bodyTitle="Login">
  	<div align="center">
- 	    <jsp:include page="_menu.jsp" />
+<%--  	    <jsp:include page="_menu.jsp" /> --%>
 	    <h2>Struts 2 - Login Application</h2>
 	    <s:actionerror />
 	 	<hr>
@@ -30,10 +24,6 @@
         	<p>${i.key} &nbsp; - &nbsp; ${i.value.password}</p>
         </c:forEach> 
 --%>
+	</div>
 	    
- 	</div>
-
- 
-</body>
- 
-</html>
+</template:menU>

@@ -1,6 +1,7 @@
-<%--@elvariable id="labelLogin_Register" type="java.lang.Boolean"--%>
+<%--@elvariable id="logined_registeredUSER" type="java.lang.Boolean"--%>
 
-<iwTag:qwe htmlTitle="Hello" bodyTitle="Hello">
+
+<template:menU htmlTitle="Hello" bodyTitle="Hello">
  	<div align="center">
  		<c:if test="${labelLogin_Register}">
  			<h2> Welcome you to our service, 
@@ -13,4 +14,4 @@
 	 		or <a href='<c:url value="/register_GET"/>'><fmt:message key="label.register"/></a>!</h2>
  		</c:if>
     </div>	
-</iwTag:qwe>
+</template:menU>
