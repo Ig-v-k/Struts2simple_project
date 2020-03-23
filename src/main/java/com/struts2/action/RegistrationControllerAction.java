@@ -25,30 +25,31 @@ public class RegistrationControllerAction extends ActionSupport {
 	}
 	
 	public String POST_register() {
-		LOGGER.info("---LOGGER: method - POST_register");
-		LOGGER.info("---LOGGER: \nUsername = " + this.username 
-				+ "\n" + "Password = " + this.password 
-				+ "\n" + "PasswordRepeat = " + this.passwordR
-				+ "\n" + "UserRole = " + this.role);
-		
-		if ((!this.username.isEmpty()) && (!this.password.isEmpty()) && (!this.passwordR.isEmpty())) {
-			if (new RegistrationUserToSession(
-					new RegistrationDecorator(
-							new ImplMethodsRegistration()
-					),
-				this.passwordR).putToDB(username, password, this.role)) {
-				ServletActionContext.getRequest().getSession().setAttribute("labelLogin_Register", true);
-				ServletActionContext.getRequest().getSession().setAttribute("logined_registeredUSER", true);
-				return ActionsTexts.SUCCESS;
+    	if(ServletActionContext.getRequest().getSession().getAttribute("logined_registeredUSER") != null) {
+			LOGGER.info("---LOGGER: method - POST_register");
+			LOGGER.info("---LOGGER: \nUsername = " + this.username 
+					+ "\n" + "Password = " + this.password
+					+ "\n" + "PasswordRepeat = " + this.passwordR
+					+ "\n" + "UserRole = " + this.role);
+			
+			if ((!this.username.isEmpty()) && (!this.password.isEmpty()) && (!this.passwordR.isEmpty())) {
+				if (new RegistrationUserToSession(
+						new RegistrationDecorator(
+								new ImplMethodsRegistration()
+						),
+					this.passwordR).putToDB(username, password, this.role)) {
+					ServletActionContext.getRequest().getSession().setAttribute("labelLogin_Register", true);
+					ServletActionContext.getRequest().getSession().setAttribute("logined_registeredUSER", true);
+					return ActionsTexts.SUCCESS;
+				}
+				else {
+					addActionError(getText("error.registration"));
+					return ActionsTexts.ERROR;
+				}
 			}
-			else {
-				addActionError(getText("error.registration"));
-				return ActionsTexts.ERROR;
-			} //else
-		} //if
-		
+    	}
 		return ActionsTexts.ERROR;
-	} //POST_register
+	} //method
 	
 	
 	// -----------------------------------------------------------------
@@ -56,7 +57,6 @@ public class RegistrationControllerAction extends ActionSupport {
 	/*
 	 * GETTERS & SETTERS
 	 */
-	
 	public void setUsername(String username) {
 		this.username = username;
 	}

@@ -1,13 +1,5 @@
-
-<html>
-<head>
-<title>Profile</title>
-</head>
-  
-<body>
-	<div align="center">
-<%-- 		<jsp:include page="_menu.jsp" /> --%>
-	    <h2>Profile, ${USER}!</h2>
+<template:instrumentTag htmlTitle="Profile" bodyTitle="Profile">
+	<div>
+		<h1>ASDASDASDASDASDASDASD</h1>
 	</div>
-</body>
-</html>
+</template:instrumentTag>

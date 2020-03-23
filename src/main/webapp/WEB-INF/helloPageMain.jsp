@@ -1,6 +1,3 @@
-<%--@elvariable id="logined_registeredUSER" type="java.lang.Boolean"--%>
-
-
 <template:menU htmlTitle="Hello" bodyTitle="Hello">
  	<div align="center">
  		<c:if test="${labelLogin_Register}">

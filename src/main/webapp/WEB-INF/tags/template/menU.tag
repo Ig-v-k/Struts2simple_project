@@ -3,6 +3,7 @@
 <%@ attribute name="bodyTitle" type="java.lang.String" rtexprvalue="true" required="true" %>
 <%@ attribute name="extraHeadContent" fragment="true" required="false" %>
 <%@ attribute name="extraNavigationContent" fragment="true" required="false" %>
+<%@ attribute name="menuInstrument" fragment="true" required="true" %>
 <%@ include file="/WEB-INF/base.jspf" %>
 
 <template:maiN htmlTitle="${htmlTitle}" bodyTitle="${bodyTitle}">
@@ -14,7 +15,7 @@
     <jsp:attribute name="navigationContent">
    		<a href="${pageContext.request.contextPath}/hello">Home</a>
 		<c:if test="${labelLogin_Register}">
-			<c:if test="${!logined_registeredUSER}">
+			<c:if test="${!logined_registeredUSER}">Missing required attribute "menuInstrument"
 				 |
 				<a href="${pageContext.request.contextPath}/login_GET"><fmt:message key="label.login"/></a>
 			 	 |
@@ -29,6 +30,7 @@
 		</c:if>
         <jsp:invoke fragment="extraNavigationContent" />
     </jsp:attribute>
+    <jsp:attribute name="menuInstrument"/>
 
     <jsp:body>
         <jsp:doBody/>

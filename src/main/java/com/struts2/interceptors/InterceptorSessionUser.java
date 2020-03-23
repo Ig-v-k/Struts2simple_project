@@ -19,6 +19,7 @@ public class InterceptorSessionUser extends AbstractInterceptor{
 	@Override
 	public String intercept(ActionInvocation invocation) throws Exception {
 		LOGGER.info("--- LOGGER: interceptor()");
+		LOGGER.info("--- LOGGER: logined_registeredUSER -> " + invocation.getInvocationContext().getSession().get("logined_registeredUSER"));
 		if(invocation.getInvocationContext().getSession().get("logined_registeredUSER") != null)
 			return invocation.invoke();
 		return ActionsTexts.NONE;

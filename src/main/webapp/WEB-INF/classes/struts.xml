@@ -70,24 +70,20 @@
    			<result name="input">/WEB-INF/login.jsp</result>
    		</action>
    		<action name="login_POST" class="com.struts2.action.LoginControllerToDoAction" method="post">
-			<interceptor-ref name="sessionUSER"></interceptor-ref>
-			<result name="none" type="redirectAction">hello</result>   		
+			<result name="none" type="redirectAction">hello</result>
    			<result name="success" type="redirectAction">hello</result>
 			<result name="error">/WEB-INF/login.jsp</result>
    		</action>
    		<action name="register_GET" class="com.struts2.action.RegistrationControllerAction" method="GET_register">
-			<interceptor-ref name="sessionUSER"></interceptor-ref>
 			<result name="none" type="redirectAction">hello</result>
    			<result name="input">/WEB-INF/registrationForm.jsp</result>
    		</action>
    		<action name="register_POST" class="com.struts2.action.RegistrationControllerAction" method="POST_register">
-			<interceptor-ref name="sessionUSER"></interceptor-ref>
 			<result name="none" type="redirectAction">hello</result>   		
    			<result name="success" type="redirectAction">hello</result>
 			<result name="error">/WEB-INF/registrationForm.jsp</result>
    		</action>
    		<action name="" class="com.struts2.action.FirstMain" method="boot">
-			<interceptor-ref name="sessionUSER"></interceptor-ref>
 			<result name="none" type="redirectAction">hello</result>   		
    			<interceptor-ref name="test" />
    			<result name="success" type="redirectAction">hello</result>

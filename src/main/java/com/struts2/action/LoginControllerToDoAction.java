@@ -28,21 +28,22 @@ public class LoginControllerToDoAction extends ActionSupport {
     }
     
     public String post() {
-    	switch (new ClassValidateUserIn(this.get_Request().getSession(), this.role).
-    				initMetods(this.username, this.password, this.get_Request())) {
-		case SUCCESS:
-			LOGGER.info("--- LOGGER: SUCCESS");
-			addActionMessage(getText("success.login"));
-			this.get_Request().getSession().setAttribute("labelLogin_Register", true);
-//			this.get_Request().setAttribute("labelLogin_Register", true);
-			this.get_Request().getSession().setAttribute("logined_registeredUSER", true);
-//			this.get_Request().setAttribute("logined_resteredUSER", true);
-			return ActionsTexts.SUCCESS;
-    	default:
-    		LOGGER.info("--- LOGGER: ERROR");
-    		addActionError(getText("error.login"));
-    		return ActionsTexts.ERROR;
+    	if(ServletActionContext.getRequest().getSession().getAttribute("logined_registeredUSER") == null) {
+	    	switch (new ClassValidateUserIn(this.get_Request().getSession(), this.role).
+	    				initMetods(this.username, this.password, this.get_Request())) {
+			case SUCCESS:
+				LOGGER.info("--- LOGGER: SUCCESS");
+				addActionMessage(getText("success.login"));
+				this.get_Request().getSession().setAttribute("labelLogin_Register", true);
+				this.get_Request().getSession().setAttribute("logined_registeredUSER", true);
+				return ActionsTexts.SUCCESS;
+	    	}
     	}
+    	else 
+    		return ActionsTexts.SUCCESS;
+		LOGGER.info("--- LOGGER: ERROR");
+		addActionError(getText("error.login"));
+		return ActionsTexts.ERROR;
     }
     
     private HttpServletRequest get_Request() {
