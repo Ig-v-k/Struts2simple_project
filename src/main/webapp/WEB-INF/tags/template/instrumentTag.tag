@@ -7,6 +7,8 @@
 	
 	<jsp:attribute name="extraHeadContentInstrument">
  		
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+ 		
 		<style>
 /* 
 			ul {
@@ -61,7 +63,8 @@
 		<a href="${pageContext.request.contextPath}/#">TRANSFERS</a>&emsp;
 		<a href="${pageContext.request.contextPath}/#">CARDS</a>&emsp;
 		<a href="${pageContext.request.contextPath}/#">CREDITS</a>&emsp;
-		<a href="${pageContext.request.contextPath}/#">SERVICES</a>
+		<a href="${pageContext.request.contextPath}/#">SERVICES</a>&emsp;
+		<a href="${pageContext.request.contextPath}/#">CONTACTS</a>
 	</div>
 	
 	</jsp:attribute>

@@ -13,7 +13,12 @@ public class ProfileControllerAction extends ActionSupport {
 	
 	
 	public String GET_profile() throws Exception {
-		ServletActionContext.getRequest().setAttribute("menuInstruments", true);
+		this.my_Attributes();
 		return ActionsTexts.SUCCESS;
+	}
+	
+	private void my_Attributes() {
+		ServletActionContext.getRequest().setAttribute("menuInstruments", true);
+		ServletActionContext.getRequest().setAttribute("state", 100);
 	}
 }
