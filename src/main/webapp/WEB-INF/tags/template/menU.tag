@@ -3,13 +3,13 @@
 <%@ attribute name="bodyTitle" type="java.lang.String" rtexprvalue="true" required="true" %>
 <%@ attribute name="extraHeadContent" fragment="true" required="false" %>
 <%@ attribute name="extraNavigationContent" fragment="true" required="false" %>
-<%@ attribute name="menuInstrument" fragment="true" required="true" %>
+<%@ attribute name="menuInstrument" fragment="true" required="false" %>
 <%@ include file="/WEB-INF/base.jspf" %>
 
 <template:maiN htmlTitle="${htmlTitle}" bodyTitle="${bodyTitle}">
 
     <jsp:attribute name="headContent">
-        <jsp:invoke fragment="extraHeadContent" />
+    	<jsp:invoke fragment="extraHeadContent" />
     </jsp:attribute>
 
     <jsp:attribute name="navigationContent">
@@ -28,9 +28,15 @@
 				<a href="${pageContext.request.contextPath}/profile"><fmt:message key="label.profile"/></a>	
 			</c:if>
 		</c:if>
-        <jsp:invoke fragment="extraNavigationContent" />
+		<c:if test="${menuInstruments}">
+			<br>
+			<hr>
+			<jsp:invoke fragment="menuInstrument"/>
+		</c:if>
+
+        <jsp:invoke fragment="extraNavigationContent"/>
     </jsp:attribute>
-    <jsp:attribute name="menuInstrument"/>
+    
 
     <jsp:body>
         <jsp:doBody/>

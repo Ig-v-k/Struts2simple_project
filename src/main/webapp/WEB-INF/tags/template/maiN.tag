@@ -3,7 +3,6 @@
 <%@ attribute name="bodyTitle" type="java.lang.String" rtexprvalue="true" required="true" %>
 <%@ attribute name="headContent" fragment="true" required="false" %>
 <%@ attribute name="navigationContent" fragment="true" required="true" %>
-<%@ attribute name="menuInstrument" fragment="true" required="true" %>
 
 <%@ include file="/WEB-INF/base.jspf"%>
 
@@ -17,7 +16,6 @@
 	<body>
 		<div align="center">
 			<jsp:invoke fragment="navigationContent"/>
-			<jsp:invoke fragment="menuInstrument"/>
 		</div>
 		<div align="center">
 			<jsp:doBody />
