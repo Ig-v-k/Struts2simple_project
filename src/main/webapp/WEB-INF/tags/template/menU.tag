@@ -1,7 +1,7 @@
 <%@ tag body-content="scriptless" trimDirectiveWhitespaces="true" %>
 <%@ attribute name="htmlTitle" type="java.lang.String" rtexprvalue="true" required="true" %>
 <%@ attribute name="bodyTitle" type="java.lang.String" rtexprvalue="true" required="true" %>
-<%@ attribute name="extraHeadContent" fragment="true" required="false" %>
+<%@ attribute name="extraHeadContentInstrument" fragment="true" required="false" %>
 <%@ attribute name="extraNavigationContent" fragment="true" required="false" %>
 <%@ attribute name="menuInstrument" fragment="true" required="false" %>
 <%@ include file="/WEB-INF/base.jspf" %>
@@ -9,7 +9,7 @@
 <template:maiN htmlTitle="${htmlTitle}" bodyTitle="${bodyTitle}">
 
     <jsp:attribute name="headContent">
-    	<jsp:invoke fragment="extraHeadContent" />
+    	<jsp:invoke fragment="extraHeadContentInstrument" />
     </jsp:attribute>
 
     <jsp:attribute name="navigationContent">
