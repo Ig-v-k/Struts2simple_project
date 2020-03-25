@@ -4,11 +4,11 @@ import java.util.logging.Logger;
 
 import org.apache.struts2.ServletActionContext;
 
-import com.struts2.action.LoginControllerToDoAction;
+import com.struts2.action.LoginControllerAction;
 import com.struts2.interfaces.MethodsToDoUserRegistration;
 
 public class RegistrationUserToSession extends RegistrationDecorator {		
-	private static final Logger LOGGER = Logger.getLogger(LoginControllerToDoAction.class.getName());
+	private static final Logger LOGGER = Logger.getLogger(LoginControllerAction.class.getName());
 	private String passwordRepeat = "";
 	
 	public RegistrationUserToSession(MethodsToDoUserRegistration userRoleExtendingMethods, final String passwordRepeat) {

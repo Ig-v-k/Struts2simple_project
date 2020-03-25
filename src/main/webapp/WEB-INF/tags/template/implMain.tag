@@ -2,15 +2,19 @@
 <%@ attribute name="htmlTitle" type="java.lang.String" rtexprvalue="true" required="true" %>
 <%@ attribute name="bodyTitle" type="java.lang.String" rtexprvalue="true" required="true" %>
 <%@ attribute name="extraHeadContentInstrument" fragment="true" required="false" %>
-<%@ attribute name="extraNavigationContent" fragment="true" required="false" %>
-<%@ attribute name="menuInstrument" fragment="true" required="false" %>
+<%-- <%@ attribute name="extraNavigationContent" fragment="true" required="false" %> --%>
+<%@ attribute name="implCardsContent" fragment="true" required="false" %>
+<%@ attribute name="implInstrumentContent" fragment="true" required="false" %>
+
 <%@ include file="/WEB-INF/base.jspf" %>
 
 <template:maiN htmlTitle="${htmlTitle}" bodyTitle="${bodyTitle}">
 
+
     <jsp:attribute name="headContent">
     	<jsp:invoke fragment="extraHeadContentInstrument" />
     </jsp:attribute>
+
 
     <jsp:attribute name="navigationContent">
    		<a href="${pageContext.request.contextPath}/hello">Home</a>
@@ -28,18 +32,33 @@
 				<a href="${pageContext.request.contextPath}/profile"><fmt:message key="label.profile"/></a>	
 			</c:if>
 		</c:if>
+<%--         <jsp:invoke fragment="extraNavigationContent"/> --%>
 		<c:if test="${menuInstruments}">
 			<br>
 			<hr>
-			<jsp:invoke fragment="menuInstrument"/>
+			<div align="center">
+				<a href="${pageContext.request.contextPath}/#">TRANSFERS</a>&emsp;
+				<a href="${pageContext.request.contextPath}/#">CARDS</a>&emsp;
+				<a href="${pageContext.request.contextPath}/#">CREDITS</a>&emsp;
+				<a href="${pageContext.request.contextPath}/#">SERVICES</a>&emsp;
+				<a href="${pageContext.request.contextPath}/#">CONTACTS</a>
+			</div>
 		</c:if>
-
-        <jsp:invoke fragment="extraNavigationContent"/>
     </jsp:attribute>
-    
+
+
+	<jsp:attribute name="cardsContent">
+		<c:if test="${menuInstruments}">
+			<br>
+			<hr>
+			<jsp:invoke fragment="implCardsContent"/>
+		</c:if>
+	</jsp:attribute>
+
 
     <jsp:body>
         <jsp:doBody/>
     </jsp:body>
     
 </template:maiN>
+

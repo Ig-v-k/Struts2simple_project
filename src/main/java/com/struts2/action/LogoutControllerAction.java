@@ -14,9 +14,12 @@ public class LogoutControllerAction extends ActionSupport{
 	
 	
 	public String USER_logout() {
-		new LogoutDecorator(
-				new ImplMethodsLogout()).logoutUser(ServletActionContext.getRequest());
-		addActionMessage("You are successfully logout!");
-		return ActionsTexts.SUCCESS;
+		if(ServletActionContext.getRequest().getSession().getAttribute("logined_registeredUSER") != null) {
+			new LogoutDecorator(
+					new ImplMethodsLogout()).logoutUser(ServletActionContext.getRequest());
+			addActionMessage("You are successfully logout!");
+			return ActionsTexts.SUCCESS;
+		}
+		return ActionsTexts.NONE;
 	}
 }

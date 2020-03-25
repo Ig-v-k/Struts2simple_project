@@ -14,10 +14,10 @@ import com.struts2.todo.ClassValidateUserIn;
  * @author iw
  *
  */
-public class LoginControllerToDoAction extends ActionSupport {
+public class LoginControllerAction extends ActionSupport {
 	 
     private static final long serialVersionUID = 1L;
-    private static final Logger LOGGER = Logger.getLogger(LoginControllerToDoAction.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(LoginControllerAction.class.getName());
     private String username = "", password = "", role = "";
     
     /*
@@ -66,4 +66,4 @@ public class LoginControllerToDoAction extends ActionSupport {
         this.password = password;
     }    
 
-} // c:LoginControllerToDoAction
+} // c:LoginControllerAction

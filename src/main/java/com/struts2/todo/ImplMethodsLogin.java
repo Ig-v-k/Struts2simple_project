@@ -4,12 +4,12 @@ import java.util.logging.Logger;
 
 import javax.servlet.http.HttpSession;
 
-import com.struts2.action.LoginControllerToDoAction;
+import com.struts2.action.LoginControllerAction;
 import com.struts2.beans.Users;
 import com.struts2.interfaces.MethodsToDoUserLogin;
 
 public class ImplMethodsLogin implements MethodsToDoUserLogin{
-	private static final Logger LOGGER = Logger.getLogger(LoginControllerToDoAction.class.getName());
+	private static final Logger LOGGER = Logger.getLogger(LoginControllerAction.class.getName());
 	private String userRole = "";
 	private Users user = new Users();
 	private HttpSession session;

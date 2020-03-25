@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts PUBLIC
-   "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
-   "http://struts.apache.org/dtds/struts-2.0.dtd">
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
  
 <struts>
 	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
@@ -65,11 +65,11 @@
 		<action name="hello" class="com.struts2.action.HelloAction">
    			<result name="success">/WEB-INF/helloPageMain.jsp</result>
    		</action>
-   		<action name="login_GET" class="com.struts2.action.LoginControllerToDoAction" method="get">
+   		<action name="login_GET" class="com.struts2.action.LoginControllerAction" method="get">
    			<interceptor-ref name="check_stack" />
    			<result name="input">/WEB-INF/login.jsp</result>
    		</action>
-   		<action name="login_POST" class="com.struts2.action.LoginControllerToDoAction" method="post">
+   		<action name="login_POST" class="com.struts2.action.LoginControllerAction" method="post">
 			<result name="none" type="redirectAction">hello</result>
    			<result name="success" type="redirectAction">hello</result>
 			<result name="error">/WEB-INF/login.jsp</result>
@@ -89,9 +89,8 @@
    			<result name="success" type="redirectAction">hello</result>
    		</action>
    		<action name="logout" class="com.struts2.action.LogoutControllerAction" method="USER_logout">
-			<interceptor-ref name="sessionUSER"></interceptor-ref>
-			<result name="none" type="redirectAction">hello</result>   		
-   			<result name="success" type="redirectAction">hello</result>
+			<result name="none" type="redirectAction">hello</result>
+   			<result name="success">/WEB-INF/logout.jsp</result>
    		</action>
 		<action name="profile" class="com.struts2.action.ProfileControllerAction" method="GET_profile">
 			<interceptor-ref name="sessionUSER"></interceptor-ref>

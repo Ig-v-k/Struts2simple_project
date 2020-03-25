@@ -1,11 +1,10 @@
 package com.struts2.interceptors;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.logging.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.StrutsStatics;
 
 import com.opensymphony.xwork2.Action;
@@ -24,6 +23,34 @@ public class InterceptorTest extends AbstractInterceptor{
 		
         request.getServletContext().getClassLoader();
 		LOGGER.info("\t********* Request START *********"
+        		+ "\n\nServletActionContext.getActionContext(request).getName() -> " + ServletActionContext.getActionContext(request).getName()
+        		+ "\nServletActionContext.getActionMapping().getName -> " + ServletActionContext.getActionMapping().getName()
+        		+ "\nServletActionContext.getActionMapping().getExtension() -> " + ServletActionContext.getActionMapping().getExtension()
+        		+ "\nServletActionContext.getActionMapping().getMethod() -> " + ServletActionContext.getActionMapping().getMethod()
+        		+ "\nServletActionContext.getActionMapping().getNamespace() -> " + ServletActionContext.getActionMapping().getNamespace()
+        		+ "\nServletActionContext.getActionMapping().getParams() -> " + ServletActionContext.getActionMapping().getParams()
+        		+ "\nServletActionContext.getActionMapping().getResults()" + ServletActionContext.getActionMapping().getResult()
+//        		+ "\n\nServletActionContext.getPageContext().toString() -> " + ServletActionContext.getPageContext().toString()
+//        		+ "\nServletActionContext.getPageContext().getELContext().toString() -> " + ServletActionContext.getPageContext().getELContext().toString()
+//        		+ "\nServletActionContext.getPageContext().getELContext().getELResolver().toString() -> " + ServletActionContext.getPageContext().getELContext().getELResolver().toString()
+//        		+ "\nServletActionContext.getPageContext().getELContext().getEvaluationListeners() -> " + ServletActionContext.getPageContext().getELContext().getEvaluationListeners()
+//        		+ "\nServletActionContext.getPageContext().getELContext().getFunctionMapper().toString() -> " + ServletActionContext.getPageContext().getELContext().getFunctionMapper().toString()
+//        		+ "\nServletActionContext.getPageContext().getELContext().getImportHandler().toString() -> " + ServletActionContext.getPageContext().getELContext().getImportHandler().toString()
+//        		+ "\nServletActionContext.getPageContext().getELContext().getVariableMapper().toString() -> " + ServletActionContext.getPageContext().getELContext().getVariableMapper().toString()
+//        		+ "\nServletActionContext.getPageContext().getELContext().isPropertyResolved() -> " + ServletActionContext.getPageContext().getELContext().isPropertyResolved()
+//        		+ "\nServletActionContext.getPageContext().getErrorData().toString() -> " + ServletActionContext.getPageContext().getErrorData().toString()
+//        		+ "\nServletActionContext.getPageContext().getErrorData().getRequestURI() -> " + ServletActionContext.getPageContext().getErrorData().getRequestURI()
+//        		+ "\nServletActionContext.getPageContext().getErrorData().getServletName() -> " + ServletActionContext.getPageContext().getErrorData().getServletName()
+//        		+ "\nServletActionContext.getPageContext().getErrorData().getStatusCode() -> " + ServletActionContext.getPageContext().getErrorData().getStatusCode()
+//        		+ "\nServletActionContext.getPageContext().getPage().toString() -> " + ServletActionContext.getPageContext().getPage().toString()
+//        		+ "\nServletActionContext.getPageContext().getRequest().toString() -> " + ServletActionContext.getPageContext().getRequest().toString()
+//        		+ "\nServletActionContext.getPageContext().getResponse().toString() -> " + ServletActionContext.getPageContext().getResponse().toString()
+//        		+ "\nServletActionContext.getPageContext().pushBody().toString() -> " + ServletActionContext.getPageContext().pushBody().toString()
+        		+ "\nServletActionContext.getValueStack(request).toString() -> " + ServletActionContext.getValueStack(request).toString()
+        		+ "\nServletActionContext.getValueStack(request).getContext() -> " + ServletActionContext.getValueStack(request).getContext()
+        		+ "\nServletActionContext.getValueStack(request).getExprOverrides() -> " + ServletActionContext.getValueStack(request).getExprOverrides()
+        		+ "\nServletActionContext.getValueStack(request).getRoot().toString() -> " + ServletActionContext.getValueStack(request).getRoot().toString()
+        		+ "\nServletActionContext.getContext().getName() -> " + ServletActionContext.getContext().getName()
         		+ "\n\nrequest.toString() -> " + request.toString()
 //        		+ "\nrequest.changeSessionId() -> " + request.changeSessionId()
         		+ "\nrequest.getAuthType() -> " + request.getAuthType()

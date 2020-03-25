@@ -1,4 +1,4 @@
-<template:menU htmlTitle="Hello" bodyTitle="Hello">
+<template:implMain htmlTitle="Hello" bodyTitle="Hello">
  	<div align="center">
  		<c:if test="${labelLogin_Register}">
  			<h2> Welcome you to our service, 
@@ -11,4 +11,4 @@
 	 		or <a href='<c:url value="/register_GET"/>'><fmt:message key="label.register"/></a>!</h2>
  		</c:if>
     </div>	
-</template:menU>
+</template:implMain>

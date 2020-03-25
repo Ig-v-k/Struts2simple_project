@@ -1,13 +1,3 @@
-
-<html>
-<head>
-<title>User Logout</title>
-</head>
-  
-<body>
-	<div align="center">
-<%-- 		<jsp:include page="_menu.jsp" /> --%>
-	    <h2>Good bye, <s:property value="username"/>!</h2>
-	</div>
-</body>
-</html>
+<template:implMain htmlTitle="Logout" bodyTitle="Logout">
+	<h2>Good bye ${logoutUSER}!</h2>
+</template:implMain>

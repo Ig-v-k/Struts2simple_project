@@ -1,6 +1,6 @@
 <%--@elvariable id="db" type="java.util.Map<String, com.struts2.beans.Users>"--%>
 
-<template:menU htmlTitle="Login" bodyTitle="Login">
+<template:implMain htmlTitle="Login" bodyTitle="Login">
  	<div align="center">
 <%--  	    <jsp:include page="_menu.jsp" /> --%>
 	    <h2>Struts 2 - Login Application</h2>
@@ -26,4 +26,4 @@
 --%>
 	</div>
 	    
-</template:menU>
+</template:implMain>
