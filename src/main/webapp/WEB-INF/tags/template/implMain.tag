@@ -1,20 +1,19 @@
 <%@ tag body-content="scriptless" trimDirectiveWhitespaces="true" %>
 <%@ attribute name="htmlTitle" type="java.lang.String" rtexprvalue="true" required="true" %>
 <%@ attribute name="bodyTitle" type="java.lang.String" rtexprvalue="true" required="true" %>
-<%@ attribute name="extraHeadContentInstrument" fragment="true" required="false" %>
+<%@ attribute name="headCardsContent" fragment="true" required="false" %>
 <%-- <%@ attribute name="extraNavigationContent" fragment="true" required="false" %> --%>
-<%@ attribute name="implCardsContent" fragment="true" required="false" %>
 <%@ attribute name="implInstrumentContent" fragment="true" required="false" %>
+<%@ attribute name="implCardsContent" fragment="true" required="false" %>
+<%@ attribute name="implHomeContent" fragment="true" required="false" %>
 
 <%@ include file="/WEB-INF/base.jspf" %>
 
 <template:maiN htmlTitle="${htmlTitle}" bodyTitle="${bodyTitle}">
 
-
     <jsp:attribute name="headContent">
-    	<jsp:invoke fragment="extraHeadContentInstrument" />
+    	<jsp:invoke fragment="headCardsContent" />
     </jsp:attribute>
-
 
     <jsp:attribute name="navigationContent">
    		<a href="${pageContext.request.contextPath}/hello">Home</a>
@@ -38,7 +37,7 @@
 			<hr>
 			<div align="center">
 				<a href="${pageContext.request.contextPath}/#">TRANSFERS</a>&emsp;
-				<a href="${pageContext.request.contextPath}/#">CARDS</a>&emsp;
+				<a href="${pageContext.request.contextPath}/cards">CARDS</a>&emsp;
 				<a href="${pageContext.request.contextPath}/#">CREDITS</a>&emsp;
 				<a href="${pageContext.request.contextPath}/#">SERVICES</a>&emsp;
 				<a href="${pageContext.request.contextPath}/#">CONTACTS</a>
@@ -46,6 +45,13 @@
 		</c:if>
     </jsp:attribute>
 
+	<jsp:attribute name="homeContent">
+		<c:if test="${menuInstruments}">
+			<br>
+			<hr>
+			<jsp:invoke fragment="implHomeContent"/>
+		</c:if>
+	</jsp:attribute>
 
 	<jsp:attribute name="cardsContent">
 		<c:if test="${menuInstruments}">
@@ -54,7 +60,6 @@
 			<jsp:invoke fragment="implCardsContent"/>
 		</c:if>
 	</jsp:attribute>
-
 
     <jsp:body>
         <jsp:doBody/>

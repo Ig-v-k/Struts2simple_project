@@ -4,6 +4,7 @@
 <%@ attribute name="headContent" fragment="true" required="false" %>
 <%-- <%@ attribute name="navigationInstrumentContent" fragment="true" required="true" %> --%>
 <%@ attribute name="navigationContent" fragment="true" required="true" %>
+<%@ attribute name="homeContent" fragment="true" required="false" %>
 <%@ attribute name="cardsContent" fragment="true" required="false" %>
 
 <%@ include file="/WEB-INF/base.jspf"%>
@@ -22,6 +23,7 @@
 <%-- 			<jsp:invoke fragment="navigationInstrumentContent"/> --%>
 		</div>
 		<div align="center">
+			<jsp:invoke fragment="homeContent"/>
 			<jsp:invoke fragment="cardsContent"/>
 			<jsp:doBody />
 		</div>

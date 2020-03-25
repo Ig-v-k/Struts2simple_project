@@ -83,9 +83,16 @@
    			<result name="success" type="redirectAction">hello</result>
 			<result name="error">/WEB-INF/registrationForm.jsp</result>
    		</action>
+   		
+   		<action name="cards" class="com.struts2.action.CardsControllerAction" method="basic">
+   			<interceptor-ref name="sessionUSER"></interceptor-ref>
+			<result name="success">/WEB-INF/profileCards.jsp</result>
+			<result name="none" type="redirectAction">hello</result>
+   		</action>
+   		
    		<action name="" class="com.struts2.action.FirstMain" method="boot">
-			<result name="none" type="redirectAction">hello</result>   		
    			<interceptor-ref name="test" />
+			<result name="none" type="redirectAction">hello</result>
    			<result name="success" type="redirectAction">hello</result>
    		</action>
    		<action name="logout" class="com.struts2.action.LogoutControllerAction" method="USER_logout">

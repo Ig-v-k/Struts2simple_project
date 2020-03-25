@@ -8,13 +8,14 @@ import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.struts2.interfaces.ActionsTexts;
+import com.struts2.interfaces.CustomServletActionContext;
 import com.struts2.todo.ClassValidateUserIn;
 
 /**
  * @author iw
  *
  */
-public class LoginControllerAction extends ActionSupport {
+public class LoginControllerAction extends ActionSupport implements CustomServletActionContext{
 	 
     private static final long serialVersionUID = 1L;
     private static final Logger LOGGER = Logger.getLogger(LoginControllerAction.class.getName());
@@ -28,26 +29,25 @@ public class LoginControllerAction extends ActionSupport {
     }
     
     public String post() {
-    	if(ServletActionContext.getRequest().getSession().getAttribute("logined_registeredUSER") == null) {
-	    	switch (new ClassValidateUserIn(this.get_Request().getSession(), this.role).
-	    				initMetods(this.username, this.password, this.get_Request())) {
-			case SUCCESS:
-				LOGGER.info("--- LOGGER: SUCCESS");
-				addActionMessage(getText("success.login"));
-				this.get_Request().getSession().setAttribute("labelLogin_Register", true);
-				this.get_Request().getSession().setAttribute("logined_registeredUSER", true);
-				return ActionsTexts.SUCCESS;
-	    	}
+    	if(my_session.getAttribute("logined_registeredUSER") == null) {
+    		if(!this.role.isEmpty()) {
+    	    	switch (new ClassValidateUserIn(my_session, this.role).
+	    				initMetods(this.username, this.password, my_request)) {
+				case SUCCESS:
+					LOGGER.info("--- LOGGER: SUCCESS");
+					addActionMessage(getText("success.login"));
+					
+					my_session.setAttribute("labelLogin_Register", true);
+					my_session.setAttribute("logined_registeredUSER", true);
+					return ActionsTexts.SUCCESS;
+		    	}
+    		}
     	}
-    	else 
+    	else
     		return ActionsTexts.SUCCESS;
-		LOGGER.info("--- LOGGER: ERROR");
+    	LOGGER.info("--- LOGGER: ERROR");
 		addActionError(getText("error.login"));
 		return ActionsTexts.ERROR;
-    }
-    
-    private HttpServletRequest get_Request() {
-    	return ServletActionContext.getRequest();
     }
     
 
