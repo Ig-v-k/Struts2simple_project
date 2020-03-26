@@ -24,7 +24,7 @@
 		</div>
 		<div align="center">
 			<jsp:invoke fragment="homeContent"/>
-			<jsp:invoke fragment="cardsContent"/>
+<%-- 			<jsp:invoke fragment="cardsContent"/> --%>
 			<jsp:doBody />
 		</div>
 	</body>

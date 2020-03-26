@@ -31,6 +31,7 @@ public class LoginControllerAction extends ActionSupport implements CustomServle
     public String post() {
     	if(my_session.getAttribute("logined_registeredUSER") == null) {
     		if(!this.role.isEmpty()) {
+    			LOGGER.info("--- LOGGER: SUCCESS");
     	    	switch (new ClassValidateUserIn(my_session, this.role).
 	    				initMetods(this.username, this.password, my_request)) {
 				case SUCCESS:

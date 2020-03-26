@@ -28,7 +28,7 @@
 				 |
 				<a href="${pageContext.request.contextPath}/logout"><fmt:message key="label.logout"/></a>
 			 	 |
-				<a href="${pageContext.request.contextPath}/profile"><fmt:message key="label.profile"/></a>	
+				<a href="${pageContext.request.contextPath}/profile/"><fmt:message key="label.profile"/></a>	
 			</c:if>
 		</c:if>
 <%--         <jsp:invoke fragment="extraNavigationContent"/> --%>
@@ -37,7 +37,9 @@
 			<hr>
 			<div align="center">
 				<a href="${pageContext.request.contextPath}/#">TRANSFERS</a>&emsp;
-				<a href="${pageContext.request.contextPath}/cards">CARDS</a>&emsp;
+				<a href="<c:url value="profile">
+							<c:param name="actionMenu" value="cards"/>
+						 </c:url>">CARDS</a>&emsp;
 				<a href="${pageContext.request.contextPath}/#">CREDITS</a>&emsp;
 				<a href="${pageContext.request.contextPath}/#">SERVICES</a>&emsp;
 				<a href="${pageContext.request.contextPath}/#">CONTACTS</a>
@@ -50,14 +52,6 @@
 			<br>
 			<hr>
 			<jsp:invoke fragment="implHomeContent"/>
-		</c:if>
-	</jsp:attribute>
-
-	<jsp:attribute name="cardsContent">
-		<c:if test="${menuInstruments}">
-			<br>
-			<hr>
-			<jsp:invoke fragment="implCardsContent"/>
 		</c:if>
 	</jsp:attribute>
 

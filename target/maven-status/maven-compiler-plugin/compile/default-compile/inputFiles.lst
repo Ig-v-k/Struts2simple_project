@@ -1,3 +1,4 @@
+/home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/todo/ImplMethodsCard.java
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/action/HelloAction.java
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/action/LoginControllerAction.java
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/todo/ImplMethodsLogout.java
@@ -18,12 +19,14 @@
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/interfaces/CustomServletActionContext.java
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/todo/decorators/LoginDecorator.java
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/todo/ClassInitDB.java
+/home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/interfaces/MethodsToDoUserCard.java
+/home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/beans/Card.java
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/interfaces/MethodsToDoUserLogin.java
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/action/LogoutControllerAction.java
+/home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/todo/decorators/CardDecorator.java
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/todo/ImplMethodsRegistration.java
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/interceptors/InterceptorSessionUser.java
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/todo/ImplMethodsLogin.java
-/home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/action/CardsControllerAction.java
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/interfaces/MethodsToDoUserDatabase.java
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/interfaces/MethodsToDoUserLogout.java
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/interfaces/MethodsToDoUserRegistration.java

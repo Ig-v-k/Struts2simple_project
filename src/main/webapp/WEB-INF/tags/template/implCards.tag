@@ -1,4 +1,4 @@
-<%@ tag body-content="scriptless" trimDirectiveWhitespaces="true" %>
+<%-- <%@ tag body-content="scriptless" trimDirectiveWhitespaces="true" %>
 <%@ attribute name="htmlTitle" type="java.lang.String" rtexprvalue="true" required="true" %>
 <%@ attribute name="bodyTitle" type="java.lang.String" rtexprvalue="true" required="true" %>
 <%@ tag language="java" pageEncoding="UTF-8"%>
@@ -96,7 +96,7 @@
 				display: none;
 			}
 		</style>
-<!-- 		<script type="text/javascript">
+ 		<script type="text/javascript">
 			$(document).ready(function(){
 				$('[data-toggle="tooltip"]').tooltip();
 				var actions = $("table td:last-child").html();
@@ -149,10 +149,10 @@
 					$(".add-new").removeAttr("disabled");
 			    });
 			});
-		</script> -->
+		</script> 
 	</jsp:attribute>
 
-	<jsp:attribute name="implCardsContent">
+ 	<jsp:attribute name="implCardsContent">
 		<div class="container">
 	        <div class="table-wrapper">
 	            <div class="table-title">
@@ -166,14 +166,53 @@
 	            <table class="table table-bordered">
 	                <thead>
 	                    <tr>
-	                        <th>NameCard</th>
+	                        <th>Card Name</th>
 	                        <th>Card Type</th>
 	                        <th>Phone</th>
 	                        <th>Actions</th>
 	                    </tr>
 	                </thead>
 	                <tbody>
-<!--
+	                	<c:forEach items="${_cardsMap}" var="_cardsMapId">
+	                		 <tr>
+		                        <td><c:out value="${_cardsMapId.value.cardName}"/></td>
+		                        <td><c:out value="${_cardsMapId.value.cardType}"/></td>
+		                        <td><c:out value="${_cardsMapId.value.userPhone}"/></td>
+		                        <td>
+									<a class="add" title="Add" data-toggle="tooltip" href="<c:url value="/cards">
+																								<c:param name="action" action="add"/>
+																							</c:url>"><i class="material-icons">&#xE03B;</i></a>
+		                            <a class="edit" title="Edit" data-toggle="tooltip" href="<c:url value="/cards">
+																								<c:param name="action" action="edit"/>
+																							</c:url>"><i class="material-icons">&#xE254;</i></a>
+		                            <a class="delete" title="Delete" data-toggle="tooltip" href="<c:url value="/cards">
+																								<c:param name="action" action="delete"/>
+																							</c:url>"><i class="material-icons">&#xE872;</i></a>
+		                        </td>
+		                    </tr>
+	                	</c:forEach>
+	                
+	                
+	                	<c:forEach items="${_cardsList}" var="_cardsListId" varStatus="q">
+	                		 <tr>
+		                        <td><c:out value="${_cardsListId.cardName}"/></td>
+		                        <td><c:out value="${_cardsListId.cardType}"/></td>
+		                        <td><c:out value="${_cardsListId.userPhone}"/></td>
+		                        <td>
+									<a class="add" title="Add" data-toggle="tooltip" href="<c:url value="/cards">
+																								<c:param name="action" action="add"/>
+																							</c:url>"><i class="material-icons">&#xE03B;</i></a>
+		                            <a class="edit" title="Edit" data-toggle="tooltip" href="<c:url value="/cards">
+																								<c:param name="action" action="edit"/>
+																							</c:url>"><i class="material-icons">&#xE254;</i></a>
+		                            <a class="delete" title="Delete" data-toggle="tooltip" href="<c:url value="/cards">
+																								<c:param name="action" action="delete"/>
+																							</c:url>"><i class="material-icons">&#xE872;</i></a>
+		                        </td>
+		                    </tr>
+	                	</c:forEach>
+
+
  	                    <tr>
 	                        <td>John Doe</td>
 	                        <td>Administration</td>
@@ -204,17 +243,15 @@
 	                            <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
 	                        </td>
 	                    </tr> 
--->
+
 	                </tbody>
 	            </table>
 	        </div>
 	    </div>
 	</jsp:attribute>
 	
-	<jsp:body>
+ 	<jsp:body>
         <jsp:doBody/>
     </jsp:body>
     
-</template:implMain>
-
-
+</template:implMain> --%>

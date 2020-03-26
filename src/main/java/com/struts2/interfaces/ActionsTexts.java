@@ -6,4 +6,6 @@ public interface ActionsTexts {
 	public static final String LOGIN = "login";
 	public static final String ERROR = "error";
 	public static final String SUCCESS = "success";
+	public static final String CARDS = "cards";
+	public static final String TRANSFERS = "transfers";
 }

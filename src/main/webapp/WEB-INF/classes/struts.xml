@@ -4,12 +4,14 @@
         "http://struts.apache.org/dtds/struts-2.3.dtd">
  
 <struts>
+	<constant name="struts.enable.SlashesInActionNames" value="true"/>
+	<constant name="struts.mapper.alwaysSelectFullNamespace" value="false"/>
+	<constant name="struts.patternMatcher" value="regex" />
 	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
-	<constant name="struts.devMode" value="true" />
+	<constant name="struts.devMode" value="false" />
 	<constant name="struts.custom.i18n.resources" value="ApplicationResources" />
-	<constant name="struts.enable.SlashesInActionNames" value="false"/>
 	
- 	<package name="default" namespace="/" extends="struts-default">
+ 	<package name="my_basic" extends="struts-default">
  	
  	 	<!-- 
  	 	*** Interceptors *** 
@@ -83,15 +85,13 @@
    			<result name="success" type="redirectAction">hello</result>
 			<result name="error">/WEB-INF/registrationForm.jsp</result>
    		</action>
-   		
-   		<action name="cards" class="com.struts2.action.CardsControllerAction" method="basic">
+<!--    <action name="cards" class="com.struts2.action.CardsControllerAction" method="basic">
    			<interceptor-ref name="sessionUSER"></interceptor-ref>
 			<result name="success">/WEB-INF/profileCards.jsp</result>
 			<result name="none" type="redirectAction">hello</result>
-   		</action>
-   		
+   		</action> -->
    		<action name="" class="com.struts2.action.FirstMain" method="boot">
-   			<interceptor-ref name="test" />
+<!--    			<interceptor-ref name="test" /> -->
 			<result name="none" type="redirectAction">hello</result>
    			<result name="success" type="redirectAction">hello</result>
    		</action>
@@ -99,12 +99,33 @@
 			<result name="none" type="redirectAction">hello</result>
    			<result name="success">/WEB-INF/logout.jsp</result>
    		</action>
-		<action name="profile" class="com.struts2.action.ProfileControllerAction" method="GET_profile">
-			<interceptor-ref name="sessionUSER"></interceptor-ref>
+		<action name="profile" class="com.struts2.action.ProfileControllerAction" method="basicProfile">
+			<interceptor-ref name="sessionUSER"/>
+			<result name="none" type="redirectAction">hello</result>
+   			<result name="success" >/WEB-INF/profileUSER.jsp</result>
+<!--    			<result name="cards" >/WEB-INF/profileCARDS.jsp</result> -->
+   		</action>
+   	</package>
+<!--    	<package name="profile" namespace="/profile" extends="struts-default">
+   		<interceptors>
+        	<interceptor name="validateInterceptor" class="com.struts2.interceptors.InterceptorSessionUser" />
+        	
+        	<interceptor-stack name="sessionUSER">
+        		<interceptor-ref name="validateInterceptor" />
+        		<interceptor-ref name="defaultStack" />
+        	</interceptor-stack>
+   		</interceptors>
+   		
+   		<action name="" class="com.struts2.action.ProfileControllerAction" method="basicProfile">
+			<interceptor-ref name="defa"/>
 			<result name="none" type="redirectAction">hello</result>
    			<result name="success" >/WEB-INF/profileUSER.jsp</result>
    		</action>
    		
-   	</package>
-
+   		<action name="cards" class="com.struts2.action.ProfileControllerAction" method="basicProfileInstruments">
+			<interceptor-ref name="sessionUSER"/>
+			<result name="none" type="redirectAction">hello</result>
+   			<result name="success" >/WEB-INF/profileUSER.jsp</result>
+   		</action>
+   	</package> -->
 </struts>
