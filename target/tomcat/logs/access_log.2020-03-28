@@ -1,0 +1,14 @@
+127.0.0.1 - - [28/Mar/2020:23:45:05 +0200] "GET /struts2_web_iw/ HTTP/1.1" 302 - http-bio-8080-exec-1 112
+127.0.0.1 - - [28/Mar/2020:23:45:05 +0200] "GET /struts2_web_iw/hello.action HTTP/1.1" 200 664 http-bio-8080-exec-2 68
+127.0.0.1 - - [28/Mar/2020:23:45:07 +0200] "GET /struts2_web_iw/login_GET HTTP/1.1" 200 1487 http-bio-8080-exec-3 225
+127.0.0.1 - - [28/Mar/2020:23:45:11 +0200] "POST /struts2_web_iw/login_POST.action HTTP/1.1" 302 - http-bio-8080-exec-5 18
+127.0.0.1 - - [28/Mar/2020:23:45:11 +0200] "GET /struts2_web_iw/hello.action HTTP/1.1" 200 732 http-bio-8080-exec-6 4
+127.0.0.1 - - [28/Mar/2020:23:45:12 +0200] "GET /struts2_web_iw/profile HTTP/1.1" 200 3355 http-bio-8080-exec-7 53
+127.0.0.1 - - [28/Mar/2020:23:45:15 +0200] "GET /struts2_web_iw/profile?actionMenu=cards HTTP/1.1" 200 4870 http-bio-8080-exec-8 12
+127.0.0.1 - - [28/Mar/2020:23:45:17 +0200] "GET /struts2_web_iw/profile?actionMenu=card&actionCard=edit HTTP/1.1" 200 3223 http-bio-8080-exec-9 7
+127.0.0.1 - - [28/Mar/2020:23:58:16 +0200] "GET /struts2_web_iw/ HTTP/1.1" 302 - http-bio-8080-exec-1 98
+127.0.0.1 - - [28/Mar/2020:23:58:16 +0200] "GET /struts2_web_iw/hello.action HTTP/1.1" 200 664 http-bio-8080-exec-2 63
+127.0.0.1 - - [28/Mar/2020:23:58:17 +0200] "GET /struts2_web_iw/login_GET HTTP/1.1" 200 1487 http-bio-8080-exec-3 183
+127.0.0.1 - - [28/Mar/2020:23:58:22 +0200] "POST /struts2_web_iw/login_POST.action HTTP/1.1" 302 - http-bio-8080-exec-5 42
+127.0.0.1 - - [28/Mar/2020:23:58:22 +0200] "GET /struts2_web_iw/hello.action HTTP/1.1" 200 732 http-bio-8080-exec-6 4
+127.0.0.1 - - [28/Mar/2020:23:58:24 +0200] "GET /struts2_web_iw/profile HTTP/1.1" 200 3402 http-bio-8080-exec-7 593

@@ -102,6 +102,8 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-xs-9"><h3>State of account</h3></div>
+					<div class="w-100"></div>
+					<div class="col-xs-9"><h5>${USER}</h5></div>
 			    	<c:forEach items="${_cardsMapHome}" var="_cardsMapHomeID">
 				    	<div class="w-100"></div>
 				    	<div class="col"><h5>${_cardsMapHomeID.value.cardName}</h5></div>
