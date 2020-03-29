@@ -13,23 +13,64 @@ public class ProfileControllerAction extends ActionSupport implements CustomServ
     private static final Logger LOGGER = Logger.getLogger(LoginControllerAction.class.getName());
 	private static final long serialVersionUID = 1L;
 	
-	public String basicProfile() {
-		my_request.setAttribute("menuInstruments", true);
+	public String basic() {
 		LOGGER.info("--- LOGGER: my_request.getParameter(\"actionMenu\") -> " + my_request.getParameter("actionMenu"));
+		LOGGER.info("--- LOGGER: my_request.getParameter(\"cardName\") -> " + my_request.getParameter("cardName"));
+		LOGGER.info("--- LOGGER: my_request.getParameter(\"actionCard\") -> " + my_request.getParameter("actionCard"));
+		my_request.setAttribute("menuInstruments", true);
 		if (my_request.getParameter("actionMenu") != null) {
-			switch (my_request.getParameter("actionMenu")) {
-			case "cards":
-				this.basicProfile_Card();
-			}
+			this.basicProfile_Menu();
+			return ActionsTexts.SUCCESS;
 		}
 		else
 			my_request.setAttribute("homeContent", true);
 		return ActionsTexts.SUCCESS;
 	}
 	
-	private String basicProfile_Card() {
-		return new CardParameter(
-					new CardDecorator(
-							new ImplMethodsCard())).TextAction();
+	private void basicProfile_Menu() {
+		switch (my_request.getParameter("actionMenu")) {
+		case "cards":
+			this.basicProfile_Card();
+		}
+//		case "transfers":
+//			this.basicProfile_Transfers();
+//		}
+//		case "credits":
+//			this.basicProfile_Credits();
+//		}
+//		case "services":
+//			this.basicProfile_Services();
+//		}
+//		case "contacts":
+//			this.basicProfile_Contacts();
+//		}
 	}
+	
+	private void basicProfile_Card() {
+		
+		if(my_request.getParameter("actionCard") != null && my_request.getParameter("cardName") != null) {
+			if(my_request.getParameter("actionCard").equals("edit"))
+				my_request.setAttribute("editFormCard", true);
+			if(my_request.getParameter("actionCard").equals("delete"))
+				new CardParameter(
+						new CardDecorator(
+								new ImplMethodsCard(my_request.getParameter("cardName"), true))).TextAction();
+		}
+	}
+	
+//	private void basicProfile_Transfers() {
+//		
+//	}
+//	
+//	private void basicProfile_Credits() {
+//		
+//	}
+//
+//	private void basicProfile_Services() {
+//		
+//	}
+//	
+//	private void basicProfile_Contacts() {
+//		
+//	}
 }

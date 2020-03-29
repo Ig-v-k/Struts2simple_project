@@ -99,7 +99,7 @@
 			<result name="none" type="redirectAction">hello</result>
    			<result name="success">/WEB-INF/logout.jsp</result>
    		</action>
-		<action name="profile" class="com.struts2.action.ProfileControllerAction" method="basicProfile">
+		<action name="profile" class="com.struts2.action.ProfileControllerAction" method="basic">
 			<interceptor-ref name="sessionUSER"/>
 			<result name="none" type="redirectAction">hello</result>
    			<result name="success" >/WEB-INF/profileUSER.jsp</result>

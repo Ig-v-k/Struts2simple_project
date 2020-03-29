@@ -18,16 +18,7 @@ public class CardParameter extends CardDecorator implements CustomServletActionC
 	 * extends methods
 	 */
 	@Override
-	public String TextAction() {
-		LOGGER.info("--- LOGGER: my_request.getParameter(\"actionCard\") -> " + my_request.getParameter("actionCard"));
-		if(my_request.getParameter("actionCard") != null)
-			this.actionOfParameters();
-		return super.TextAction();
-	}
-	
-	private void actionOfParameters() {
-		if(my_request.getParameter("actionCard").equals("edit")) {
-			my_request.setAttribute("editFormCard", true);
-		}
+	public void TextAction() {
+		super.TextAction();
 	}
 }

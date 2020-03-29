@@ -11,7 +11,7 @@ public class CardDecorator implements MethodsToDoUserCard{
 	}
 	
 	@Override
-	public String TextAction() {
-		return this.methodsToDoUserCard.TextAction();
+	public void TextAction() {
+		this.methodsToDoUserCard.TextAction();
 	}
 }
