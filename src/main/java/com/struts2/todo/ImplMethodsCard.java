@@ -17,6 +17,8 @@ public class ImplMethodsCard implements MethodsToDoUserCard, CustomServletAction
 	@Override
 	public String TextAction() {
 		_cardsMap.put("a", new Card("a", "b", "c"));
+		
+		my_request.setAttribute("cardContent", true);
 		my_request.setAttribute("_cardsMap", this._cardsMap);
 		return ActionsTexts.SUCCESS;
 	}

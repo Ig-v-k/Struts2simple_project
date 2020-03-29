@@ -133,22 +133,18 @@
 		                    </tr>
 		                </thead>
 		                <tbody>
-		                	<c:forEach items="${_cardsMap}" var="_cardsMapId">
+		                	<c:forEach items="${_cardsMap}" var="cardsMapId">
 		                		 <tr>
-			                        <td><c:out value="${_cardsMapId.value.cardName}"/></td>
-			                        <td><c:out value="${_cardsMapId.value.cardType}"/></td>
-			                        <td><c:out value="${_cardsMapId.value.userPhone}"/></td>
+			                        <td><c:out value="${cardsMapId.value.cardName}"/></td>
+			                        <td><c:out value="${cardsMapId.value.cardType}"/></td>
+			                        <td><c:out value="${cardsMapId.value.userPhone}"/></td>
 			                        <td>
-										<a class="add" title="Add" data-toggle="tooltip" href="<c:url value="profile">
-																									<c:param name="actionMenu" value="card"/>
-																									<c:param name="actionCard" value="add"/>
-																								</c:url>"><i class="material-icons">&#xE03B;</i></a>
 			                            <a class="edit" title="Edit" data-toggle="tooltip" href="<c:url value="profile">
-			                            															<c:param name="actionMenu" value="card"/>
+			                            															<c:param name="actionMenu" value="cards"/>
 																									<c:param name="actionCard" value="edit"/>
 																								</c:url>"><i class="material-icons">&#xE254;</i></a>
 			                            <a class="delete" title="Delete" data-toggle="tooltip" href="<c:url value="profile">
-			                            															<c:param name="actionMenu" value="card"/>
+			                            															<c:param name="actionMenu" value="cards"/>
 																									<c:param name="actionCard" value="delete"/>
 																								</c:url>"><i class="material-icons">&#xE872;</i></a>
 			                        </td>
@@ -156,6 +152,9 @@
 		                	</c:forEach>
 		                </tbody>
 		            </table>
+		         	<c:if test="${editFormCard}">
+		                <h1>editFormCard</h1>
+		            </c:if>
 		        </div>
 		    </div>
 		</c:if>

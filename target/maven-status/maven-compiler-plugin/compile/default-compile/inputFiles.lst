@@ -27,6 +27,7 @@
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/todo/ImplMethodsRegistration.java
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/interceptors/InterceptorSessionUser.java
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/todo/ImplMethodsLogin.java
+/home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/todo/decorators/CardParameter.java
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/interfaces/MethodsToDoUserDatabase.java
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/interfaces/MethodsToDoUserLogout.java
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/interfaces/MethodsToDoUserRegistration.java
