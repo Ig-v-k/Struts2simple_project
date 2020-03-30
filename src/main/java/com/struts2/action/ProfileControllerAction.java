@@ -47,15 +47,21 @@ public class ProfileControllerAction extends ActionSupport implements CustomServ
 	}
 	
 	private void basicProfile_Card() {
-		
-		if(my_request.getParameter("actionCard") != null && my_request.getParameter("cardName") != null) {
+		if(my_request.getParameter("actionCard") != null) {
+			if(my_request.getParameter("actionCard").equals("add"))
+				my_request.setAttribute("addFormCard", true);
 			if(my_request.getParameter("actionCard").equals("edit"))
 				my_request.setAttribute("editFormCard", true);
 			if(my_request.getParameter("actionCard").equals("delete"))
 				new CardParameter(
 						new CardDecorator(
-								new ImplMethodsCard(my_request.getParameter("cardName"), true))).TextAction();
+								new ImplMethodsCard(my_request.getParameter("cardName") == null ? "" : my_request.getParameter("cardName"), true))).TextAction();
 		}
+		else
+			new CardParameter(
+					new CardDecorator(
+							new ImplMethodsCard())).TextAction();
+		my_request.setAttribute("cardContent", true);
 	}
 	
 //	private void basicProfile_Transfers() {
