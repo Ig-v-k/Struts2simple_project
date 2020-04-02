@@ -3,25 +3,25 @@ package com.struts2.DB;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.struts2.beans.Users;
+import com.struts2.beans.User;
 import com.struts2.interfaces.MethodsToDoUserDatabase;
 import com.struts2.todo.UserRole;
 
 public class UsersDB implements MethodsToDoUserDatabase{
-	private static final Map<String, Users> mapADMIN = new HashMap<String, Users>();
-	private static final Map<String, Users> mapEMPLOYEE = new HashMap<String, Users>();
-	private static final Map<String, Users> mapUSER = new HashMap<String, Users>();
+	private static final Map<String, User> mapADMIN = new HashMap<String, User>();
+	private static final Map<String, User> mapEMPLOYEE = new HashMap<String, User>();
+	private static final Map<String, User> mapUSER = new HashMap<String, User>();
 	
-	private static final Map<String, Map<String, Users>> dbUSERS = new HashMap<String, Map<String,Users>>();
+	private static final Map<String, Map<String, User>> dbUSERS = new HashMap<String, Map<String,User>>();
 	
 	static {
 		init();
 	}
 	
 	private static void init() {
-		Users userADMIN = new Users("adminqwe", "admin123", UserRole.ADMIN.toString());
-		Users userEMPLOYEE = new Users("employeeqwe", "employee123", UserRole.EMPLOYEE.toString());
-		Users userUSERS = new Users("userqwe", "user123", UserRole.USER.toString());
+		User userADMIN = new User("adminqwe", "admin123", UserRole.ADMIN.toString());
+		User userEMPLOYEE = new User("employeeqwe", "employee123", UserRole.EMPLOYEE.toString());
+		User userUSERS = new User("userqwe", "user123", UserRole.USER.toString());
 		
 		mapADMIN.put(userADMIN.getUsername(), userADMIN);
 		mapEMPLOYEE.put(userEMPLOYEE.getUsername(), userEMPLOYEE);
@@ -33,7 +33,7 @@ public class UsersDB implements MethodsToDoUserDatabase{
 	}
 	
 	@Override
-	public Map<String, Users> returnMapUsers(final String userRole) {
+	public Map<String, User> returnMapUsers(final String userRole) {
 		return dbUSERS.get(userRole);
 	}
 }

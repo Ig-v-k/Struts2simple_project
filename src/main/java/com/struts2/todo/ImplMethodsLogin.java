@@ -5,13 +5,13 @@ import java.util.logging.Logger;
 import javax.servlet.http.HttpSession;
 
 import com.struts2.action.LoginControllerAction;
-import com.struts2.beans.Users;
+import com.struts2.beans.User;
 import com.struts2.interfaces.MethodsToDoUserLogin;
 
 public class ImplMethodsLogin implements MethodsToDoUserLogin{
 	private static final Logger LOGGER = Logger.getLogger(LoginControllerAction.class.getName());
 	private String userRole = "";
-	private Users user = new Users();
+	private User user = new User();
 	private HttpSession session;
 	
 	public ImplMethodsLogin(final String userRole) {
@@ -37,7 +37,7 @@ public class ImplMethodsLogin implements MethodsToDoUserLogin{
 						this.toSetInSession(user, username) : false;
 	}
 	
-	private boolean toSetInSession(final Users user, final String username) {
+	private boolean toSetInSession(final User user, final String username) {
 		this.session.setAttribute("USER", username);
 		return true;
 	}

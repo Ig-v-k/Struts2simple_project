@@ -36,7 +36,9 @@
 			<br>
 			<hr>
 			<div align="center">
-				<a href="${pageContext.request.contextPath}/#">TRANSFERS</a>&emsp;
+				<a href="<c:url value="profile">
+							<c:param name="actionMenu" value="transfers"/>
+						 </c:url>">TRANSFERS</a>&emsp;
 				<a href="<c:url value="profile">
 							<c:param name="actionMenu" value="cards"/>
 						 </c:url>">CARDS</a>&emsp;

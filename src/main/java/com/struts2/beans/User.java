@@ -1,34 +1,34 @@
 package com.struts2.beans;
 
-public class Users {
-	private String username;
+public class User {
+	private String userName;
 	private String password;
 	private String userRole;
 	
-	public Users() {
-		this.username = "";
+	public User() {
+		this.userName = "";
 		this.password = "";
 		this.userRole = "";
 	}
 	
-	public Users(final String username, final String password, final String userRole) {
-		this.username = username;
+	public User(final String username, final String password, final String userRole) {
+		this.userName = username;
 		this.password = password;
 		this.userRole = userRole;
 	}
 	
 	public boolean equals_PU(final String username, final String password) {
-		if(username.equals(this.username) && password.equals(this.password))
+		if(username.equals(this.userName) && password.equals(this.password))
 			return true;
 		return false;
 	}
 	
 	public String getUsername() {
-		return this.username;
+		return this.userName;
 	}
 	
 	@Override
 	public String toString() {
-		return "[" + this.username + ":" + this.password + ":" + this.userRole + "]";
+		return "[" + this.userName + ":" + this.password + ":" + this.userRole + "]";
 	}
 }

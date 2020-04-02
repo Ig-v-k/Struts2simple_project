@@ -14,9 +14,6 @@ public class ProfileControllerAction extends ActionSupport implements CustomServ
 	private static final long serialVersionUID = 1L;
 	
 	public String basic() {
-		LOGGER.info("--- LOGGER: my_request.getParameter(\"actionMenu\") -> " + my_request.getParameter("actionMenu"));
-		LOGGER.info("--- LOGGER: my_request.getParameter(\"cardName\") -> " + my_request.getParameter("cardName"));
-		LOGGER.info("--- LOGGER: my_request.getParameter(\"actionCard\") -> " + my_request.getParameter("actionCard"));
 		my_request.setAttribute("menuInstruments", true);
 		if (my_request.getParameter("actionMenu") != null) {
 			this.basicProfile_Menu();
@@ -31,10 +28,9 @@ public class ProfileControllerAction extends ActionSupport implements CustomServ
 		switch (my_request.getParameter("actionMenu")) {
 		case "cards":
 			this.basicProfile_Card();
-		}
-//		case "transfers":
-//			this.basicProfile_Transfers();
-//		}
+		case "transfers":
+			this.basicProfile_Transfers();
+			
 //		case "credits":
 //			this.basicProfile_Credits();
 //		}
@@ -43,7 +39,8 @@ public class ProfileControllerAction extends ActionSupport implements CustomServ
 //		}
 //		case "contacts":
 //			this.basicProfile_Contacts();
-//		}
+			
+		}
 	}
 	
 	private void basicProfile_Card() {
@@ -64,9 +61,10 @@ public class ProfileControllerAction extends ActionSupport implements CustomServ
 		my_request.setAttribute("cardContent", true);
 	}
 	
-//	private void basicProfile_Transfers() {
-//		
-//	}
+	private void basicProfile_Transfers() {
+		
+	}
+	
 //	
 //	private void basicProfile_Credits() {
 //		

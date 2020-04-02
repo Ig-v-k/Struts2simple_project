@@ -1,4 +1,4 @@
-<%--@elvariable id="db" type="java.util.Map<String, com.struts2.beans.Users>"--%>
+<%--@elvariable id="db" type="java.util.Map<String, com.struts2.beans.User>"--%>
 
 <template:implMain htmlTitle="Login" bodyTitle="Login">
  	<div align="center">
