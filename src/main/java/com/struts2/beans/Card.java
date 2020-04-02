@@ -6,7 +6,10 @@ public class Card {
 	private String userPhone = "";
 	private int state = 0;
 	
-	public Card(String cardName, String cardType, String userPhone, Integer state) {
+	public Card(final String cardName, 
+			final String cardType, 
+			final String userPhone, 
+			final Integer state) {
 		this.cardName = cardName;
 		this.cardType = cardType;
 		this.userPhone = userPhone;
