@@ -6,6 +6,7 @@
 
 <%--@elvariable id="editFormCard" type="java.lang.Boolean"--%>
 <%--@elvariable id="addFormCard" type="java.lang.Boolean"--%>
+<%--@elvariable id="addTransferForm" type="java.lang.Boolean"--%>
 
 <%--@elvariable id="userTransferContent" type="java.lang.Boolean"--%>
 

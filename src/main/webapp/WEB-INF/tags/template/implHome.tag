@@ -122,6 +122,9 @@
 							 </c:url>">Add</a>
 			      </div>
 			    </div>
+			    <c:if test="${addTransferForm}">
+			    	<h2>ADD FORM!</h2>
+			    </c:if>
 			    <c:if test="${userTransferContent}">
 			    	<c:forEach items="${_transferMap}" var="transferMapId">
 				    	<div calss="row">

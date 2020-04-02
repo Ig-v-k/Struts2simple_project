@@ -6,8 +6,11 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.struts2.interfaces.ActionsTexts;
 import com.struts2.interfaces.CustomServletActionContext;
 import com.struts2.todo.ImplMethodsCard;
+import com.struts2.todo.ImplMethodsTransfer;
 import com.struts2.todo.decorators.CardDecorator;
 import com.struts2.todo.decorators.CardParameter;
+import com.struts2.todo.decorators.TransferAttributes;
+import com.struts2.todo.decorators.TransferDecorator;
 
 public class ProfileControllerAction extends ActionSupport implements CustomServletActionContext{
     private static final Logger LOGGER = Logger.getLogger(LoginControllerAction.class.getName());
@@ -62,7 +65,13 @@ public class ProfileControllerAction extends ActionSupport implements CustomServ
 	}
 	
 	private void basicProfile_Transfers() {
-		
+		if(my_request.getParameter("actionTransfer") != null)
+			if(my_request.getAttribute("actionTransfer").equals("add"))
+				my_request.setAttribute("addTransferForm", true);
+		else
+			new TransferAttributes(
+					new TransferDecorator(
+							new ImplMethodsTransfer())).methodToDo();
 	}
 	
 //	
