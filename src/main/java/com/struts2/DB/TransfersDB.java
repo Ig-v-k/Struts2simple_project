@@ -6,7 +6,7 @@ import java.util.Map;
 
 import com.struts2.beans.Transfer;
 
-public class TransferDB {
+public class TransfersDB {
 	private static final Map<String, Transfer> _initTransfersMap = new HashMap<String, Transfer>();
 	
 	static {
@@ -17,7 +17,7 @@ public class TransferDB {
 		
 		_initTransfersMap.put("a", new Transfer(date.toString(),
 				 						new CardsDB().returnMapCard().get("a"), 
-				 							new UsersDB().returnMapUsers("user").get("userqwe")));
+				 						new UsersDB().returnMapUsers("user").get("userqwe")));
 	}
 	
 	public Map<String, Transfer> returnMapTransfer() {

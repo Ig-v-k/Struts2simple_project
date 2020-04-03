@@ -42,8 +42,12 @@
 				<a href="<c:url value="profile">
 							<c:param name="actionMenu" value="cards"/>
 						 </c:url>">CARDS</a>&emsp;
-				<a href="${pageContext.request.contextPath}/#">CREDITS</a>&emsp;
-				<a href="${pageContext.request.contextPath}/#">SERVICES</a>&emsp;
+				<a href="<c:url value="profile">
+							<c:param name="actionMenu" value="credits"/>
+						 </c:url>">CREDITS</a>&emsp;
+				<a href="<c:url value="profile">
+							<c:param name="actionMenu" value="settings"/>
+						 </c:url>">SETTINGS</a>&emsp;
 				<a href="${pageContext.request.contextPath}/#">CONTACTS</a>
 			</div>
 		</c:if>

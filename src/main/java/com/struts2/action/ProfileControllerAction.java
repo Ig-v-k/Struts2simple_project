@@ -6,9 +6,16 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.struts2.interfaces.ActionsTexts;
 import com.struts2.interfaces.CustomServletActionContext;
 import com.struts2.todo.ImplMethodsCard;
+import com.struts2.todo.ImplMethodsContact;
+import com.struts2.todo.ImplMethodsCredit;
+import com.struts2.todo.ImplMethodsSetting;
 import com.struts2.todo.ImplMethodsTransfer;
 import com.struts2.todo.decorators.CardDecorator;
 import com.struts2.todo.decorators.CardParameter;
+import com.struts2.todo.decorators.ContactDecorator;
+import com.struts2.todo.decorators.CreditAttributes;
+import com.struts2.todo.decorators.CreditDecorator;
+import com.struts2.todo.decorators.SettingDecorator;
 import com.struts2.todo.decorators.TransferAttributes;
 import com.struts2.todo.decorators.TransferDecorator;
 
@@ -32,17 +39,13 @@ public class ProfileControllerAction extends ActionSupport implements CustomServ
 		case "cards":
 			this.basicProfile_Card();
 		case "transfers":
-			this.basicProfile_Transfers();
-			
-//		case "credits":
-//			this.basicProfile_Credits();
-//		}
-//		case "services":
-//			this.basicProfile_Services();
-//		}
-//		case "contacts":
-//			this.basicProfile_Contacts();
-			
+			this.basicProfile_Transfers();			
+		case "credits":
+			this.basicProfile_Credits();
+		case "settings":
+			this.basicProfile_Settings();
+		case "contacts":
+			this.basicProfile_Contacts();			
 		}
 	}
 	
@@ -71,19 +74,30 @@ public class ProfileControllerAction extends ActionSupport implements CustomServ
 		else
 			new TransferAttributes(
 					new TransferDecorator(
-							new ImplMethodsTransfer())).methodToDo();
+							new ImplMethodsTransfer())).methodToDoTransfer();
 	}
 	
-//	
-//	private void basicProfile_Credits() {
-//		
-//	}
-//
-//	private void basicProfile_Services() {
-//		
-//	}
-//	
-//	private void basicProfile_Contacts() {
-//		
-//	}
+	private void basicProfile_Credits() {
+		if(my_request.getParameter("actionCredit") != null)
+			if(my_request.getAttribute("actionTransfer").equals("add"))
+				my_request.setAttribute("addTransferForm", true);
+		else
+			new CreditAttributes(
+					new CreditDecorator(
+							new ImplMethodsCredit())).methodToDoCredit();
+	}
+
+	private void basicProfile_Settings() {
+//		if(my_request.getParameter("actionCredit") != null)
+//			if(my_request.getAttribute("actionTransfer").equals("add"))
+//				my_request.setAttribute("addTransferForm", true);
+//		else
+		new SettingDecorator(
+				new ImplMethodsSetting()).methodToDoSetting();
+	}
+	
+	private void basicProfile_Contacts() {
+		new ContactDecorator(
+				new ImplMethodsContact()).methodToDoContact();
+	}
 }

@@ -10,7 +10,7 @@ public class TransferDecorator implements MethodsToDoUserTransfer{
 	}
 	
 	@Override
-	public void methodToDo() {
-		this.methodsToDoUserTransfer.methodToDo();	
+	public void methodToDoTransfer() {
+		this.methodsToDoUserTransfer.methodToDoTransfer();	
 	}
 }
