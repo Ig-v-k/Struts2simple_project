@@ -7,7 +7,7 @@
 <template:implMain bodyTitle="${htmlTitle}" htmlTitle="${bodyTitle}">
 	<jsp:attribute name="headCardsContent">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
-		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">	
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	</jsp:attribute>
 
 	<jsp:attribute name="implHomeContent">
@@ -84,19 +84,19 @@
 		                <tbody>
 		                	<c:forEach items="${_cardsMap}" var="cardsMapId">
 		                		 <tr>
-			                        <td><c:out value="${cardsMapId.value}"/></td>
-			                        <td><c:out value="${cardsMapId.value}"/></td>
-			                        <td><c:out value="${cardsMapId.value}"/></td>
-			                        <td><c:out value="${cardsMapId.value}"/></td>
+			                        <td><c:out value="${cardsMapId.value.cardName}"/></td>
+			                        <td><c:out value="${cardsMapId.value.cardType}"/></td>
+			                        <td><c:out value="${cardsMapId.value.userPhone}"/></td>
+			                        <td><c:out value="${cardsMapId.value.state}"/></td>
 			                        <td>
 			                            <a class="edit" title="Edit" data-toggle="tooltip" href="<c:url value="profile">
 			                            															<c:param name="actionMenu" value="cards"/>
-			                            															<c:param name="cardName" value="${cardsMapId.value}"/>
+			                            															<c:param name="cardName" value="${cardsMapId.value.cardname}"/>
 																									<c:param name="actionCard" value="edit"/>
 																								</c:url>"><i class="material-icons">&#xE254;</i></a>
 			                            <a class="delete" title="Delete" data-toggle="tooltip" href="<c:url value="profile">
 			                            															<c:param name="actionMenu" value="cards"/>
-			                            															<c:param name="cardName" value="${cardsMapId.value}"/>
+			                            															<c:param name="cardName" value="${cardsMapId.value.cardName}"/>
 																									<c:param name="actionCard" value="delete"/>
 																								</c:url>"><i class="material-icons">&#xE872;</i></a>
 			                        </td>

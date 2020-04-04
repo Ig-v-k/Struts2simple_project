@@ -15,4 +15,22 @@ public class Card {
 		this.userPhone = userPhone;
 		this.state = state;
 	}
+
+	public String getCardName() {
+		return cardName;
+	}
+
+	public String getCardType() {
+		return cardType;
+	}
+
+	public String getUserPhone() {
+		return userPhone;
+	}
+
+	public int getState() {
+		return state;
+	}
+	
+	
 }
