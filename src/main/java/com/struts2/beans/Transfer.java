@@ -10,4 +10,18 @@ public class Transfer {
 		this._card = _card;
 		this._user = _user;
 	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public Card get_card() {
+		return _card;
+	}
+
+	public User get_user() {
+		return _user;
+	}
+	
+	
 }

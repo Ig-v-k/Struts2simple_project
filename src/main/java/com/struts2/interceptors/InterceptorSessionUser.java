@@ -4,7 +4,6 @@ import java.util.logging.Logger;
 
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
-import com.opensymphony.xwork2.interceptor.Interceptor;
 import com.struts2.interfaces.ActionsTexts;
 
 public class InterceptorSessionUser extends AbstractInterceptor{

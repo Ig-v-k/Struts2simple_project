@@ -14,4 +14,26 @@ public class Credit {
 		this.date = date;
 		this.firmName = firmName;
 	}
+
+	public Card get_card() {
+		return _card;
+	}
+
+	public User get_user() {
+		return _user;
+	}
+
+	public int getCreditState() {
+		return creditState;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public String getFirmName() {
+		return firmName;
+	}
+	
+	
 }

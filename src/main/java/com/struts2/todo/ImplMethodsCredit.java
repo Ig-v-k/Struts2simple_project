@@ -11,6 +11,8 @@ public class ImplMethodsCredit implements MethodsToDoUserCredit, CustomServletAc
 	
 	@Override
 	public void methodToDoCredit() {
+		LOGGER.info("--- LOGGER: method");
+		my_request.setAttribute("creditsContent", true);
 		my_request.setAttribute("userCreditContent", true);
 	}
 }

@@ -35,14 +35,11 @@
 							 </c:url>">Add</a>
 			      </div>
 			    </div>
-			    <c:if test="${addTransferForm}">
-			    	<h2>ADD TRANSFER FORM!</h2>
-			    </c:if>
 			    <c:if test="${userTransferContent}">
 			    	<c:forEach items="${_transferMap}" var="transferMapId">
 				    	<div class="row">
 						    <div class="col-sm">
-						      <p>${transferMapId.value._card.userName}</p>
+						      <p>${transferMapId.value._card.cardName}</p>
 						    </div>
 						    <div class="col-sm">
 						      <p>${transferMapId.value._user.userName}</p>
@@ -55,6 +52,9 @@
 						    </div>						    
 				    	</div>			    	
 			    	</c:forEach>
+			    </c:if>
+			    <c:if test="${addTransferForm}">
+			    	<h2>ADD TRANSFER FORM!</h2>
 			    </c:if>
 			</div>
 		</c:if>
@@ -78,7 +78,7 @@
 		                        <th>Card Name</th>
 		                        <th>Card Type</th>
 		                        <th>Phone</th>
-		                        <th>Actions</th>
+		                        <th>State</th>
 		                    </tr>
 		                </thead>
 		                <tbody>
@@ -91,7 +91,7 @@
 			                        <td>
 			                            <a class="edit" title="Edit" data-toggle="tooltip" href="<c:url value="profile">
 			                            															<c:param name="actionMenu" value="cards"/>
-			                            															<c:param name="cardName" value="${cardsMapId.value.cardname}"/>
+			                            															<c:param name="cardName" value="${cardsMapId.value.cardName}"/>
 																									<c:param name="actionCard" value="edit"/>
 																								</c:url>"><i class="material-icons">&#xE254;</i></a>
 			                            <a class="delete" title="Delete" data-toggle="tooltip" href="<c:url value="profile">
@@ -211,33 +211,33 @@
 			      <div class="col-sm">
 			        <a href="<c:url value="profile">
 			                 	<c:param name="actionMenu" value="credits"/>
-								<c:param name="actionTransfer" value="add"/>
+								<c:param name="actionCredit" value="add"/>
 							 </c:url>">Add</a>
 			      </div>
 			    </div>
-			    <c:if test="${addCreditForm}">
-			    	<h2>ADD CREDIT FORM!</h2>
-			    </c:if>
 			    <c:if test="${userCreditContent}">
 			    	<c:forEach items="${_creditMap}" var="creditMapId">
-				    	<div calss="row">
+				    	<div class="row">
 						    <div class="col-sm">
-						      <p>${creditMapId.value._card.userName}</p>
+						      <p>${creditMapId.value._card.cardName}</p>
 						    </div>
 						    <div class="col-sm">
 						      <p>${creditMapId.value._user.userName}</p>
 						    </div>
 						    <div class="col-sm">
-						      <p>${creditMapId.value.date}</p>
+						      <p>${creditMapId.value.creditState}</p>
 						    </div>
 						    <div class="col-sm">
-						      <p>${creditMapId.value.creditState}</p>
+						      <p>${creditMapId.value.date}</p>
 						    </div>
 						    <div class="col-sm">
 						      <p>${creditMapId.value.firmName}</p>
 						    </div>						    
 				    	</div>			    	
 			    	</c:forEach>
+			    </c:if>
+			    <c:if test="${addCreditForm}">
+			    	<h2>ADD CREDIT FORM!</h2>
 			    </c:if>
 			</div>
 		</c:if>

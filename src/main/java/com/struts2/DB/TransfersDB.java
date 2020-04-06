@@ -16,11 +16,11 @@ public class TransfersDB {
 		Date date = new Date();
 		
 		_initTransfersMap.put("a", new Transfer(date.toString(),
-				 						new CardsDB().returnMapCard().get("a"), 
+										CardsDB.returnMapCard().get("a"), 
 				 						new UsersDB().returnMapUsers("user").get("userqwe")));
 	}
 	
-	public Map<String, Transfer> returnMapTransfer() {
-		return this._initTransfersMap;
+	public static Map<String, Transfer> returnMapTransfer() {
+		return _initTransfersMap;
 	}
 }

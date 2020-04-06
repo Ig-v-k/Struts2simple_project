@@ -8,7 +8,7 @@ import com.struts2.interfaces.CustomServletActionContext;
 import com.struts2.interfaces.MethodsToDoUserCredit;
 
 public class CreditAttributes extends CreditDecorator implements CustomServletActionContext{
-	private static final Map<String, Credit> _creditsMap = new CreditsDB().returnMapTransfer();
+	private static final Map<String, Credit> _creditsMap = CreditsDB.returnMapCredits();
 	
 	public CreditAttributes(MethodsToDoUserCredit methodsToDoUserCredit) {
 		super(methodsToDoUserCredit);
@@ -21,6 +21,6 @@ public class CreditAttributes extends CreditDecorator implements CustomServletAc
 	}
 	
 	private void MaptoAttribute() {
-		my_request.setAttribute("_transferMap", this._creditsMap);
+		my_request.setAttribute("_creditMap", _creditsMap);
 	}
 }

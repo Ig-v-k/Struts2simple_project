@@ -15,14 +15,14 @@ public class CreditsDB {
 	private static void initMap() {
 		Date date = new Date();
 		
-		_initCreditsMap.put("a", new Credit(new CardsDB().returnMapCard().get("a"),
+		_initCreditsMap.put("a", new Credit(CardsDB.returnMapCard().get("a"),
 									new UsersDB().returnMapUsers("user").get("userqwe"),
 									0,
 									date.toString(),
 									"Bank SAKOP"));
 	}
 	
-	public Map<String, Credit> returnMapTransfer() {
-		return this._initCreditsMap;
+	public static Map<String, Credit> returnMapCredits() {
+		return _initCreditsMap;
 	}
 }

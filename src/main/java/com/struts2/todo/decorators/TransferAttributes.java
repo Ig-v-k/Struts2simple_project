@@ -8,7 +8,7 @@ import com.struts2.interfaces.CustomServletActionContext;
 import com.struts2.interfaces.MethodsToDoUserTransfer;
 
 public class TransferAttributes extends TransferDecorator implements CustomServletActionContext{
-	private static final Map<String, Transfer> _transferMap = new TransfersDB().returnMapTransfer();
+	private static final Map<String, Transfer> _transferMap = TransfersDB.returnMapTransfer();
 	
 	public TransferAttributes(MethodsToDoUserTransfer methodsToDoUserTransfer) {
 		super(methodsToDoUserTransfer);
@@ -21,6 +21,6 @@ public class TransferAttributes extends TransferDecorator implements CustomServl
 	}
 	
 	private void MaptoAttribute() {
-		my_request.setAttribute("_transferMap", this._transferMap);
+		my_request.setAttribute("_transferMap", _transferMap);
 	}
 }

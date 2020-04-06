@@ -20,12 +20,14 @@ import com.struts2.todo.decorators.TransferAttributes;
 import com.struts2.todo.decorators.TransferDecorator;
 
 public class ProfileControllerAction extends ActionSupport implements CustomServletActionContext{
-    private static final Logger LOGGER = Logger.getLogger(LoginControllerAction.class.getName());
+    @SuppressWarnings("unused")
+	private static final Logger LOGGER = Logger.getLogger(LoginControllerAction.class.getName());
 	private static final long serialVersionUID = 1L;
 	
 	public String basic() {
 		my_request.setAttribute("menuInstruments", true);
 		if (my_request.getParameter("actionMenu") != null) {
+			LOGGER.info("--- LOGGER: if() - statment \n" + my_request.getParameter("actionMenu"));
 			this.basicProfile_Menu();
 			return ActionsTexts.SUCCESS;
 		}
@@ -35,21 +37,28 @@ public class ProfileControllerAction extends ActionSupport implements CustomServ
 	}
 	
 	private void basicProfile_Menu() {
+		LOGGER.info("--- LOGGER: method");
 		switch (my_request.getParameter("actionMenu")) {
 		case "cards":
-			this.basicProfile_Card();
+			this.basicProfile_Cards();
+			break;
 		case "transfers":
 			this.basicProfile_Transfers();			
+			break;
 		case "credits":
 			this.basicProfile_Credits();
+			break;
 		case "settings":
 			this.basicProfile_Settings();
+			break;
 		case "contacts":
 			this.basicProfile_Contacts();			
+			break;
 		}
 	}
 	
-	private void basicProfile_Card() {
+	private void basicProfile_Cards() {
+		LOGGER.info("--- LOGGER: method" + "\n" + my_request.getParameter("actionCard"));
 		if(my_request.getParameter("actionCard") != null) {
 			if(my_request.getParameter("actionCard").equals("add"))
 				my_request.setAttribute("addFormCard", true);
@@ -64,39 +73,40 @@ public class ProfileControllerAction extends ActionSupport implements CustomServ
 			new CardParameter(
 					new CardDecorator(
 							new ImplMethodsCard())).TextAction();
-		my_request.setAttribute("cardContent", true);
 	}
 	
 	private void basicProfile_Transfers() {
+		LOGGER.info("--- LOGGER: method" + "\n" + my_request.getParameter("actionTransfer"));
 		if(my_request.getParameter("actionTransfer") != null)
 			if(my_request.getAttribute("actionTransfer").equals("add"))
 				my_request.setAttribute("addTransferForm", true);
-		else
-			new TransferAttributes(
-					new TransferDecorator(
-							new ImplMethodsTransfer())).methodToDoTransfer();
+		new TransferAttributes(
+				new TransferDecorator(
+						new ImplMethodsTransfer())).methodToDoTransfer();
 	}
 	
 	private void basicProfile_Credits() {
+		LOGGER.info("--- LOGGER: method" + "\n" + my_request.getParameter("actionCredit"));
+		if(my_request.getParameter("actionCredit") != null)
+			if(my_request.getAttribute("actionCredit").equals("add"))
+				my_request.setAttribute("addCreditForm", true);
+		new CreditAttributes(
+				new CreditDecorator(
+						new ImplMethodsCredit())).methodToDoCredit();
+	}
+
+	private void basicProfile_Settings() {
+		LOGGER.info("--- LOGGER: method");
 		if(my_request.getParameter("actionCredit") != null)
 			if(my_request.getAttribute("actionTransfer").equals("add"))
 				my_request.setAttribute("addTransferForm", true);
 		else
-			new CreditAttributes(
-					new CreditDecorator(
-							new ImplMethodsCredit())).methodToDoCredit();
-	}
-
-	private void basicProfile_Settings() {
-//		if(my_request.getParameter("actionCredit") != null)
-//			if(my_request.getAttribute("actionTransfer").equals("add"))
-//				my_request.setAttribute("addTransferForm", true);
-//		else
-		new SettingDecorator(
-				new ImplMethodsSetting()).methodToDoSetting();
+			new SettingDecorator(
+					new ImplMethodsSetting()).methodToDoSetting();
 	}
 	
 	private void basicProfile_Contacts() {
+		LOGGER.info("--- LOGGER: method");
 		new ContactDecorator(
 				new ImplMethodsContact()).methodToDoContact();
 	}

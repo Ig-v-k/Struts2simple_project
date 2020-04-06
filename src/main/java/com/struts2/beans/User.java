@@ -23,10 +23,10 @@ public class User {
 		return false;
 	}
 	
-	public String getUsername() {
+	public String getUserName() {
 		return this.userName;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "[" + this.userName + ":" + this.password + ":" + this.userRole + "]";

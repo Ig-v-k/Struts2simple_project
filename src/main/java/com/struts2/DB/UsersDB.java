@@ -23,9 +23,9 @@ public class UsersDB implements MethodsToDoUserDatabase{
 		User userEMPLOYEE = new User("employeeqwe", "employee123", UserRole.EMPLOYEE.toString());
 		User userUSERS = new User("userqwe", "user123", UserRole.USER.toString());
 		
-		mapADMIN.put(userADMIN.getUsername(), userADMIN);
-		mapEMPLOYEE.put(userEMPLOYEE.getUsername(), userEMPLOYEE);
-		mapUSER.put(userUSERS.getUsername(), userUSERS);
+		mapADMIN.put(userADMIN.getUserName(), userADMIN);
+		mapEMPLOYEE.put(userEMPLOYEE.getUserName(), userEMPLOYEE);
+		mapUSER.put(userUSERS.getUserName(), userUSERS);
 		
 		dbUSERS.put(UserRole.ADMIN.toString().toLowerCase(), mapADMIN);
 		dbUSERS.put(UserRole.EMPLOYEE.toString().toLowerCase(), mapEMPLOYEE);

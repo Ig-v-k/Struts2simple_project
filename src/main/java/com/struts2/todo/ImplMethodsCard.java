@@ -10,8 +10,9 @@ import com.struts2.interfaces.CustomServletActionContext;
 import com.struts2.interfaces.MethodsToDoUserCard;
 
 public class ImplMethodsCard implements MethodsToDoUserCard, CustomServletActionContext{
+	@SuppressWarnings("unused")
 	private static final Logger LOGGER = Logger.getLogger(LoginControllerAction.class.getName());
-	private static final Map<String, Card> _cardsMap = new CardsDB().returnMapCard();
+	private static final Map<String, Card> _cardsMap = CardsDB.returnMapCard();
 	private String cardName = "";
 	private boolean delete = false;
 	
@@ -27,5 +28,6 @@ public class ImplMethodsCard implements MethodsToDoUserCard, CustomServletAction
 		if(this.delete)
 			ImplMethodsCard._cardsMap.remove(this.cardName);
 		my_request.setAttribute("_cardsMap", ImplMethodsCard._cardsMap);
+		my_request.setAttribute("cardContent", true);
 	}
 }

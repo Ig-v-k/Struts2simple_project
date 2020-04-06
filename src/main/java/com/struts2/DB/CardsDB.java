@@ -15,7 +15,7 @@ public class CardsDB {
 		_initCardsMap.put("a", new Card("a", "b", "c", 23));
 	}
 	
-	public Map<String, Card> returnMapCard() {
-		return this._initCardsMap;
+	public static Map<String, Card> returnMapCard() {
+		return _initCardsMap;
 	}
 }
