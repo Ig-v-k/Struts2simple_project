@@ -1,8 +1,11 @@
 package com.struts2.action;
 
+import java.util.Map;
 import java.util.logging.Logger;
 
 import com.opensymphony.xwork2.ActionSupport;
+import com.struts2.DB.CardsDB;
+import com.struts2.beans.Card;
 import com.struts2.interfaces.ActionsTexts;
 import com.struts2.interfaces.CustomServletActionContext;
 import com.struts2.todo.ImplMethodsCard;
@@ -20,8 +23,8 @@ import com.struts2.todo.decorators.TransferAttributes;
 import com.struts2.todo.decorators.TransferDecorator;
 
 public class ProfileControllerAction extends ActionSupport implements CustomServletActionContext{
-    @SuppressWarnings("unused")
 	private static final Logger LOGGER = Logger.getLogger(LoginControllerAction.class.getName());
+	private static final Map<String, Card> _cardsMap = CardsDB.returnMapCard();
 	private static final long serialVersionUID = 1L;
 	
 	public String basic() {
@@ -60,19 +63,33 @@ public class ProfileControllerAction extends ActionSupport implements CustomServ
 	private void basicProfile_Cards() {
 		LOGGER.info("--- LOGGER: method" + "\n" + my_request.getParameter("actionCard"));
 		if(my_request.getParameter("actionCard") != null) {
-			if(my_request.getParameter("actionCard").equals("add"))
+			if(my_request.getParameter("actionCard").equals("add")) {
 				my_request.setAttribute("addFormCard", true);
-			if(my_request.getParameter("actionCard").equals("edit"))
+				new CardParameter(
+						new CardDecorator(
+								new ImplMethodsCard()), 
+						ProfileControllerAction._cardsMap).methodToDoCard();
+			}
+			if(my_request.getParameter("actionCard").equals("edit")) {
 				my_request.setAttribute("editFormCard", true);
+				new CardParameter(
+						new CardDecorator(
+								new ImplMethodsCard()), 
+						ProfileControllerAction._cardsMap).methodToDoCard();
+			}
 			if(my_request.getParameter("actionCard").equals("delete"))
 				new CardParameter(
 						new CardDecorator(
-								new ImplMethodsCard(my_request.getParameter("cardName") == null ? "" : my_request.getParameter("cardName"), true))).TextAction();
-		}
+								new ImplMethodsCard()), 
+						my_request.getParameter("cardName") == null ? "" : my_request.getParameter("cardName"), 
+						true, 
+						ProfileControllerAction._cardsMap).methodToDoCard();
+		} 
 		else
 			new CardParameter(
 					new CardDecorator(
-							new ImplMethodsCard())).TextAction();
+							new ImplMethodsCard()), 
+					ProfileControllerAction._cardsMap).methodToDoCard();
 	}
 	
 	private void basicProfile_Transfers() {
@@ -100,9 +117,8 @@ public class ProfileControllerAction extends ActionSupport implements CustomServ
 		if(my_request.getParameter("actionCredit") != null)
 			if(my_request.getAttribute("actionTransfer").equals("add"))
 				my_request.setAttribute("addTransferForm", true);
-		else
-			new SettingDecorator(
-					new ImplMethodsSetting()).methodToDoSetting();
+		new SettingDecorator(
+				new ImplMethodsSetting()).methodToDoSetting();
 	}
 	
 	private void basicProfile_Contacts() {
