@@ -49,8 +49,8 @@
 						    </div>
 						    <div class="col-sm">
 						      <p>${transferMapId.value._card.state}</p>
-						    </div>						    
-				    	</div>			    	
+						    </div>
+				    	</div>
 			    	</c:forEach>
 			    </c:if>
 			    <c:if test="${addTransferForm}">

@@ -13,6 +13,5 @@ public class ImplMethodsTransfer implements MethodsToDoUserTransfer, CustomServl
 	@Override
 	public void methodToDoTransfer() {
 		my_request.setAttribute("transferContent", true);
-		my_request.setAttribute("userTransferContent", true);
 	}
 }

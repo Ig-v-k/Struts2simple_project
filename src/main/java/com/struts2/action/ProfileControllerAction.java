@@ -20,6 +20,7 @@ import com.struts2.todo.decorators.CreditAttributes;
 import com.struts2.todo.decorators.CreditDecorator;
 import com.struts2.todo.decorators.SettingDecorator;
 import com.struts2.todo.decorators.TransferAttributes;
+import com.struts2.todo.decorators.TransferFormContent;
 import com.struts2.todo.decorators.TransferDecorator;
 
 public class ProfileControllerAction extends ActionSupport implements CustomServletActionContext{
@@ -67,20 +68,20 @@ public class ProfileControllerAction extends ActionSupport implements CustomServ
 				my_request.setAttribute("addFormCard", true);
 				new CardParameter(
 						new CardDecorator(
-								new ImplMethodsCard()), 
+								new ImplMethodsCard()),
 						ProfileControllerAction._cardsMap).methodToDoCard();
 			}
 			if(my_request.getParameter("actionCard").equals("edit")) {
 				my_request.setAttribute("editFormCard", true);
 				new CardParameter(
 						new CardDecorator(
-								new ImplMethodsCard()), 
+								new ImplMethodsCard()),
 						ProfileControllerAction._cardsMap).methodToDoCard();
 			}
 			if(my_request.getParameter("actionCard").equals("delete"))
 				new CardParameter(
 						new CardDecorator(
-								new ImplMethodsCard()), 
+								new ImplMethodsCard()),
 						my_request.getParameter("cardName") == null ? "" : my_request.getParameter("cardName"), 
 						true, 
 						ProfileControllerAction._cardsMap).methodToDoCard();
@@ -93,13 +94,10 @@ public class ProfileControllerAction extends ActionSupport implements CustomServ
 	}
 	
 	private void basicProfile_Transfers() {
-		LOGGER.info("--- LOGGER: method" + "\n" + my_request.getParameter("actionTransfer"));
-		if(my_request.getParameter("actionTransfer") != null)
-			if(my_request.getAttribute("actionTransfer").equals("add"))
-				my_request.setAttribute("addTransferForm", true);
-		new TransferAttributes(
-				new TransferDecorator(
-						new ImplMethodsTransfer())).methodToDoTransfer();
+		new TransferFormContent(
+				new TransferAttributes(
+						new TransferDecorator(
+								new ImplMethodsTransfer()))).methodToDoTransfer();
 	}
 	
 	private void basicProfile_Credits() {

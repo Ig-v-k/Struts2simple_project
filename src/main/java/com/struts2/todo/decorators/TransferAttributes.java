@@ -21,6 +21,7 @@ public class TransferAttributes extends TransferDecorator implements CustomServl
 	}
 	
 	private void MaptoAttribute() {
+		my_request.setAttribute("userTransferContent", true);
 		my_request.setAttribute("_transferMap", _transferMap);
 	}
 }
