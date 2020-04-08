@@ -8,19 +8,20 @@ import com.struts2.todo.ClassValidateUserIn;
 
 public class TransferFormContent extends TransferDecorator implements CustomServletActionContext{
 	private static final Logger LOGGER = Logger.getLogger(ClassValidateUserIn.class.getName());
+	
 	public TransferFormContent(MethodsToDoUserTransfer methodsToDoUserTransfer) {
 		super(methodsToDoUserTransfer);
 	}
 	
 	@Override
 	public void methodToDoTransfer() {
-		if(my_request.getParameter("actionTransfer") != null)
-			this.FormToAttribute();
+		this.formToAttribute();
 		super.methodToDoTransfer();
 	}
 	
-	private void FormToAttribute() {
-		if(my_request.getAttribute("actionTransfer").equals("add"))
-			my_request.setAttribute("addTransferForm", true);
+	private void formToAttribute() {
+		if(my_request.getParameter("actionTransfer") != null)
+			if(my_request.getParameter("actionTransfer").equals("add"))
+				my_request.setAttribute("addTransferForm", true);
 	}
 }
