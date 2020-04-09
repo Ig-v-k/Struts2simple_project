@@ -22,20 +22,7 @@
 
 	    <form id="form_login" class="card card-block bg-faded" action="login_POST" method="post">
 			  <legend class="m-b-1 text-xs-center">Sign up</legend>
-			
-<!-- 			  <div class="form-group input-group" align="center">
-			    <span class="has-float-label">
-			    	<label for="first">First</label>
-			    	<input class="form-control" id="first" type="text" placeholder="Name"/>
-			    </span>
-			    <label class="has-float-label">
-			      <input class="form-control" type="text" placeholder="Surname"/>
-			      <span>Last</span>
-			    </label>
-			  </div> -->
-			
 			  <div class="form-group input-group" align="center">
-<!-- 				    <span class="input-group-addon">@</span> -->
 			    <label class="has-float-label">
 			    	<span>User Name</span>
 			    	<input name="username" class="form-control" placeholder="email@example.com"/>
@@ -46,24 +33,6 @@
 				  	<label for="password">Password</label>
 				    <input name="password" class="form-control" id="password" type="password" placeholder="••••••••"/>
 			  </div>
-			
-<!-- 			  <label class="form-group has-float-label">
-			    <select class="form-control custom-select">
-			      <option selected>United States</option>
-			      <option>Canada</option>
-			      <option>...</option>
-			    </select>
-			    <span>Country</span>
-			  </label> -->
-			
-<!-- 				  <div class="form-group">
-				    <label class="custom-control custom-checkbox">
-				      <input class="custom-control-input" type="checkbox"/>
-				      <span class="custom-control-indicator"></span>
-				      <span class="custom-control-description">Subscribe to newsletter</span>
-				    </label>
-				  </div> -->
-			  
 			  <div>
 			        <input type="radio" name="role" value="admin">
 					<label for="male">Admin</label><br>
@@ -76,8 +45,6 @@
 			  <button class="btn btn-block btn-primary" type="submit" >Sign up</button>
 		</form>
 	    
-
-		
 		<!---->
 		
 		<a href="https://github.com/tonystar/bootstrap-float-label" target="_blank">

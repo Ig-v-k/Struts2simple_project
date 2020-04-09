@@ -16,8 +16,6 @@ public class ImplMethodsCard implements MethodsToDoUserCard, CustomServletAction
 		try {
 			if(my_request.getParameter("actionCard") != null) {
 				switch (my_request.getParameter("actionCard")) {
-				case "add":
-					dbCards.addCardFormDB();
 				case "delete":
 					dbCards.deleteCardFromDB(userName, my_request.getParameter("cardName"));
 					break;

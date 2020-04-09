@@ -67,7 +67,7 @@
 		                    <div class="col-sm-4">
 		                        <a href="<c:url value="profile">
 			                            	<c:param name="actionMenu" value="cards"/>
-											<c:param name="actionCardForm" value="add"/>
+											<c:param name="actionCardContent" value="content"/>
 										 </c:url>">Add</a>
 		                    </div>
 		                </div>
@@ -92,7 +92,7 @@
 			                            <a class="edit" title="Edit" data-toggle="tooltip" href="<c:url value="profile">
 			                            															<c:param name="actionMenu" value="cards"/>
 			                            															<c:param name="cardName" value="${cardsMapId.value.cardName}"/>
-																									<c:param name="actionCardForm" value="edit"/>
+																									<c:param name="actionCardContent" value="edit"/>
 																								</c:url>"><i class="material-icons">&#xE254;</i></a>
 			                            <a class="delete" title="Delete" data-toggle="tooltip" href="<c:url value="profile">
 			                            															<c:param name="actionMenu" value="cards"/>
@@ -104,104 +104,146 @@
 		                	</c:forEach>
 		                </tbody>
 		            </table>
-		            <c:if test="${addFormCard}">
-		                <h1>Add card</h1>
-		                <form action="">
-						  <div class="form-row">
-						    <div class="form-group col-md-6">
-						      <label for="inputEmail4">Email</label>
-						      <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-						    </div>
-						    <div class="form-group col-md-6">
-						      <label for="inputPassword4">Password</label>
-						      <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
-						    </div>
-						  </div>
-						  <div class="form-group">
-						    <label for="inputAddress">Address</label>
-						    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-						  </div>
-						  <div class="form-group">
-						    <label for="inputAddress2">Address 2</label>
-						    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-						  </div>
-						  <div class="form-row">
-						    <div class="form-group col-md-6">
-						      <label for="inputCity">City</label>
-						      <input type="text" class="form-control" id="inputCity">
-						    </div>
-						    <div class="form-group col-md-4">
-						      <label for="inputState">State</label>
-						      <select id="inputState" class="form-control">
-						        <option selected>Choose...</option>
-						        <option>...</option>
-						      </select>
-						    </div>
-						    <div class="form-group col-md-2">
-						      <label for="inputZip">Zip</label>
-						      <input type="text" class="form-control" id="inputZip">
-						    </div>
-						  </div>
-						  <div class="form-group">
-						    <div class="form-check">
-						      <input class="form-check-input" type="checkbox" id="gridCheck">
-						      <label class="form-check-label" for="gridCheck">
-						        Check me out
-						      </label>
-						    </div>
-						  </div>
-						  <button type="submit" class="btn btn-primary">Add</button>
-						</form>
-		            </c:if>
-		         	<c:if test="${editFormCard}">
-		                <h1>Edit card</h1>
-		                <form action="">
-						  <div class="form-row">
-						    <div class="form-group col-md-6">
-						      <label for="inputEmail4">Email</label>
-						      <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-						    </div>
-						    <div class="form-group col-md-6">
-						      <label for="inputPassword4">Password</label>
-						      <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
-						    </div>
-						  </div>
-						  <div class="form-group">
-						    <label for="inputAddress">Address</label>
-						    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-						  </div>
-						  <div class="form-group">
-						    <label for="inputAddress2">Address 2</label>
-						    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-						  </div>
-						  <div class="form-row">
-						    <div class="form-group col-md-6">
-						      <label for="inputCity">City</label>
-						      <input type="text" class="form-control" id="inputCity">
-						    </div>
-						    <div class="form-group col-md-4">
-						      <label for="inputState">State</label>
-						      <select id="inputState" class="form-control">
-						        <option selected>Choose...</option>
-						        <option>...</option>
-						      </select>
-						    </div>
-						    <div class="form-group col-md-2">
-						      <label for="inputZip">Zip</label>
-						      <input type="text" class="form-control" id="inputZip">
-						    </div>
-						  </div>
-						  <div class="form-group">
-						    <div class="form-check">
-						      <input class="form-check-input" type="checkbox" id="gridCheck">
-						      <label class="form-check-label" for="gridCheck">
-						        Check me out
-						      </label>
-						    </div>
-						  </div>
-						  <button type="submit" class="btn btn-primary">Edit</button>
-						</form>
-		            </c:if>
+		            <c:if test="${addFormCardContent}">
+		            	<br>
+		            	<hr>
+		            	<h3>Type of card card</h3>
+						<div align="center">
+							<div class="form-group">
+							    <div class="form-check">
+							      <input class="form-check-input" type="checkbox" id="gridCheck">
+							      <label class="form-check-label" for="gridCheck">
+							        Check me out
+							      </label>
+							    </div>
+							</div>
+							<a href="<c:url value="profile">
+										<c:param name="actionMenu" value="transfers"/>
+									 </c:url>">Discount</a>&emsp;
+							<a href="<c:url value="profile">
+										<c:param name="actionMenu" value="transfers"/>
+									 </c:url>">Insurable</a>&emsp;									 
+							<a href="<c:url value="profile">
+										<c:param name="actionMenu" value="transfers"/>
+									 </c:url>">Promotional</a>&emsp;									 
+							<a href="<c:url value="profile">
+										<c:param name="actionMenu" value="transfers"/>
+									 </c:url>">Club</a>&emsp;									 
+							<a href="<c:url value="profile">
+										<c:param name="actionMenu" value="transfers"/>
+									 </c:url>">Identification</a>&emsp;									 
+							<a href="<c:url value="profile">
+										<c:param name="actionMenu" value="transfers"/>
+									 </c:url>">Payment</a>&emsp;									 
+							<a href="<c:url value="profile">
+										<c:param name="actionMenu" value="transfers"/>
+									 </c:url>">Gift</a>&emsp;									 
+							<a href="<c:url value="profile">
+										<c:param name="actionMenu" value="transfers"/>
+									 </c:url>">Vcards and calendars</a>&emsp;								 
+							<a href="<c:url value="profile">
+										<c:param name="actionMenu" value="transfers"/>
+									 </c:url>">Fuel</a>&emsp;										 
+						</div>
+						<c:if test="${addFormCard}">
+			                <h1>Add card</h1>
+			                <form action="">
+							  <div class="form-row">
+							    <div class="form-group col-md-6">
+							      <label for="inputEmail4">Card Name</label>
+							      <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+							    </div>
+							    <div class="form-group col-md-6">
+							      <label for="inputPassword4">Password</label>
+							      <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+							    </div>
+							  </div>
+							  <div class="form-group">
+							    <label for="inputAddress">Address</label>
+							    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+							  </div>
+							  <div class="form-group">
+							    <label for="inputAddress2">Address 2</label>
+							    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+							  </div>
+							  <div class="form-row">
+							    <div class="form-group col-md-6">
+							      <label for="inputCity">City</label>
+							      <input type="text" class="form-control" id="inputCity">
+							    </div>
+							    <div class="form-group col-md-4">
+							      <label for="inputState">State</label>
+							      <select id="inputState" class="form-control">
+							        <option selected>Choose...</option>
+							        <option>...</option>
+							      </select>
+							    </div>
+							    <div class="form-group col-md-2">
+							      <label for="inputZip">Zip</label>
+							      <input type="text" class="form-control" id="inputZip">
+							    </div>
+							  </div>
+							  <div class="form-group">
+							    <div class="form-check">
+							      <input class="form-check-input" type="checkbox" id="gridCheck">
+							      <label class="form-check-label" for="gridCheck">
+							        Check me out
+							      </label>
+							    </div>
+							  </div>
+							  <button type="submit" class="btn btn-primary">Add</button>
+							</form>
+		            	</c:if>
+			         	<c:if test="${editFormCard}">
+			                <h1>Edit card</h1>
+			                <form action="">
+							  <div class="form-row">
+							    <div class="form-group col-md-6">
+							      <label for="inputEmail4">Email</label>
+							      <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+							    </div>
+							    <div class="form-group col-md-6">
+							      <label for="inputPassword4">Password</label>
+							      <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+							    </div>
+							  </div>
+							  <div class="form-group">
+							    <label for="inputAddress">Address</label>
+							    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+							  </div>
+							  <div class="form-group">
+							    <label for="inputAddress2">Address 2</label>
+							    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+							  </div>
+							  <div class="form-row">
+							    <div class="form-group col-md-6">
+							      <label for="inputCity">City</label>
+							      <input type="text" class="form-control" id="inputCity">
+							    </div>
+							    <div class="form-group col-md-4">
+							      <label for="inputState">State</label>
+							      <select id="inputState" class="form-control">
+							        <option selected>Choose...</option>
+							        <option>...</option>
+							      </select>
+							    </div>
+							    <div class="form-group col-md-2">
+							      <label for="inputZip">Zip</label>
+							      <input type="text" class="form-control" id="inputZip">
+							    </div>
+							  </div>
+							  <div class="form-group">
+							    <div class="form-check">
+							      <input class="form-check-input" type="checkbox" id="gridCheck">
+							      <label class="form-check-label" for="gridCheck">
+							        Check me out
+							      </label>
+							    </div>
+							  </div>
+							  <button type="submit" class="btn btn-primary">Edit</button>
+							</form>
+			            </c:if>
+			         </c:if>
 		        </div>
 		    </div>
 		</c:if>
