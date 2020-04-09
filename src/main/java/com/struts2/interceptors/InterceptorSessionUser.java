@@ -8,7 +8,7 @@ import com.struts2.interfaces.ActionsTexts;
 
 public class InterceptorSessionUser extends AbstractInterceptor{
 	private static final long serialVersionUID = 1L;
-    private static final Logger LOGGER = Logger.getLogger(CheckLogInUserInterceptor.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(InterceptorSessionUser.class.getName());
 	
 	@Override
 	public void init() {

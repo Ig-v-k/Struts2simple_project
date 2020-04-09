@@ -67,7 +67,7 @@
 		                    <div class="col-sm-4">
 		                        <a href="<c:url value="profile">
 			                            	<c:param name="actionMenu" value="cards"/>
-											<c:param name="actionCard" value="add"/>
+											<c:param name="actionCardForm" value="add"/>
 										 </c:url>">Add</a>
 		                    </div>
 		                </div>
@@ -92,7 +92,7 @@
 			                            <a class="edit" title="Edit" data-toggle="tooltip" href="<c:url value="profile">
 			                            															<c:param name="actionMenu" value="cards"/>
 			                            															<c:param name="cardName" value="${cardsMapId.value.cardName}"/>
-																									<c:param name="actionCard" value="edit"/>
+																									<c:param name="actionCardForm" value="edit"/>
 																								</c:url>"><i class="material-icons">&#xE254;</i></a>
 			                            <a class="delete" title="Delete" data-toggle="tooltip" href="<c:url value="profile">
 			                            															<c:param name="actionMenu" value="cards"/>

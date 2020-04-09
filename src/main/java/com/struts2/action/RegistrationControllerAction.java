@@ -8,13 +8,13 @@ import org.apache.struts2.convention.annotation.Namespace;
 import com.opensymphony.xwork2.ActionSupport;
 import com.struts2.interfaces.ActionsTexts;
 import com.struts2.todo.ImplMethodsRegistration;
+import com.struts2.todo.RegistrationUserToSession;
 import com.struts2.todo.decorators.RegistrationDecorator;
-import com.struts2.todo.decorators.RegistrationUserToSession;
 
 @Namespace(value="/")
 public class RegistrationControllerAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
-    private static final Logger LOGGER = Logger.getLogger(LoginControllerAction.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(RegistrationControllerAction.class.getName());
 	private String username, password, passwordR, role;
 	
 	// -----------------------------------------------------------------

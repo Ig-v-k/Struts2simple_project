@@ -10,7 +10,7 @@ public class CardDecorator implements MethodsToDoUserCard{
 	}
 	
 	@Override
-	public void methodToDoCard() {
-		this.methodsToDoUserCard.methodToDoCard();
+	public void methodToDoCard(final String userName) {
+		this.methodsToDoUserCard.methodToDoCard(userName);
 	}
 }

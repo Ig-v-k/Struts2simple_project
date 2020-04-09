@@ -2,44 +2,25 @@ package com.struts2.todo;
 
 import java.util.logging.Logger;
 
-import javax.servlet.http.HttpSession;
-
-import com.struts2.action.LoginControllerAction;
-import com.struts2.beans.User;
+import com.struts2.DB.UsersDB;
+import com.struts2.interfaces.CustomServletActionContext;
 import com.struts2.interfaces.MethodsToDoUserLogin;
 
-public class ImplMethodsLogin implements MethodsToDoUserLogin{
-	private static final Logger LOGGER = Logger.getLogger(LoginControllerAction.class.getName());
-	private String userRole = "";
-	private User user = new User();
-	private HttpSession session;
+public class ImplMethodsLogin implements MethodsToDoUserLogin, CustomServletActionContext{
+	private static final Logger LOGGER = Logger.getLogger(ImplMethodsLogin.class.getName());
+	private final UsersDB db = new UsersDB();
 	
-	public ImplMethodsLogin(final String userRole) {
-		this.userRole = userRole;
-		new ClassInitDB();
-	}
-	
-	public ImplMethodsLogin(final HttpSession session, final String userRole) {
-		this.session = session;
-		this.userRole = userRole;
-		new ClassInitDB();
-	}
-
-	
-	/*
-	 * main
-	 */
 	@Override
-	public boolean descent(final String username, final String password) {
-		this.user = ClassInitDB.getRepositoryUsers().returnMapUsers(this.userRole).get(username);
-		return this.user == null ? 
-				false : user.equals_PU(username, password) ? 
-						this.toSetInSession(user, username) : false;
+	public boolean descent(final String userRole, final String userName, final String password) {
+		if(db.verifiUnmPwd(userRole, userName, password)) {
+			LOGGER.info("--- LOGGER: my_session.isNew() ---> " + my_session.isNew());
+			if(!my_session.isNew()) {
+				my_session.setAttribute("USER", db.getUser(userRole, userName).getUserName());
+				my_session.setAttribute("labelLogin_Register", true);
+				my_session.setAttribute("logined_registeredUSER", true);
+			}
+			return true;
+		}
+		return false;
 	}
-	
-	private boolean toSetInSession(final User user, final String username) {
-		this.session.setAttribute("USER", username);
-		return true;
-	}
-	
 }

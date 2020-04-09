@@ -1,31 +1,26 @@
 package com.struts2.action;
 
-import java.util.Map;
 import java.util.logging.Logger;
 
 import com.opensymphony.xwork2.ActionSupport;
-import com.struts2.DB.CardsDB;
-import com.struts2.beans.Card;
 import com.struts2.interfaces.ActionsTexts;
 import com.struts2.interfaces.CustomServletActionContext;
+import com.struts2.todo.CardAttributeForm;
+import com.struts2.todo.CreditAttributes;
 import com.struts2.todo.ImplMethodsCard;
 import com.struts2.todo.ImplMethodsContact;
 import com.struts2.todo.ImplMethodsCredit;
 import com.struts2.todo.ImplMethodsSetting;
 import com.struts2.todo.ImplMethodsTransfer;
+import com.struts2.todo.TransferFormContent;
 import com.struts2.todo.decorators.CardDecorator;
-import com.struts2.todo.decorators.CardParameter;
 import com.struts2.todo.decorators.ContactDecorator;
-import com.struts2.todo.decorators.CreditAttributes;
 import com.struts2.todo.decorators.CreditDecorator;
 import com.struts2.todo.decorators.SettingDecorator;
-import com.struts2.todo.decorators.TransferAttributes;
-import com.struts2.todo.decorators.TransferFormContent;
 import com.struts2.todo.decorators.TransferDecorator;
 
 public class ProfileControllerAction extends ActionSupport implements CustomServletActionContext{
-	private static final Logger LOGGER = Logger.getLogger(LoginControllerAction.class.getName());
-	private static final Map<String, Card> _cardsMap = CardsDB.returnMapCard();
+	private static final Logger LOGGER = Logger.getLogger(ProfileControllerAction.class.getName());
 	private static final long serialVersionUID = 1L;
 	
 	public String basic() {
@@ -62,42 +57,16 @@ public class ProfileControllerAction extends ActionSupport implements CustomServ
 	}
 	
 	private void basicProfile_Cards() {
-		LOGGER.info("--- LOGGER: method" + "\n" + my_request.getParameter("actionCard"));
-		if(my_request.getParameter("actionCard") != null) {
-			if(my_request.getParameter("actionCard").equals("add")) {
-				my_request.setAttribute("addFormCard", true);
-				new CardParameter(
-						new CardDecorator(
-								new ImplMethodsCard()),
-						ProfileControllerAction._cardsMap).methodToDoCard();
-			}
-			if(my_request.getParameter("actionCard").equals("edit")) {
-				my_request.setAttribute("editFormCard", true);
-				new CardParameter(
-						new CardDecorator(
-								new ImplMethodsCard()),
-						ProfileControllerAction._cardsMap).methodToDoCard();
-			}
-			if(my_request.getParameter("actionCard").equals("delete"))
-				new CardParameter(
-						new CardDecorator(
-								new ImplMethodsCard()),
-						my_request.getParameter("cardName") == null ? "" : my_request.getParameter("cardName"), 
-						true, 
-						ProfileControllerAction._cardsMap).methodToDoCard();
-		} 
-		else
-			new CardParameter(
-					new CardDecorator(
-							new ImplMethodsCard()), 
-					ProfileControllerAction._cardsMap).methodToDoCard();
+		new CardAttributeForm(
+				new CardDecorator(
+						new ImplMethodsCard())).methodToDoCard((String)my_session.getAttribute("USER"));
 	}
 	
 	private void basicProfile_Transfers() {
 		new TransferFormContent(
-				new TransferAttributes(
-						new TransferDecorator(
-								new ImplMethodsTransfer()))).methodToDoTransfer();
+				new TransferDecorator(
+						new ImplMethodsTransfer())).methodToDoTransfer();
+		
 	}
 	
 	private void basicProfile_Credits() {

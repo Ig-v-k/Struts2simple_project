@@ -7,7 +7,7 @@ import com.struts2.interfaces.CustomServletActionContext;
 import com.struts2.interfaces.MethodsToDoUserTransfer;
 
 public class ImplMethodsTransfer implements MethodsToDoUserTransfer, CustomServletActionContext{
-	private static final Logger LOGGER = Logger.getLogger(LoginControllerAction.class.getName());
+	private static final Logger LOGGER = Logger.getLogger(ImplMethodsTransfer.class.getName());
 	
 	@Override
 	public void methodToDoTransfer() {

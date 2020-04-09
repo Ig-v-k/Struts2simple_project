@@ -5,7 +5,7 @@ import java.util.logging.Logger;
 import com.opensymphony.xwork2.ActionSupport;
 import com.struts2.interfaces.ActionsTexts;
 import com.struts2.interfaces.CustomServletActionContext;
-import com.struts2.todo.ClassValidateUserIn;
+import com.struts2.todo.LoginValidateAction;
 
 /**
  * @author iw
@@ -17,27 +17,21 @@ public class LoginControllerAction extends ActionSupport implements CustomServle
     private static final Logger LOGGER = Logger.getLogger(LoginControllerAction.class.getName());
     private String username = "", password = "", role = "";
     
-    /*
-	 * main
-	 */
+    
     public String get() {
 		return ActionsTexts.INPUT;
     }
     
     public String post() {
+    	LOGGER.info("--- LOGGER: my_session.getAttribute(\"logined_registeredUSER\") ---> " + my_session.getAttribute("logined_registeredUSER"));
+    	LOGGER.info("--- LOGGER: role ---> " + this.role);
     	if(my_session.getAttribute("logined_registeredUSER") == null) {
     		if(!this.role.isEmpty()) {
-    			LOGGER.info("--- LOGGER: SUCCESS");
-    	    	switch (new ClassValidateUserIn(my_session, this.role).
-	    				initMetods(this.username, this.password, my_request)) {
-				case SUCCESS:
-					LOGGER.info("--- LOGGER: SUCCESS");
+    	    	switch (new LoginValidateAction().descentUser(this.role, this.username, this.password)) {
+				case ActionsTexts.SUCCESS:
 					addActionMessage(getText("success.login"));
-					
-					my_session.setAttribute("labelLogin_Register", true);
-					my_session.setAttribute("logined_registeredUSER", true);
 					return ActionsTexts.SUCCESS;
-		    	}
+    	    	}
     		}
     	}
     	else

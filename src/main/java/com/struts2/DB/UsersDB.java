@@ -2,12 +2,16 @@ package com.struts2.DB;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Logger;
 
+import com.struts2.DB.users_dao.DaoUsersDB;
 import com.struts2.beans.User;
-import com.struts2.interfaces.MethodsToDoUserDatabase;
+import com.struts2.interfaces.CustomServletActionContext;
+import com.struts2.todo.ImplMethodsLogin;
 import com.struts2.todo.UserRole;
 
-public class UsersDB implements MethodsToDoUserDatabase{
+public final class UsersDB implements DaoUsersDB{
+	private static final Logger LOGGER = Logger.getLogger(UsersDB.class.getName());
 	private static final Map<String, User> mapADMIN = new HashMap<String, User>();
 	private static final Map<String, User> mapEMPLOYEE = new HashMap<String, User>();
 	private static final Map<String, User> mapUSER = new HashMap<String, User>();
@@ -33,7 +37,30 @@ public class UsersDB implements MethodsToDoUserDatabase{
 	}
 	
 	@Override
-	public Map<String, User> returnMapUsers(final String userRole) {
-		return dbUSERS.get(userRole);
+	public boolean verifiUnmPwd(final String userRole, final String userName, final String password) {
+		if(userRole.equalsIgnoreCase("employee") || userRole.equalsIgnoreCase("user")) {
+			User user = dbUSERS.get(userRole).get(userName);
+			LOGGER.info("--- LOGGER: method");
+			if(user != null && user.equals_PU(userName, password)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	@Override
+	public User getUser(final String userRole, final String userName) {
+		return dbUSERS.get(userRole).get(userName);
+	}
+	
+	@Override
+	public boolean addUserToDB(final String userRole, final String userName, final String password) {
+		if(userRole.equalsIgnoreCase("employee") && userRole.equalsIgnoreCase("user")) {
+			if(!dbUSERS.get(userRole).containsKey(userName)) {
+				dbUSERS.get(userRole).put(userName, new User(userName, password, userRole));
+				return true;
+			}
+		}
+		return false;
 	}
 }

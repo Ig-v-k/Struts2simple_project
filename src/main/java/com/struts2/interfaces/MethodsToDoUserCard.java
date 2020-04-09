@@ -1,5 +1,5 @@
 package com.struts2.interfaces;
 
 public interface MethodsToDoUserCard {
-	void methodToDoCard();
+	void methodToDoCard(final String userName);
 }

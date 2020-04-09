@@ -6,7 +6,7 @@ import com.struts2.action.LoginControllerAction;
 import com.struts2.interfaces.MethodsToDoUserRegistration;
 
 public class RegistrationDecorator implements MethodsToDoUserRegistration {
-	private static final Logger LOGGER = Logger.getLogger(LoginControllerAction.class.getName());
+	private static final Logger LOGGER = Logger.getLogger(RegistrationDecorator.class.getName());
 	private MethodsToDoUserRegistration methodsToDoUserRegistration;
 	
 	public RegistrationDecorator(MethodsToDoUserRegistration userRoleExtendingMethods) {

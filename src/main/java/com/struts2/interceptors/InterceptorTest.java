@@ -14,7 +14,7 @@ import com.struts2.interfaces.UserAware;
 
 public class InterceptorTest extends AbstractInterceptor{
 	private static final long serialVersionUID = 1L;
-    private static final Logger LOGGER = Logger.getLogger(CheckLogInUserInterceptor.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(InterceptorTest.class.getName());
     
 	@Override
 	public String intercept(ActionInvocation invocation) throws Exception {
