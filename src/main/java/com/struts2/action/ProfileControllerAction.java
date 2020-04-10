@@ -7,11 +7,14 @@ import com.struts2.interfaces.ActionsTexts;
 import com.struts2.interfaces.CustomServletActionContext;
 import com.struts2.todo.CardAttributeForm;
 import com.struts2.todo.CreditAttributes;
+import com.struts2.todo.CreditParameters;
 import com.struts2.todo.ImplMethodsCard;
 import com.struts2.todo.ImplMethodsContact;
 import com.struts2.todo.ImplMethodsCredit;
 import com.struts2.todo.ImplMethodsSetting;
 import com.struts2.todo.ImplMethodsTransfer;
+import com.struts2.todo.ProfileActionMenu;
+import com.struts2.todo.SettingParameters;
 import com.struts2.todo.TransferFormContent;
 import com.struts2.todo.decorators.CardDecorator;
 import com.struts2.todo.decorators.ContactDecorator;
@@ -22,75 +25,30 @@ import com.struts2.todo.decorators.TransferDecorator;
 public class ProfileControllerAction extends ActionSupport implements CustomServletActionContext{
 	private static final Logger LOGGER = Logger.getLogger(ProfileControllerAction.class.getName());
 	private static final long serialVersionUID = 1L;
+	private String typeCard = "";
 	
-	public String basic() {
+/**
+   * The controller methods get() & post(), of ContextPath - "struts2_web_iw/profile"
+   * @param -
+   * @return String - redirect result "SUCCESS/ERROR/NONE"
+   */
+	public String GET_profile() {
+		LOGGER.info("--- LOGGER: (String)my_session.getAttribute(\"USER\") ---> " + (String)my_session.getAttribute("USER"));
 		my_request.setAttribute("menuInstruments", true);
 		if (my_request.getParameter("actionMenu") != null) {
-			LOGGER.info("--- LOGGER: if() - statment \n" + my_request.getParameter("actionMenu"));
-			this.basicProfile_Menu();
+			new ProfileActionMenu((String)my_session.getAttribute("USER")).basicProfile_Menu(my_request.getParameter("actionMenu"));
 			return ActionsTexts.SUCCESS;
 		}
 		else
 			my_request.setAttribute("homeContent", true);
 		return ActionsTexts.SUCCESS;
 	}
-	
-	private void basicProfile_Menu() {
-		LOGGER.info("--- LOGGER: method");
-		switch (my_request.getParameter("actionMenu")) {
-		case "cards":
-			this.basicProfile_Cards();
-			break;
-		case "transfers":
-			this.basicProfile_Transfers();			
-			break;
-		case "credits":
-			this.basicProfile_Credits();
-			break;
-		case "settings":
-			this.basicProfile_Settings();
-			break;
-		case "contacts":
-			this.basicProfile_Contacts();			
-			break;
-		}
+	public String POST_profile() {
+		LOGGER.info("--- LOGGER: typeCard ---> " + this.typeCard);
+		return ActionsTexts.SUCCESS;
 	}
 	
-	private void basicProfile_Cards() {
-		new CardAttributeForm(
-				new CardDecorator(
-						new ImplMethodsCard())).methodToDoCard((String)my_session.getAttribute("USER"));
-	}
-	
-	private void basicProfile_Transfers() {
-		new TransferFormContent(
-				new TransferDecorator(
-						new ImplMethodsTransfer())).methodToDoTransfer();
-		
-	}
-	
-	private void basicProfile_Credits() {
-		LOGGER.info("--- LOGGER: method" + "\n" + my_request.getParameter("actionCredit"));
-		if(my_request.getParameter("actionCredit") != null)
-			if(my_request.getAttribute("actionCredit").equals("add"))
-				my_request.setAttribute("addCreditForm", true);
-		new CreditAttributes(
-				new CreditDecorator(
-						new ImplMethodsCredit())).methodToDoCredit();
-	}
-
-	private void basicProfile_Settings() {
-		LOGGER.info("--- LOGGER: method");
-		if(my_request.getParameter("actionCredit") != null)
-			if(my_request.getAttribute("actionTransfer").equals("add"))
-				my_request.setAttribute("addTransferForm", true);
-		new SettingDecorator(
-				new ImplMethodsSetting()).methodToDoSetting();
-	}
-	
-	private void basicProfile_Contacts() {
-		LOGGER.info("--- LOGGER: method");
-		new ContactDecorator(
-				new ImplMethodsContact()).methodToDoContact();
+	public void setTypeCard(String typeCard) {
+		this.typeCard = typeCard;
 	}
 }

@@ -2,7 +2,6 @@ package com.struts2.todo;
 
 import java.util.logging.Logger;
 
-import com.struts2.action.LoginControllerAction;
 import com.struts2.interfaces.CustomServletActionContext;
 import com.struts2.interfaces.MethodsToDoUserTransfer;
 
@@ -12,6 +11,7 @@ public class ImplMethodsTransfer implements MethodsToDoUserTransfer, CustomServl
 	@Override
 	public void methodToDoTransfer() {
 		LOGGER.info("--- LOGGER: method");
+		my_request.setAttribute("userTransferContent", true);
 		my_request.setAttribute("transferContent", true);
 	}
 }

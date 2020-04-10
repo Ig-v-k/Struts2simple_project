@@ -43,7 +43,7 @@
 						        <a class="nav-link" href="${pageContext.request.contextPath}/logout"><fmt:message key="label.logout"/></a>
 						      </li>		      		      
 						      <li class="nav-item">
-						        <a class="nav-link" href="${pageContext.request.contextPath}/profile"><fmt:message key="label.profile"/></a>
+						        <a class="nav-link" href="${pageContext.request.contextPath}/profile_GET"><fmt:message key="label.profile"/></a>
 						      </li>
 						</c:if>
 				  </c:if>
@@ -73,19 +73,22 @@
 		<c:if test="${menuInstruments}">
 			<br>
 			<div align="center">
-				<a href="<c:url value="profile">
+				<a href="<c:url value="profile_GET">
+							<c:param name="actionMenu" value="account"/>
+						 </c:url>">ACCOUNT</a>&emsp;
+				<a href="<c:url value="profile_GET">
 							<c:param name="actionMenu" value="transfers"/>
 						 </c:url>">TRANSFERS</a>&emsp;
-				<a href="<c:url value="profile">
+				<a href="<c:url value="profile_GET">
 							<c:param name="actionMenu" value="cards"/>
 						 </c:url>">CARDS</a>&emsp;
-				<a href="<c:url value="profile">
+				<a href="<c:url value="profile_GET">
 							<c:param name="actionMenu" value="credits"/>
 						 </c:url>">CREDITS</a>&emsp;
-				<a href="<c:url value="profile">
+				<a href="<c:url value="profile_GET">
 							<c:param name="actionMenu" value="settings"/>
 						 </c:url>">SETTINGS</a>&emsp;
-				<a href="<c:url value="profile">
+				<a href="<c:url value="profile_GET">
 							<c:param name="actionMenu" value="contacts"/>
 						 </c:url>">CONTACTS</a>
 			</div>

@@ -17,8 +17,10 @@ public class CardAttributeForm extends CardDecorator implements CustomServletAct
 	public void methodToDoCard(String userName) {
 		try {
 			if(my_request.getParameter("actionCardContent") != null) {
-				if(my_request.getParameter("actionCardContent").equals("content"))
+				if(my_request.getParameter("actionCardContent").equals("content")) {
 					my_request.setAttribute("addFormCardContent", true);
+					my_request.setAttribute("addFormCard", true);
+				}
 				if(my_request.getParameter("actionCardContent").equals("edit"))
 					my_request.setAttribute("editFormCard", true);
 			}

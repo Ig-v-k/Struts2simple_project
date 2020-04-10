@@ -15,13 +15,13 @@ public class TransferFormContent extends TransferDecorator implements CustomServ
 	
 	@Override
 	public void methodToDoTransfer() {
-		this.formToAttribute();
-		super.methodToDoTransfer();
-	}
-	
-	private void formToAttribute() {
-		if(my_request.getParameter("actionTransfer") != null)
-			if(my_request.getParameter("actionTransfer").equals("add"))
-				my_request.setAttribute("addTransferForm", true);
+		try {
+			if(my_request.getParameter("actionTransfer") != null)
+				if(my_request.getParameter("actionTransfer").equals("add"))
+					my_request.setAttribute("addTransferForm", true);
+		}
+		finally {
+			super.methodToDoTransfer();
+		}
 	}
 }

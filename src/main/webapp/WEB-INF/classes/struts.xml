@@ -99,11 +99,15 @@
 			<result name="none" type="redirectAction">hello</result>
    			<result name="success">/WEB-INF/logout.jsp</result>
    		</action>
-		<action name="profile" class="com.struts2.action.ProfileControllerAction" method="basic">
+		<action name="profile_GET" class="com.struts2.action.ProfileControllerAction" method="GET_profile">
 			<interceptor-ref name="sessionUSER"/>
 			<result name="none" type="redirectAction">hello</result>
    			<result name="success" >/WEB-INF/profileUSER.jsp</result>
-<!--    			<result name="cards" >/WEB-INF/profileCARDS.jsp</result> -->
+   		</action>
+		<action name="profile_POST" class="com.struts2.action.ProfileControllerAction" method="POST_profile">
+			<interceptor-ref name="sessionUSER"/>
+			<result name="none" type="redirectAction">hello</result>
+   			<result name="success" >/WEB-INF/profileUSER.jsp</result>
    		</action>
    	</package>
 <!--    	<package name="profile" namespace="/profile" extends="struts-default">

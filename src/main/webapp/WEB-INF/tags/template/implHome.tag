@@ -29,13 +29,14 @@
 			<div class="container">
 			    <div class="row">
 			      <div class="col-sm">
-			        <a href="<c:url value="profile">
+			        <a href="<c:url value="profile_GET">
 			                 	<c:param name="actionMenu" value="transfers"/>
 								<c:param name="actionTransfer" value="add"/>
 							 </c:url>">Add</a>
 			      </div>
 			    </div>
 			    <c:if test="${userTransferContent}">
+			    	<h2>Transfer information</h2>
 			    	<c:forEach items="${_transferMap}" var="transferMapId">
 				    	<div class="row">
 						    <div class="col-sm">
@@ -65,7 +66,7 @@
 		                <div class="row">
 		                    <div class="col-sm-8"><h2>Cards <b>Details</b></h2></div>
 		                    <div class="col-sm-4">
-		                        <a href="<c:url value="profile">
+		                        <a href="<c:url value="profile_GET">
 			                            	<c:param name="actionMenu" value="cards"/>
 											<c:param name="actionCardContent" value="content"/>
 										 </c:url>">Add</a>
@@ -89,12 +90,12 @@
 			                        <td><c:out value="${cardsMapId.value.userPhone}"/></td>
 			                        <td><c:out value="${cardsMapId.value.state}"/></td>
 			                        <td>
-			                            <a class="edit" title="Edit" data-toggle="tooltip" href="<c:url value="profile">
+			                            <a class="edit" title="Edit" data-toggle="tooltip" href="<c:url value="profile_GET">
 			                            															<c:param name="actionMenu" value="cards"/>
 			                            															<c:param name="cardName" value="${cardsMapId.value.cardName}"/>
 																									<c:param name="actionCardContent" value="edit"/>
 																								</c:url>"><i class="material-icons">&#xE254;</i></a>
-			                            <a class="delete" title="Delete" data-toggle="tooltip" href="<c:url value="profile">
+			                            <a class="delete" title="Delete" data-toggle="tooltip" href="<c:url value="profile_GET">
 			                            															<c:param name="actionMenu" value="cards"/>
 			                            															<c:param name="cardName" value="${cardsMapId.value.cardName}"/>
 																									<c:param name="actionCard" value="delete"/>
@@ -107,51 +108,13 @@
 		            <c:if test="${addFormCardContent}">
 		            	<br>
 		            	<hr>
-		            	<h3>Type of card card</h3>
-						<div align="center">
-							<div class="form-group">
-							    <div class="form-check">
-							      <input class="form-check-input" type="checkbox" id="gridCheck">
-							      <label class="form-check-label" for="gridCheck">
-							        Check me out
-							      </label>
-							    </div>
-							</div>
-							<a href="<c:url value="profile">
-										<c:param name="actionMenu" value="transfers"/>
-									 </c:url>">Discount</a>&emsp;
-							<a href="<c:url value="profile">
-										<c:param name="actionMenu" value="transfers"/>
-									 </c:url>">Insurable</a>&emsp;									 
-							<a href="<c:url value="profile">
-										<c:param name="actionMenu" value="transfers"/>
-									 </c:url>">Promotional</a>&emsp;									 
-							<a href="<c:url value="profile">
-										<c:param name="actionMenu" value="transfers"/>
-									 </c:url>">Club</a>&emsp;									 
-							<a href="<c:url value="profile">
-										<c:param name="actionMenu" value="transfers"/>
-									 </c:url>">Identification</a>&emsp;									 
-							<a href="<c:url value="profile">
-										<c:param name="actionMenu" value="transfers"/>
-									 </c:url>">Payment</a>&emsp;									 
-							<a href="<c:url value="profile">
-										<c:param name="actionMenu" value="transfers"/>
-									 </c:url>">Gift</a>&emsp;									 
-							<a href="<c:url value="profile">
-										<c:param name="actionMenu" value="transfers"/>
-									 </c:url>">Vcards and calendars</a>&emsp;								 
-							<a href="<c:url value="profile">
-										<c:param name="actionMenu" value="transfers"/>
-									 </c:url>">Fuel</a>&emsp;										 
-						</div>
-						<c:if test="${addFormCard}">
+		            	<c:if test="${addFormCard}">
 			                <h1>Add card</h1>
-			                <form action="">
+			                <form action="profile_POST" method="post">
 							  <div class="form-row">
 							    <div class="form-group col-md-6">
-							      <label for="inputEmail4">Card Name</label>
-							      <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+							      <label for="inputEmail4">Card number</label>
+							      <input type="email" class="form-control" id="inputEmail4" placeholder="0000 0000 0000 0000">
 							    </div>
 							    <div class="form-group col-md-6">
 							      <label for="inputPassword4">Password</label>
@@ -167,20 +130,20 @@
 							    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
 							  </div>
 							  <div class="form-row">
-							    <div class="form-group col-md-6">
-							      <label for="inputCity">City</label>
-							      <input type="text" class="form-control" id="inputCity">
-							    </div>
 							    <div class="form-group col-md-4">
 							      <label for="inputState">State</label>
-							      <select id="inputState" class="form-control">
+							      <select id="inputState" class="form-control" name="typeCard">
 							        <option selected>Choose...</option>
-							        <option>...</option>
+							        <option>Discount</option>
+							        <option>Insurable</option>
+							        <option>Promotional</option>
+							        <option>Club</option>
+							        <option>Identification</option>
+							        <option>Payment</option>
+							        <option>Gift</option>
+							        <option>Vcards</option>
+							        <option>Fuel</option>
 							      </select>
-							    </div>
-							    <div class="form-group col-md-2">
-							      <label for="inputZip">Zip</label>
-							      <input type="text" class="form-control" id="inputZip">
 							    </div>
 							  </div>
 							  <div class="form-group">
@@ -251,7 +214,7 @@
 			<div class="container">
 			    <div class="row">
 			      <div class="col-sm">
-			        <a href="<c:url value="profile">
+			        <a href="<c:url value="profile_GET">
 			                 	<c:param name="actionMenu" value="credits"/>
 								<c:param name="actionCredit" value="add"/>
 							 </c:url>">Add</a>
@@ -287,9 +250,9 @@
 			<div class="container">
 			    <div class="row">
 			      <div class="col-sm">
-			        <a href="<c:url value="profile">
+			        <a href="<c:url value="profile_GET">
 			                 	<c:param name="actionMenu" value="settings"/>
-								<c:param name="actionTransfer" value="add"/>
+								<c:param name="actionSetting" value="add"/>
 							 </c:url>">Add</a>
 			      </div>
 			   	</div>
@@ -307,7 +270,7 @@
 			    		Send us at the e-mail 
 			    	</div>
 			    	<div class="col-sm">
-			    		<a href="<c:url value="profile">
+			    		<a href="<c:url value="profile_GET">
 			                 	<c:param name="actionMenu" value="contacts"/>
 								<c:param name="actionContact" value="send"/>
 							 </c:url>">Send</a>

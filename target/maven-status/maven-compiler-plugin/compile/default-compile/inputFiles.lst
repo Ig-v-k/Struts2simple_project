@@ -13,6 +13,7 @@
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/DB/users_dao/DaoCardsDB.java
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/todo/RegistrationUserToSession.java
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/todo/ImplMethodsSetting.java
+/home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/todo/SettingParameters.java
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/interfaces/MethodsToDoUserCard.java
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/todo/decorators/ContactDecorator.java
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/todo/decorators/SettingDecorator.java
@@ -21,6 +22,7 @@
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/todo/decorators/CardDecorator.java
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/interceptors/InterceptorSessionUser.java
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/todo/ImplMethodsLogin.java
+/home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/todo/ProfileActionMenu.java
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/DB/users_dao/DaoUsersDB.java
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/interfaces/MethodsToDoUserRegistration.java
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/interceptors/CheckLogInUserInterceptor.java
@@ -50,5 +52,6 @@
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/beans/User.java
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/todo/CreditAttributes.java
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/interfaces/MethodsToDoUserLogout.java
+/home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/todo/CreditParameters.java
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/todo/ImplMethodsTransfer.java
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2/interfaces/MethodsToDoUsersContact.java

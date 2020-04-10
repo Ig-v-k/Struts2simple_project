@@ -1,36 +1,87 @@
 package com.struts2.beans;
 
+import java.util.Date;
+
 public class Card {
-	private String cardName = "";
-	private String cardType = "";
-	private String userPhone = "";
+	private String bank = "";
+	private String numberCard = "";
+	private String typeCard = "";
+	private String userName = "";
 	private int state = 0;
+	private boolean evmChip = false;
+	private boolean contactlessChip = false;
+	private boolean hologram = false;
+	private boolean cardNetLogo = false;
+	private boolean magneticStripe = false;
+	private boolean signatureStripe = false;
+	private boolean secCode = false;
+	private Date date;
 	
-	public Card(final String cardName, 
-			final String cardType, 
-			final String userPhone, 
-			final Integer state) {
-		this.cardName = cardName;
-		this.cardType = cardType;
-		this.userPhone = userPhone;
+	public Card(String bank, 
+			String numberCard, 
+			String typeCard, 
+			String userName, 
+			int state, 
+			boolean evmChip,
+			boolean contactlessChip, 
+			boolean hologram, 
+			boolean cardNetLogo, 
+			boolean magneticStripe,
+			boolean signatureStripe, 
+			boolean secCode, 
+			Date date) {
+		this.bank = bank;
+		this.numberCard = numberCard;
+		this.typeCard = typeCard;
+		this.userName = userName;
 		this.state = state;
+		this.evmChip = evmChip;
+		this.contactlessChip = contactlessChip;
+		this.hologram = hologram;
+		this.cardNetLogo = cardNetLogo;
+		this.magneticStripe = magneticStripe;
+		this.signatureStripe = signatureStripe;
+		this.secCode = secCode;
+		this.date = date;
 	}
-
-	public String getCardName() {
-		return cardName;
+	
+	public String getBank() {
+		return bank;
 	}
-
-	public String getCardType() {
-		return cardType;
+	public String getNumberCard() {
+		return numberCard;
 	}
-
-	public String getUserPhone() {
-		return userPhone;
+	public String getTypeCard() {
+		return typeCard;
 	}
-
+	public String getUserName() {
+		return userName;
+	}
 	public int getState() {
 		return state;
 	}
-	
-	
+	public boolean isEvmChip() {
+		return evmChip;
+	}
+	public boolean isContactlessChip() {
+		return contactlessChip;
+	}
+	public boolean isHologram() {
+		return hologram;
+	}
+	public boolean isCardNetLogo() {
+		return cardNetLogo;
+	}
+	public boolean isMagneticStripe() {
+		return magneticStripe;
+	}
+	public boolean isSignatureStripe() {
+		return signatureStripe;
+	}
+	public boolean isSecCode() {
+		return secCode;
+	}
+	public Date getDate() {
+		return date;
+	}
 }
