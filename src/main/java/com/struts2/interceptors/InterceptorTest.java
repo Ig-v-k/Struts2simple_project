@@ -16,12 +16,15 @@ public class InterceptorTest extends AbstractInterceptor{
 	private static final long serialVersionUID = 1L;
     private static final Logger LOGGER = Logger.getLogger(InterceptorTest.class.getName());
     
+    @Override
+    public void init() {
+    	LOGGER.info("--- LOGGER: init()");
+    	super.init();
+    }
+    
 	@Override
 	public String intercept(ActionInvocation invocation) throws Exception {
 		HttpServletRequest request = (HttpServletRequest) invocation.getInvocationContext().get(StrutsStatics.HTTP_REQUEST);
-		String url = request.getRequestURI();
-		
-        request.getServletContext().getClassLoader();
 		LOGGER.info("\t********* Request START *********"
         		+ "\n\nServletActionContext.getActionContext(my_request).getName() -> " + ServletActionContext.getActionContext(request).getName()
         		+ "\nServletActionContext.getActionMapping().getName -> " + ServletActionContext.getActionMapping().getName()
@@ -186,7 +189,7 @@ public class InterceptorTest extends AbstractInterceptor{
         		+ "\n\ngetAction() -> " + invocation.getAction()
         		+ "\nisExecuted() -> " + invocation.isExecuted()
         		+ "\ninvokeActionOnly() -> " + invocation.invokeActionOnly()
-        		+ "\nHttpRequestInterceptor URL -> " + url
+        		+ "\nHttpRequestInterceptor URL -> " + request.getRequestURL()
         		+ "\ngetResultCode() -> " + invocation.getResultCode()
         		+ "\ntoString() -> " + invocation.toString()
         		+ "\ninvoke() -> " + invocation.invoke()

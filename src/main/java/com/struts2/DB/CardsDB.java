@@ -8,7 +8,12 @@ import com.struts2.beans.Card;
 
 public class CardsDB implements DaoCardsDB{
 	private static final Map<String, Card> _mapCards = new HashMap<String, Card>(0);
-	private static final Map<String, Map<String, Card>> _initCardsMap = new HashMap<String, Map<String,Card>>(0);
+	private static final Map<String, Map<String, Card>> _userCardMap = new HashMap<String, Map<String,Card>>(0);
+	
+	@Override
+	public Map<String, Card> getCardMap(final String userName) {
+		return _userCardMap.get(userName);
+	}
 	
 	@Override
 	public void addCardFormDB() {
@@ -17,6 +22,6 @@ public class CardsDB implements DaoCardsDB{
 	
 	@Override
 	public void deleteCardFromDB(final String userName, final String cardName) {
-		_initCardsMap.get(userName).get(cardName);
+		_userCardMap.get(userName).get(cardName);
 	}
 }

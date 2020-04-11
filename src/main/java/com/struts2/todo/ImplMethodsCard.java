@@ -25,6 +25,7 @@ public class ImplMethodsCard implements MethodsToDoUserCard, CustomServletAction
 			}
 		} 
 		finally {
+			my_request.setAttribute("_cardsMap", dbCards.getCardMap(userName));
 			my_request.setAttribute("cardContent", true);
 		}
 	}

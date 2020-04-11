@@ -17,18 +17,10 @@ public class CheckLogInUserInterceptor extends AbstractInterceptor {
 	public String intercept(ActionInvocation invocation) throws Exception {
         HttpServletRequest request = (HttpServletRequest) invocation.getInvocationContext().get(StrutsStatics.HTTP_REQUEST);
         String url = request.getRequestURI();
-//		Map<String, Object> session = invocation.getInvocationContext().getSession();
-//        String username = (String) session.get("USERlogin");
-        
-        
         
         if (request.getQueryString() != null) {
             url = url + "?" + request.getQueryString();
         }
-
-        LOGGER.info("\t********* Request START *********\n"
-        		+ "HttpRequestInterceptor URL -> " + url);
-        LOGGER.info("\t*********************************");
         
 //		Action action = (Action) invocation.getAction();
 //		if(action instanceof UserAware) {

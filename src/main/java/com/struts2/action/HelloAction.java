@@ -8,7 +8,6 @@ public class HelloAction  extends ActionSupport {
     
     @Override
     public String execute() {
-    	
         return ActionsTexts.SUCCESS;
     }
 }

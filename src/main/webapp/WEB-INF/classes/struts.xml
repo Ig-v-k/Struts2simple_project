@@ -19,10 +19,10 @@
     	<interceptors>
         	<interceptor name="check_logInInterceptor" class="com.struts2.interceptors.CheckLogInUserInterceptor" />
         	<interceptor name="testInterceptor" class="com.struts2.interceptors.InterceptorTest" />
-        	<interceptor name="validateInterceptor" class="com.struts2.interceptors.InterceptorSessionUser" />
+        	<interceptor name="sessionUserInterceptor" class="com.struts2.interceptors.InterceptorSessionUser" />
         	
         	<interceptor-stack name="sessionUSER">
-        		<interceptor-ref name="validateInterceptor" />
+        		<interceptor-ref name="sessionUserInterceptor" />
         		<interceptor-ref name="defaultStack" />
         	</interceptor-stack>
         	
@@ -64,11 +64,14 @@
  		<!--
 		*** Actions ***
  		-->
+   		<action name="" class="com.struts2.action.FirstMain" method="boot">
+   			<interceptor-ref name="test" />
+   			<result name="success" type="redirectAction">hello</result>
+   		</action>
 		<action name="hello" class="com.struts2.action.HelloAction">
    			<result name="success">/WEB-INF/helloPageMain.jsp</result>
    		</action>
    		<action name="login_GET" class="com.struts2.action.LoginControllerAction" method="get">
-   			<interceptor-ref name="check_stack" />
    			<result name="input">/WEB-INF/login.jsp</result>
    		</action>
    		<action name="login_POST" class="com.struts2.action.LoginControllerAction" method="post">
@@ -84,16 +87,6 @@
 			<result name="none" type="redirectAction">hello</result>   		
    			<result name="success" type="redirectAction">hello</result>
 			<result name="error">/WEB-INF/registrationForm.jsp</result>
-   		</action>
-<!--    <action name="cards" class="com.struts2.action.CardsControllerAction" method="basic">
-   			<interceptor-ref name="sessionUSER"></interceptor-ref>
-			<result name="success">/WEB-INF/profileCards.jsp</result>
-			<result name="none" type="redirectAction">hello</result>
-   		</action> -->
-   		<action name="" class="com.struts2.action.FirstMain" method="boot">
-<!--    			<interceptor-ref name="test" /> -->
-			<result name="none" type="redirectAction">hello</result>
-   			<result name="success" type="redirectAction">hello</result>
    		</action>
    		<action name="logout" class="com.struts2.action.LogoutControllerAction" method="USER_logout">
 			<result name="none" type="redirectAction">hello</result>
