@@ -15,7 +15,7 @@
 	    <h2>Struts 2 - Login Application</h2>--%>	    
 	    <s:if test="hasActionErrors()">
 		    <div class="alert alert-danger" role="alert">
-				<s:fieldName ><fmt:message key="field.erorr.login"/></s:fieldName>
+				<s:fielderror fieldName="error_login"/>
 			</div>
 		</s:if>
 
@@ -37,7 +37,7 @@
 	    
 			<s:if test="hasActionErrors()">
 				<div class="alert alert-danger" role="alert">
-					<s:fieldName="<fmt:message key="field.erorr.username"/>" />
+					<s:fielderror fieldName="error_username"/>
 				</div>
 			</s:if>
 			<legend class="m-b-1 text-xs-center">Sign up</legend>
@@ -50,7 +50,7 @@
 			
 		    <s:if test="hasActionErrors()">
 			    <div class="alert alert-danger" role="alert">
-					<s:fieldName="<fmt:message key="field.erorr.login"/>" />
+					<s:fielderror fieldName="error_password"/>
 				</div>
 			</s:if>
 			<div class="form-group has-float-label" align="center">

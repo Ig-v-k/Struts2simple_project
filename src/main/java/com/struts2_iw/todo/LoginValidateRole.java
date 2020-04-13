@@ -12,6 +12,7 @@ public class LoginValidateRole extends LoginDecorator implements CustomLoginText
     
     public LoginValidateRole(MethodsToDoUserLogin methodsToDoUserLogin) {
     	super(methodsToDoUserLogin);
+    	LOGGER.info("--- LOGGER: - constructor() ");
     }
     
 	@Override

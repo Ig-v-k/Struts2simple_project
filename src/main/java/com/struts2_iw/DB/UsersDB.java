@@ -25,7 +25,7 @@ public final class UsersDB implements DaoUsersDB, CustomLoginTexts{
 	private static void init() {
 		User userADMIN = new User("admin", "admin123", UserRole.ADMIN.toString());
 		User userEMPLOYEE = new User("employee", "employee123", UserRole.EMPLOYEE.toString());
-		User userUSERS = new User("user", "user123", UserRole.USER.toString());
+		User userUSERS = new User("userqwe", "user123", UserRole.USER.toString());
 		
 		mapADMIN.put(userADMIN.getUserName(), userADMIN);
 		mapEMPLOYEE.put(userEMPLOYEE.getUserName(), userEMPLOYEE);
@@ -38,12 +38,12 @@ public final class UsersDB implements DaoUsersDB, CustomLoginTexts{
 	
 	@Override
 	public String verifiUnmPwd(final String userRole, final String userName, final String password) {
-		LOGGER.info("--- LOGGER: - method() -");
+		LOGGER.info("--- LOGGER: - method() ");
 		Optional<User> optionalUser = Optional.of(dbUSERS.get(userRole).get(userName));
 		if (optionalUser.isPresent()) {
 			User user = optionalUser.get();
 			if (userName.equals(user.getUserName())) {
-				if (user.equals_PU(userName, password)) {
+				if (user.equals_PU(userName, password)) {					
 					return SUCCESS_PASSWORD_USER_NAME;
 				}
 				else

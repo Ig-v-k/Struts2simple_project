@@ -14,7 +14,7 @@ public class ImplMethodsLogin implements MethodsToDoUserLogin, CustomActionsText
 	
 	@Override
 	public String descent(final String userRole, final String userName, final String password) {
-		LOGGER.info("--- LOGGER: - method() -");
+		LOGGER.info("--- LOGGER: - method() ");
 		return db.verifiUnmPwd(userRole, userName, password);
 	}
 }

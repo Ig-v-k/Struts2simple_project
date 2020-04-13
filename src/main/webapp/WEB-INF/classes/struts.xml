@@ -76,31 +76,31 @@
    			<result name="input">/WEB-INF/login.jsp</result>
    		</action>
    		<action name="login_POST" class="com.struts2_iw.action.LoginControllerAction" method="post">
-			<result name="none" type="redirectAction">/</result>
-   			<result name="success" type="redirectAction">/</result>
+			<result name="none" type="redirectAction"></result>
+   			<result name="success" type="redirectAction"></result>
 			<result name="error">/WEB-INF/login.jsp</result>
    		</action>
    		<action name="register_GET" class="com.struts2_iw.action.RegistrationControllerAction" method="GET_register">
-			<result name="none" type="redirectAction">/</result>
+			<result name="none" type="redirectAction"></result>
    			<result name="input">/WEB-INF/registrationForm.jsp</result>
    		</action>
    		<action name="register_POST" class="com.struts2_iw.action.RegistrationControllerAction" method="POST_register">
-			<result name="none" type="redirectAction">/</result>   		
-   			<result name="success" type="redirectAction">/</result>
+			<result name="none" type="redirectAction"></result>   		
+   			<result name="success" type="redirectAction"></result>
 			<result name="error">/WEB-INF/registrationForm.jsp</result>
    		</action>
    		<action name="logout" class="com.struts2_iw.action.LogoutControllerAction" method="USER_logout">
-			<result name="none" type="redirectAction">/</result>
+			<result name="none" type="redirectAction"></result>
    			<result name="success">/WEB-INF/logout.jsp</result>
    		</action>
 		<action name="profile_GET" class="com.struts2_iw.action.ProfileControllerAction" method="GET_profile">
 			<interceptor-ref name="sessionUSER"/>
-			<result name="none" type="redirectAction">/</result>
+			<result name="none" type="redirectAction"></result>
    			<result name="success" >/WEB-INF/profileUSER.jsp</result>
    		</action>
 		<action name="profile_POST" class="com.struts2_iw.action.ProfileControllerAction" method="POST_profile">
 			<interceptor-ref name="sessionUSER"/>
-			<result name="none" type="redirectAction">/</result>
+			<result name="none" type="redirectAction"></result>
    			<result name="success" >/WEB-INF/profileUSER.jsp</result>
    		</action>
    	</package>
