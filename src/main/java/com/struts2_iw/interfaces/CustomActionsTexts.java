@@ -8,7 +8,7 @@ public interface CustomActionsTexts {
 	final String ERROR_LOGIN = "error_login";
 	final String SUCCESS = "success";
 	final String SUCCESS_LOGIN = "success_login";
-	final String SUCCESS_IS_USER = "success_is_user";
+	final String SUCCESS_IS_PRESENT_USER = "success_is_user";
 	final String CARDS = "cards";
 	final String TRANSFERS = "transfers";
 }

@@ -4,7 +4,7 @@ import java.util.logging.Logger;
 
 import org.apache.struts2.ServletActionContext;
 
-import com.struts2_iw.action.LoginControllerAction;
+import com.struts2_iw.action.LoginPostAction;
 import com.struts2_iw.interfaces.CustomServletActionContext;
 import com.struts2_iw.interfaces.MethodsToDoUserRegistration;
 import com.struts2_iw.todo.decorators.RegistrationDecorator;

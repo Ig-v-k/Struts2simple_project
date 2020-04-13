@@ -4,9 +4,10 @@
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2_iw/action/FirstMain.java
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2_iw/beans/User.java
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2_iw/DB/CreditsDB.java
+/home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2_iw/action/LoginGetAction.java
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2_iw/todo/decorators/CreditDecorator.java
+/home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2_iw/action/LoginPostAction.java
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2_iw/todo/decorators/LoginDecorator.java
-/home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2_iw/action/LoginControllerAction.java
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2_iw/interfaces/MethodsToDoUserSettings.java
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2_iw/todo/CardAttributeForm.java
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2_iw/todo/ImplMethodsLogin.java

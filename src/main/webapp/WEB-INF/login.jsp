@@ -13,12 +13,11 @@
  	<div align="center">
 <%--  	    <jsp:include page="_menu.jsp" /> 
 	    <h2>Struts 2 - Login Application</h2>--%>	    
-	    <s:if test="hasActionErrors()">
+	    <c:if test="${error_login}">
 		    <div class="alert alert-danger" role="alert">
-				<s:fielderror fieldName="error_login"/>
+				<s:fielderror fieldName="error_and_login"/>
 			</div>
-		</s:if>
-
+		</c:if>
 		<hr>
 <%-- 	    <s:form action="login_POST" method="post">
 	        <s:textfield name="username" key="label.username" size="20" />
@@ -31,16 +30,13 @@
 			<input type="radio" name="role" value="user">
 			<label for="other">User</label>
 	    </s:form> --%>
-	    
-
-	    <form id="form_login" class="card card-block bg-faded" action="login_POST" method="post">
-	    
-			<s:if test="hasActionErrors()">
-				<div class="alert alert-danger" role="alert">
+	    <form id="form_login" class="card card-block bg-faded" action="loginPost" method="post">
+			<legend class="m-b-1 text-xs-center">Sign up</legend>
+			<c:if test="${error_username}">
+			    <div class="alert alert-danger" role="alert">
 					<s:fielderror fieldName="error_username"/>
 				</div>
-			</s:if>
-			<legend class="m-b-1 text-xs-center">Sign up</legend>
+			</c:if>
 			<div class="form-group input-group" align="center">
 			  <label class="has-float-label">
 			    <span><fmt:message key="label.username"/></span>
@@ -48,16 +44,21 @@
 			  </label>
 			</div>
 			
-		    <s:if test="hasActionErrors()">
+		    <c:if test="${error_password}">
 			    <div class="alert alert-danger" role="alert">
 					<s:fielderror fieldName="error_password"/>
 				</div>
-			</s:if>
+			</c:if>
 			<div class="form-group has-float-label" align="center">
 				<label for="password"><fmt:message key="label.password"/></label>
-				<input name="password" class="form-control" id="password" type="password" placeholder="••••••••"/>
+				<input name="password" class="form-control" id="password" type="password"/>
 			</div>
 			  
+<%-- 		    <s:if test="hasFieldErrors()">
+			    <div class="alert alert-danger" role="alert">
+					<s:fielderror fieldName="error_role"/>
+				</div>
+			</s:if>
 			  <div>
 			        <input type="radio" name="role" value="admin">
 					<label for="male">Admin</label><br>
@@ -65,7 +66,7 @@
 					<label for="female">Employee</label><br>
 					<input type="radio" name="role" value="user">
 					<label for="other">User</label>
-			  </div>
+			  </div> --%>
 			  <button class="btn btn-block btn-primary" type="submit" >Sign up</button>
 		</form>
 	    

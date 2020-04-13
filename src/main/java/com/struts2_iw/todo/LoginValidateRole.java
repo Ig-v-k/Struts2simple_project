@@ -1,6 +1,5 @@
 package com.struts2_iw.todo;
 
-import java.util.Optional;
 import java.util.logging.Logger;
 
 import com.struts2_iw.interfaces.CustomLoginTexts;
@@ -17,11 +16,11 @@ public class LoginValidateRole extends LoginDecorator implements CustomLoginText
     
 	@Override
 	public String descent(String userRole, String username, String password) {
-		LOGGER.info("--- LOGGER: - method() -");
-		return this.roleEmpty(userRole) ? super.descent(userRole, username, password) : ERROR_USER_ROLE;
+		LOGGER.info("--- LOGGER: - method() ");
+		return this.roleEmpty(userRole) ? ERROR_USER_ROLE : super.descent(userRole, username, password);
 	}
 	
 	private boolean roleEmpty(final String userRole) {
-		return Optional.of(userRole).isPresent();
+		return userRole.isEmpty();
 	}
 }

@@ -13,13 +13,12 @@ public class LoginAttributeLoginedUser extends LoginDecorator implements CustomA
     public LoginAttributeLoginedUser(MethodsToDoUserLogin methodsToDoUserLogin, final boolean loginedUser) {
     	super(methodsToDoUserLogin);
     	LOGGER.info("--- LOGGER: - constructor() ");
-    	LOGGER.info("--- LOGGER: - loginedUser ---> " + loginedUser);
     	this.loginedUser = loginedUser;
     }
     
 	@Override
-	public String descent(String userRole, String username, String password) {
+	public String descent(String username, String password) {
 		LOGGER.info("--- LOGGER: - method() ");
-		return this.loginedUser ? super.descent(userRole, username, password) : SUCCESS_IS_USER;
+		return this.loginedUser ? super.descent(username, password) : SUCCESS_IS_PRESENT_USER;
 	}
 }

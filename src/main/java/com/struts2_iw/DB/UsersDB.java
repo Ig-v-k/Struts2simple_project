@@ -7,10 +7,11 @@ import java.util.logging.Logger;
 
 import com.struts2_iw.DB.users_dao.DaoUsersDB;
 import com.struts2_iw.beans.User;
+import com.struts2_iw.interfaces.CustomActionsTexts;
 import com.struts2_iw.interfaces.CustomLoginTexts;
 import com.struts2_iw.todo.UserRole;
 
-public final class UsersDB implements DaoUsersDB, CustomLoginTexts{
+public final class UsersDB implements DaoUsersDB, CustomLoginTexts, CustomActionsTexts{
 	private static final Logger LOGGER = Logger.getLogger(UsersDB.class.getName());
 	private static final Map<String, User> mapADMIN = new HashMap<String, User>();
 	private static final Map<String, User> mapEMPLOYEE = new HashMap<String, User>();
@@ -37,23 +38,18 @@ public final class UsersDB implements DaoUsersDB, CustomLoginTexts{
 	}
 	
 	@Override
-	public String verifiUnmPwd(final String userRole, final String userName, final String password) {
-		LOGGER.info("--- LOGGER: - method() ");
-		Optional<User> optionalUser = Optional.of(dbUSERS.get(userRole).get(userName));
-		if (optionalUser.isPresent()) {
-			User user = optionalUser.get();
-			if (userName.equals(user.getUserName())) {
-				if (user.equals_PU(userName, password)) {					
-					return SUCCESS_PASSWORD_USER_NAME;
-				}
-				else
-					return ERROR_PASSWORD;
-			} 
+	public String verifiUnmPwd(final String userName, final String password) {
+		LOGGER.info("--- LOGGER: method() ");
+		if (dbUSERS.get("user").containsKey(userName)) {
+			User user = dbUSERS.get("user").get(userName);
+			if (user.equals_PU(userName, password)) {					
+				return SUCCESS_PASSWORD_USER_NAME;
+			}
 			else
-				return ERROR_USER_NAME;
+				return ERROR_PASSWORD_USER_NAME;
 		}
 		else 
-			return ERROR_EMPTY;
+			return ERROR_USER_NAME;
 	}
 	
 	@Override

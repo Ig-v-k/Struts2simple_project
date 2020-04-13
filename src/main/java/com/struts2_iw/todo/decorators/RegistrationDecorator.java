@@ -2,7 +2,7 @@ package com.struts2_iw.todo.decorators;
 
 import java.util.logging.Logger;
 
-import com.struts2_iw.action.LoginControllerAction;
+import com.struts2_iw.action.LoginPostAction;
 import com.struts2_iw.interfaces.MethodsToDoUserRegistration;
 
 public class RegistrationDecorator implements MethodsToDoUserRegistration {

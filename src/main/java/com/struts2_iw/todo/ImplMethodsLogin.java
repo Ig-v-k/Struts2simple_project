@@ -13,8 +13,8 @@ public class ImplMethodsLogin implements MethodsToDoUserLogin, CustomActionsText
 	private final UsersDB db = new UsersDB();
 	
 	@Override
-	public String descent(final String userRole, final String userName, final String password) {
-		LOGGER.info("--- LOGGER: - method() ");
-		return db.verifiUnmPwd(userRole, userName, password);
+	public String descent(final String userName, final String password) {
+		LOGGER.info("--- LOGGER: method() ");
+		return db.verifiUnmPwd(userName, password);
 	}
 }

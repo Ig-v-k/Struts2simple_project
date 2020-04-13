@@ -13,7 +13,7 @@
     <constant name="struts.convention.action.mapAllMatches" value="true"/>
     <constant name="struts.convention.action.packages" value="com.struts2_iw.*"/>
 	
- 	<package name="default" extends="struts-default">
+ 	<package name="default" extends="struts-default" namespace="/">
  	 	<!-- 
  	 	*** Interceptors *** 
  	 	-->
@@ -69,15 +69,13 @@
    			<interceptor-ref name="test" />
    			<result name="success">/WEB-INF/helloPageMain.jsp</result>
    		</action>
-   		<!-- <action name="/" class="com.struts2_iw.action./Action" method="boot">
-   			<result name="success"></result>
-   		</action> -->
-   		<action name="login_GET" class="com.struts2_iw.action.LoginControllerAction" method="get">
+   		<action name="login" class="com.struts2_iw.action.LoginGetAction" method="l_get">
    			<result name="input">/WEB-INF/login.jsp</result>
    		</action>
-   		<action name="login_POST" class="com.struts2_iw.action.LoginControllerAction" method="post">
-			<result name="none" type="redirectAction"></result>
-   			<result name="success" type="redirectAction"></result>
+   		<action name="loginPost" class="com.struts2_iw.action.LoginPostAction" method="l_post">
+   			<result name="input">/WEB-INF/login.jsp</result>
+			<result name="none">/WEB-INF/helloPageMain.jsp</result>
+			<result name="success">/WEB-INF/helloPageMain.jsp</result>
 			<result name="error">/WEB-INF/login.jsp</result>
    		</action>
    		<action name="register_GET" class="com.struts2_iw.action.RegistrationControllerAction" method="GET_register">
