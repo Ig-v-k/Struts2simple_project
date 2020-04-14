@@ -66,7 +66,7 @@
 		*** Actions ***
  		-->
    		<action name="" class="com.struts2_iw.action.FirstMain" method="boot">
-   			<interceptor-ref name="test" />
+   			<interceptor-ref name="test" />   			
    			<result name="success">/WEB-INF/helloPageMain.jsp</result>
    		</action>
    		<action name="login" class="com.struts2_iw.action.LoginGetAction" method="l_get">

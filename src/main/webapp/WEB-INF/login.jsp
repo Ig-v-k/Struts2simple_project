@@ -12,13 +12,15 @@
 	
  	<div align="center">
 <%--  	    <jsp:include page="_menu.jsp" /> 
-	    <h2>Struts 2 - Login Application</h2>--%>	    
-	    <c:if test="${error_login}">
+	    <h2>Struts 2 - Login Application</h2>--%>
+	    
+	    <s:if test="hasFieldErrors()">
 		    <div class="alert alert-danger" role="alert">
-				<s:fielderror fieldName="error_and_login"/>
+				<s:fielderror fieldName="error_field_head"/>
 			</div>
-		</c:if>
-		<hr>
+			<hr>
+		</s:if>
+	    <h2><s:property value="#var_field_error"/></h2>
 <%-- 	    <s:form action="login_POST" method="post">
 	        <s:textfield name="username" key="label.username" size="20" />
 	        <s:password name="password" key="label.password" size="20" />
@@ -32,57 +34,21 @@
 	    </s:form> --%>
 	    <form id="form_login" class="card card-block bg-faded" action="loginPost" method="post">
 			<legend class="m-b-1 text-xs-center">Sign up</legend>
-			<c:if test="${error_username}">
-			    <div class="alert alert-danger" role="alert">
-					<s:fielderror fieldName="error_username"/>
-				</div>
-			</c:if>
 			<div class="form-group input-group" align="center">
 			  <label class="has-float-label">
 			    <span><fmt:message key="label.username"/></span>
 			  	<input name="username" class="form-control"/>
 			  </label>
 			</div>
-			
-		    <c:if test="${error_password}">
-			    <div class="alert alert-danger" role="alert">
-					<s:fielderror fieldName="error_password"/>
-				</div>
-			</c:if>
 			<div class="form-group has-float-label" align="center">
 				<label for="password"><fmt:message key="label.password"/></label>
 				<input name="password" class="form-control" id="password" type="password"/>
 			</div>
-			  
-<%-- 		    <s:if test="hasFieldErrors()">
-			    <div class="alert alert-danger" role="alert">
-					<s:fielderror fieldName="error_role"/>
-				</div>
-			</s:if>
-			  <div>
-			        <input type="radio" name="role" value="admin">
-					<label for="male">Admin</label><br>
-					<input type="radio" name="role" value="employee">
-					<label for="female">Employee</label><br>
-					<input type="radio" name="role" value="user">
-					<label for="other">User</label>
-			  </div> --%>
 			  <button class="btn btn-block btn-primary" type="submit" >Sign up</button>
 		</form>
-	    
-		<!---->
-		
-		<a href="https://github.com/tonystar/bootstrap-float-label" target="_blank">
-		  <img src="https://img.shields.io/github/stars/tonystar/bootstrap-float-label.svg?style=social&label=Star"/>
-		</a>
-	    
-	    <hr>
-	    <br>
-<%-- 	    Login: &emsp; Password:
-		<c:forEach items="${db}" var="i">
-        	<p>${i.key} &nbsp; - &nbsp; ${i.value.password}</p>
-        </c:forEach> 
---%>
+		<s:form action="#" method="post">
+			<button type="submit" class="btn btn-link" value="fgt_pwd" name="fgt_password">Forget your password</button>	
+		</s:form>
 	</div>
 	    
 </template:implLogin>

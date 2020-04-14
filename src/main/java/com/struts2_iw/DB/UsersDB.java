@@ -38,18 +38,15 @@ public final class UsersDB implements DaoUsersDB, CustomLoginTexts, CustomAction
 	}
 	
 	@Override
-	public String verifiUnmPwd(final String userName, final String password) {
+	public boolean verifiUnmPwd(final String userName, final String password) {
 		LOGGER.info("--- LOGGER: method() ");
 		if (dbUSERS.get("user").containsKey(userName)) {
 			User user = dbUSERS.get("user").get(userName);
 			if (user.equals_PU(userName, password)) {					
-				return SUCCESS_PASSWORD_USER_NAME;
+				return true;
 			}
-			else
-				return ERROR_PASSWORD_USER_NAME;
 		}
-		else 
-			return ERROR_USER_NAME;
+		return false;
 	}
 	
 	@Override

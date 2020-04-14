@@ -14,7 +14,7 @@ public class LoginDecorator implements MethodsToDoUserLogin{
 	}
 	
 	@Override
-	public String descent(final String username, final String password) {
+	public boolean descent(final String username, final String password) {
 		LOGGER.info("--- LOGGER: method() ");
 		return methodsTodoUserLogin.descent(username, password);
 	}

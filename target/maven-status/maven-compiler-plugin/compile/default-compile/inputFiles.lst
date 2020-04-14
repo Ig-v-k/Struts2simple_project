@@ -33,7 +33,6 @@
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2_iw/DB/CardsDB.java
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2_iw/interceptors/InterceptorTest.java
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2_iw/beans/Card.java
-/home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2_iw/todo/LoginValidateRole.java
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2_iw/DB/users_dao/DaoCardsDB.java
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2_iw/action/LogoutControllerAction.java
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2_iw/DB/users_dao/DaoUsersDB.java
