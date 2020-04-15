@@ -114,7 +114,7 @@
 							  <div class="form-row">
 							    <div class="form-group col-md-6">
 							      <label for="inputEmail4">Card number</label>
-							      <input type="email" class="form-control" id="inputEmail4" placeholder="0000 0000 0000 0000" name="card_number">
+							      <input type="text" class="form-control" id="inputEmail4" placeholder="0000 0000 0000 0000" name="card_number">
 							    </div>
 							    <div class="form-group col-md-6">
 							      <label for="inputPassword4">Password</label>
@@ -156,9 +156,7 @@
 							  </div> -->
 							  <button type="submit" class="btn btn-primary">Add</button>
 							</form>
-							<s:form action="profile_GET?actionMenu=cards&actionCardContent=cancel" method="get">
-								<button type="submit" class="btn btn-link" value="fgt_pwd" name="fgt_password">cancel</button>	
-							</s:form>
+							<a href="profile_GET?actionMenu=cards&actionCardContent=cancel" class="badge badge-light">Cancel</a>
 		            	</c:if>
 			         	<c:if test="${editFormCard}">
 			                <h1>Edit card</h1>
@@ -208,6 +206,7 @@
 							  </div>
 							  <button type="submit" class="btn btn-primary">Edit</button>
 							</form>
+							<a href="profile_GET?actionMenu=cards&actionCardContent=cancel" class="badge badge-light">Cancel</a>
 			            </c:if>
 			         </c:if>
 		        </div>

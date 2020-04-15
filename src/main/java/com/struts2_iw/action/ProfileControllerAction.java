@@ -12,6 +12,8 @@ public class ProfileControllerAction extends ActionSupport implements CustomServ
 	private static final long serialVersionUID = 1L;
 	private final ProfileActionMenu profileActions = new ProfileActionMenu((String)my_session.getAttribute("USER"));
 	private String typeCard = "";
+	private String card_number = "0000_0000_0000_0000";
+	private String card_password = "";
 	
 /**
    * The controller methods get() & post(), of ContextPath - "struts2_web_iw/profile"
@@ -36,14 +38,32 @@ public class ProfileControllerAction extends ActionSupport implements CustomServ
 	
 	public String POST_profile() {
 		if (my_request.getParameter("actionMenu") != null) {
-			this.profileActions.basicProfile_Menu(my_request.getParameter("actionMenu"));
-			return CustomActionsTexts.SUCCESS;
+			if (!(this.card_number)) {
+				this.profileActions.basicProfile_Menu(my_request.getParameter("actionMenu"));
+				return CustomActionsTexts.SUCCESS;
+			}
 		}
 		my_request.setAttribute("homeContent", true);
 		return CustomActionsTexts.SUCCESS;
 	}
 	
+	private int wrapperString() {
+		
+	}
+	
+	
 	public void setTypeCard(String typeCard) {
+		LOGGER.info("--- LOGGER: typeCard ---> " + typeCard);
 		this.typeCard = typeCard;
+	}
+
+	public void setCard_number(String card_number) {
+		LOGGER.info("--- LOGGER: card_number ---> " + card_number);
+		this.card_number = card_number;
+	}
+
+	public void setCard_password(String card_password) {
+		LOGGER.info("--- LOGGER: card_password ---> " + card_password);
+		this.card_password = card_password;
 	}
 }
