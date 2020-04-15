@@ -94,7 +94,7 @@
 			                            															<c:param name="actionMenu" value="cards"/>
 			                            															<c:param name="cardName" value="${cardsMapId.value.cardName}"/>
 																									<c:param name="actionCardContent" value="edit"/>
-																								</c:url>"><i class="material-icons">&#xE254;</i></a>
+																								 </c:url>"><i class="material-icons">&#xE254;</i></a>
 			                            <a class="delete" title="Delete" data-toggle="tooltip" href="<c:url value="profile_GET">
 			                            															<c:param name="actionMenu" value="cards"/>
 			                            															<c:param name="cardName" value="${cardsMapId.value.cardName}"/>
@@ -110,25 +110,25 @@
 		            	<hr>
 		            	<c:if test="${addFormCard}">
 			                <h1>Add card</h1>
-			                <form action="profile_POST" method="post">
+			                <form action="profile_POST?actionMenu=cards" method="post">
 							  <div class="form-row">
 							    <div class="form-group col-md-6">
 							      <label for="inputEmail4">Card number</label>
-							      <input type="email" class="form-control" id="inputEmail4" placeholder="0000 0000 0000 0000">
+							      <input type="email" class="form-control" id="inputEmail4" placeholder="0000 0000 0000 0000" name="card_number">
 							    </div>
 							    <div class="form-group col-md-6">
 							      <label for="inputPassword4">Password</label>
-							      <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+							      <input type="password" class="form-control" id="inputPassword4" placeholder="Password" name="card_password">
 							    </div>
 							  </div>
-							  <div class="form-group">
+<!-- 							  <div class="form-group">
 							    <label for="inputAddress">Address</label>
 							    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
 							  </div>
 							  <div class="form-group">
 							    <label for="inputAddress2">Address 2</label>
 							    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-							  </div>
+							  </div> -->
 							  <div class="form-row">
 							    <div class="form-group col-md-4">
 							      <label for="inputState">State</label>
@@ -146,16 +146,19 @@
 							      </select>
 							    </div>
 							  </div>
-							  <div class="form-group">
+<!-- 							  <div class="form-group">
 							    <div class="form-check">
 							      <input class="form-check-input" type="checkbox" id="gridCheck">
 							      <label class="form-check-label" for="gridCheck">
 							        Check me out
 							      </label>
 							    </div>
-							  </div>
+							  </div> -->
 							  <button type="submit" class="btn btn-primary">Add</button>
 							</form>
+							<s:form action="profile_GET?actionMenu=cards&actionCardContent=cancel" method="get">
+								<button type="submit" class="btn btn-link" value="fgt_pwd" name="fgt_password">cancel</button>	
+							</s:form>
 		            	</c:if>
 			         	<c:if test="${editFormCard}">
 			                <h1>Edit card</h1>

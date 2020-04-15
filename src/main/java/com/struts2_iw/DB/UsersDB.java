@@ -2,7 +2,6 @@ package com.struts2_iw.DB;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 import java.util.logging.Logger;
 
 import com.struts2_iw.DB.users_dao.DaoUsersDB;
