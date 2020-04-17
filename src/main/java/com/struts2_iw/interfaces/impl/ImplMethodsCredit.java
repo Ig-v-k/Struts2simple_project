@@ -1,4 +1,4 @@
-package com.struts2_iw.todo;
+package com.struts2_iw.interfaces.impl;
 
 import java.util.logging.Logger;
 

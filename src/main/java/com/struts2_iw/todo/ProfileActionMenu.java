@@ -2,15 +2,20 @@ package com.struts2_iw.todo;
 
 import java.util.logging.Logger;
 
-import com.struts2_iw.action.ProfileControllerAction;
+import com.struts2_iw.interfaces.impl.ImplMethodsCard;
+import com.struts2_iw.interfaces.impl.ImplMethodsContact;
+import com.struts2_iw.interfaces.impl.ImplMethodsCredit;
+import com.struts2_iw.interfaces.impl.ImplMethodsSetting;
+import com.struts2_iw.interfaces.impl.ImplMethodsTransfer;
 import com.struts2_iw.todo.decorators.CardDecorator;
 import com.struts2_iw.todo.decorators.ContactDecorator;
 import com.struts2_iw.todo.decorators.CreditDecorator;
 import com.struts2_iw.todo.decorators.SettingDecorator;
 import com.struts2_iw.todo.decorators.TransferDecorator;
 
-public class ProfileActionMenu {
+public final class ProfileActionMenu {
 	private static final Logger LOGGER = Logger.getLogger(ProfileActionMenu.class.getName());
+	private final ActCardNameInteger actCardName = new ActCardNameInteger();
 	private String userName = "";
 	
 	public ProfileActionMenu(final String userName) {
@@ -37,6 +42,12 @@ public class ProfileActionMenu {
 			this.basicProfile_Contacts();			
 			break;
 		}
+	}
+	
+	public boolean convertCardName(final String cardName) {
+		return new ActCardNameIntegerFourBoolean(
+				new ActCardNameIntegerArray(
+						new ActCardNameInteger())).getCardName(cardName).isArrayHasNumbers;
 	}
 	
 	private void basicProfile_Cards() {

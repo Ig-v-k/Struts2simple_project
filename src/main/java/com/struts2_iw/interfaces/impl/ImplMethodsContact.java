@@ -1,4 +1,4 @@
-package com.struts2_iw.todo;
+package com.struts2_iw.interfaces.impl;
 
 import com.struts2_iw.interfaces.CustomServletActionContext;
 import com.struts2_iw.interfaces.MethodsToDoUsersContact;

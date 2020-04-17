@@ -1,4 +1,4 @@
-package com.struts2_iw.todo;
+package com.struts2_iw.interfaces.impl;
 
 import javax.servlet.http.HttpServletRequest;
 

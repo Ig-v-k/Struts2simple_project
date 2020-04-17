@@ -7,7 +7,7 @@ import org.apache.struts2.convention.annotation.Namespace;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.struts2_iw.interfaces.CustomActionsTexts;
-import com.struts2_iw.todo.ImplMethodsRegistration;
+import com.struts2_iw.interfaces.impl.ImplMethodsRegistration;
 import com.struts2_iw.todo.RegistrationUserToSession;
 import com.struts2_iw.todo.decorators.RegistrationDecorator;
 

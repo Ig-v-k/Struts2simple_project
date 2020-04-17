@@ -6,7 +6,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.struts2_iw.interfaces.CustomActionsTexts;
 import com.struts2_iw.interfaces.CustomLoginTexts;
 import com.struts2_iw.interfaces.CustomServletActionContext;
-import com.struts2_iw.todo.ImplMethodsLogin;
+import com.struts2_iw.interfaces.impl.ImplMethodsLogin;
 import com.struts2_iw.todo.LoginAttributeLoginedUser;
 import com.struts2_iw.todo.decorators.LoginDecorator;
 

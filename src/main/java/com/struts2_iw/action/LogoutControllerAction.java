@@ -4,7 +4,7 @@ import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.struts2_iw.interfaces.CustomActionsTexts;
-import com.struts2_iw.todo.ImplMethodsLogout;
+import com.struts2_iw.interfaces.impl.ImplMethodsLogout;
 import com.struts2_iw.todo.decorators.LogoutDecorator;
 
 //@Namespace(value="/")
