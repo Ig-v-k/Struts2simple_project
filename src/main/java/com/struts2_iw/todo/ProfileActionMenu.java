@@ -15,8 +15,11 @@ import com.struts2_iw.todo.decorators.TransferDecorator;
 
 public final class ProfileActionMenu {
 	private static final Logger LOGGER = Logger.getLogger(ProfileActionMenu.class.getName());
-	private final ActCardNameInteger actCardName = new ActCardNameInteger();
 	private String userName = "";
+	
+	public ProfileActionMenu() {
+		LOGGER.info("--- LOGGER: constructor() - empty ");
+	}
 	
 	public ProfileActionMenu(final String userName) {
 		LOGGER.info("--- LOGGER: constructor() ");
@@ -45,9 +48,11 @@ public final class ProfileActionMenu {
 	}
 	
 	public boolean convertCardName(final String cardName) {
-		return new ActCardNameIntegerFourBoolean(
-				new ActCardNameIntegerArray(
-						new ActCardNameInteger())).getCardName(cardName).isArrayHasNumbers;
+		LOGGER.info("--- LOGGER: method() ");
+		return new ActCardNameIsSize(
+				new ActCardNameIntegerFourBoolean(
+						new ActCardNameIntegerArray(
+								new ActCardNameInteger())), cardName).getCardName().isArrayHasNumbers;
 	}
 	
 	private void basicProfile_Cards() {

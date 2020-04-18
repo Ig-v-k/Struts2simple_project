@@ -15,11 +15,11 @@ public class ProfileControllerAction extends ActionSupport implements CustomServ
 	private String card_number = "0000000000000000";
 	private String card_password = "";
 	
-/**
-   * The controller methods get() & post(), of ContextPath - "struts2_web_iw/profile"
-   * @param -
-   * @return String - redirect result "SUCCESS/ERROR/NONE"
-   */
+    /**
+    * The controller methods get() & post(), of ContextPath - "struts2_web_iw/profile"
+    * @param -
+    * @return String - redirect result "SUCCESS/ERROR/NONE"
+    */
 	public String GET_profile() {
 		LOGGER.info("--- LOGGER: method() ");
 		LOGGER.info("--- LOGGER: typeCard ---> " + this.typeCard);

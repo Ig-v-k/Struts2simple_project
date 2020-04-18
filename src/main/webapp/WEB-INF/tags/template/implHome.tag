@@ -114,11 +114,11 @@
 							  <div class="form-row">
 							    <div class="form-group col-md-6">
 							      <label for="inputEmail4">Card number</label>
-							      <input type="text" class="form-control" id="inputEmail4" placeholder="0000 0000 0000 0000" name="card_number">
+							      <input type="text" class="form-control" placeholder="0000 0000 0000 0000" name="card_number">
 							    </div>
 							    <div class="form-group col-md-6">
 							      <label for="inputPassword4">Password</label>
-							      <input type="password" class="form-control" id="inputPassword4" placeholder="Password" name="card_password">
+							      <input type="password" class="form-control" placeholder="Password" name="card_password">
 							    </div>
 							  </div>
 <!-- 							  <div class="form-group">
