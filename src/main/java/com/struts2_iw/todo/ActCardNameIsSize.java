@@ -19,7 +19,7 @@ public class ActCardNameIsSize implements MethodsCardName{
 	public ActCardNameVars getCardName() {
 		LOGGER.info("--- LOGGER: cardName.length ---> " + this.cardName.length());
 		if(16 == this.cardName.length()) {
-			if(!this.regexFindCharacters(this.cardName)) {
+			if(this.regexFindCharacters(this.cardName)) {
 				actCardNameVars.cardName = new StringBuilder(this.cardName);
 				actCardNameVars.isSize = true;
 				return this.methodsCardName.getCardName();
@@ -33,6 +33,6 @@ public class ActCardNameIsSize implements MethodsCardName{
 	}
 	
 	private boolean regexFindCharacters(final String cardName) {
-		return Pattern.compile(".*").matcher(cardName).matches();
+		return Pattern.compile("\\d\\d\\d\\d\\d\\d\\d\\d\\d\\d\\d\\d\\d\\d\\d\\d").matcher(cardName).matches();
 	}
 }

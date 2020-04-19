@@ -19,6 +19,6 @@ public class LoginAttributeLoginedUser extends LoginDecorator implements CustomA
 	@Override
 	public boolean descent(String username, String password) {
 		LOGGER.info("--- LOGGER: - method() ");
-		return this.loginedUser ? super.descent(username, password) : true;
+		return this.loginedUser ? super.descent(username, password) : false;
 	}
 }

@@ -48,7 +48,7 @@ public final class ProfileActionMenu {
 	}
 	
 	public boolean convertCardName(final String cardName) {
-		LOGGER.info("--- LOGGER: method() ");
+		LOGGER.info("--- LOGGER: method()");
 		return new ActCardNameIsSize(
 				new ActCardNameIntegerFourBoolean(
 						new ActCardNameIntegerArray(
@@ -56,21 +56,21 @@ public final class ProfileActionMenu {
 	}
 	
 	private void basicProfile_Cards() {
-		LOGGER.info("--- LOGGER: method() ");
+		LOGGER.info("--- LOGGER: method()");
 		new CardAttributeForm(
 				new CardDecorator(
 						new ImplMethodsCard())).methodToDoCard(this.userName);
 	}
 	
 	private void basicProfile_Transfers() {
-		LOGGER.info("--- LOGGER: method() ");
+		LOGGER.info("--- LOGGER: method()");
 		new TransferFormContent(
 				new TransferDecorator(
 						new ImplMethodsTransfer())).methodToDoTransfer();
 	}
 	
 	private void basicProfile_Credits() {
-		LOGGER.info("--- LOGGER: method() ");
+		LOGGER.info("--- LOGGER: method()");
 		new CreditParameters(			
 				new CreditAttributes(
 						new CreditDecorator(
@@ -78,14 +78,14 @@ public final class ProfileActionMenu {
 	}
 
 	private void basicProfile_Settings() {
-		LOGGER.info("--- LOGGER: method() ");
+		LOGGER.info("--- LOGGER: method()");
 		new SettingParameters(
 				new SettingDecorator(
 						new ImplMethodsSetting())).methodToDoSetting();
 	}
 	
 	private void basicProfile_Contacts() {
-		LOGGER.info("--- LOGGER: method() ");
+		LOGGER.info("--- LOGGER: method()");
 		new ContactDecorator(
 				new ImplMethodsContact()).methodToDoContact();
 	}

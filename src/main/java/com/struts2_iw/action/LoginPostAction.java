@@ -20,22 +20,25 @@ public class LoginPostAction extends ActionSupport implements CustomServletActio
 	private String username = "", password = "" /* role = "" */;
 	private boolean fgt_password = false;
     
+	@Override
+	public void validate() {
+		LOGGER.info("--- LOGGER: method() ");
+		if(this.username.isEmpty() && this.password.isEmpty()) {
+			addFieldError(getText("field.login.error"), getText("error.login.empty.usernameANDpassword"));
+		}
+	}
+	
     public String l_post() {
     	LOGGER.info("--- LOGGER: method() ");
-    	if(!this.username.isEmpty() && !this.password.isEmpty()) {
-			if (new LoginAttributeLoginedUser(
-						new LoginDecorator(
-								new ImplMethodsLogin()),
-					my_session.getAttribute("logined_registeredUSER") == null ? true : false).descent(this.username, this.password)) {				
-				my_session.setAttribute("labelLogin_Register", true);
-				my_session.setAttribute("logined_registeredUSER", true);
-				return CustomActionsTexts.SUCCESS;
-    		}
-    	}
-    	else {
-    		addFieldError(getText("field.login.error"), getText("error.login.empty.usernameANDpassword"));
-    		return CustomActionsTexts.ERROR;
-    	}
+    	LOGGER.info("--- LOGGER: logined_registeredUSER ---> " + my_session.getAttribute("logined_registeredUSER"));    	
+		if (new LoginAttributeLoginedUser(
+					new LoginDecorator(
+							new ImplMethodsLogin()),
+				my_session.getAttribute("logined_registeredUSER") == null ? true : false).descent(this.username, this.password)) {				
+			my_session.setAttribute("labelLogin_Register", true);
+			my_session.setAttribute("logined_registeredUSER", true);
+			return CustomActionsTexts.SUCCESS;
+		}
     	addFieldError(getText("field.login.error"), getText("error.login.incorrect.usernameANDpassword"));
     	return CustomActionsTexts.ERROR;
     }

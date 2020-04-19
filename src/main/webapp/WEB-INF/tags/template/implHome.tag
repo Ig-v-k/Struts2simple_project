@@ -110,54 +110,78 @@
 		            	<hr>
 		            	<c:if test="${addFormCard}">
 			                <h1>Add card</h1>
-			                <form action="profile_POST?actionMenu=cards" method="post">
-							  <div class="form-row">
-							    <div class="form-group col-md-6">
-							      <label for="inputEmail4">Card number</label>
-							      <input type="text" class="form-control" placeholder="0000 0000 0000 0000" name="card_number">
-							    </div>
-							    <div class="form-group col-md-6">
-							      <label for="inputPassword4">Password</label>
-							      <input type="password" class="form-control" placeholder="Password" name="card_password">
-							    </div>
-							  </div>
-<!-- 							  <div class="form-group">
-							    <label for="inputAddress">Address</label>
-							    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-							  </div>
-							  <div class="form-group">
-							    <label for="inputAddress2">Address 2</label>
-							    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-							  </div> -->
-							  <div class="form-row">
-							    <div class="form-group col-md-4">
-							      <label for="inputState">State</label>
-							      <select id="inputState" class="form-control" name="typeCard">
-							        <option selected>Choose...</option>
-							        <option>Discount</option>
-							        <option>Insurable</option>
-							        <option>Promotional</option>
-							        <option>Club</option>
-							        <option>Identification</option>
-							        <option>Payment</option>
-							        <option>Gift</option>
-							        <option>Vcards</option>
-							        <option>Fuel</option>
-							      </select>
-							    </div>
-							  </div>
-<!-- 							  <div class="form-group">
-							    <div class="form-check">
-							      <input class="form-check-input" type="checkbox" id="gridCheck">
-							      <label class="form-check-label" for="gridCheck">
-							        Check me out
-							      </label>
-							    </div>
-							  </div> -->
-							  <button type="submit" class="btn btn-primary">Add</button>
-							</form>
-							<a href="profile_GET?actionMenu=cards&actionCardContent=cancel" class="badge badge-light">Cancel</a>
-		            	</c:if>
+			                <s:fielderror fieldName="error_field_card_number"/>
+			                <div class="card card-outline-secondary">
+		                        <div class="card-body">
+		                            <h3 class="text-center">Credit Card Payment</h3>
+		                            <hr>
+		                            <div class="alert alert-info p-2 pb-3">
+		                                <a class="close font-weight-normal initialism" data-dismiss="alert" href="#"><samp>&times;</samp></a> 
+		                                CVC code is required.
+		                            </div>
+		                            <form class="form" role="form" autocomplete="off" action="profile_POST" method="post">
+<!-- 		                                <div class="form-group">
+		                                    <label for="cc_name">Card Holder's Name</label>
+		                                    <input type="text" class="form-control" id="cc_name" pattern="\w+ \w+.*" title="First and last name" required="required">
+		                                </div> -->
+		                                <div class="form-group">
+		                                    <label>Card Number</label>
+		                                    <input type="text" class="form-control" autocomplete="off" maxlength="20" pattern="\d{16}" title="Credit card number" placeholder="0000 0000 0000 0000" name="card_number">
+		                                </div>
+		                                <div class="form-group row">
+		                                    <label class="col-md-12">Card Exp. Date</label>
+		                                    <div class="col-md-4">
+		                                        <select class="form-control" name="cc_exp_mo" size="0">
+		                                            <option value="01">01</option>
+		                                            <option value="02">02</option>
+		                                            <option value="03">03</option>
+		                                            <option value="04">04</option>
+		                                            <option value="05">05</option>
+		                                            <option value="06">06</option>
+		                                            <option value="07">07</option>
+		                                            <option value="08">08</option>
+		                                            <option value="09">09</option>
+		                                            <option value="10">10</option>
+		                                            <option value="11">11</option>
+		                                            <option value="12">12</option>
+		                                        </select>
+		                                    </div>
+		                                    <div class="col-md-4">
+		                                        <select class="form-control" name="cc_exp_yr" size="0">
+		                                            <option>2018</option>
+		                                            <option>2019</option>
+		                                            <option>2020</option>
+		                                            <option>2021</option>
+		                                            <option>2022</option>
+		                                        </select>
+		                                    </div>
+		                                    <div class="col-md-4">
+		                                        <input type="text" class="form-control" autocomplete="off" maxlength="3" pattern="\d{3}" title="Three digits at back of your card" placeholder="CVC">
+		                                    </div>
+		                                </div>
+		                                <div class="row">
+		                                    <label class="col-md-12">Amount</label>
+		                                </div>
+		                                <div class="form-inline">
+		                                    <div class="input-group">
+		                                        <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+		                                        <input type="text" class="form-control text-right" id="exampleInputAmount" placeholder="39">
+		                                        <div class="input-group-append"><span class="input-group-text">.00</span></div>
+		                                    </div>
+		                                </div>
+		                                <hr>
+		                                <div class="form-group row">
+		                                    <div class="col-md-6">
+		                                        <a href="profile_GET?actionMenu=cards&actionCardContent=cancel" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Cancel</a>
+		                                    </div>
+		                                    <div class="col-md-6">
+		                                        <button type="submit" name="button_add_card" value="true" class="btn btn-success btn-lg btn-block">Submit</button>
+		                                    </div>
+		                                </div>
+		                            </form>
+		                        </div>
+		                    </div>
+		                </c:if>
 			         	<c:if test="${editFormCard}">
 			                <h1>Edit card</h1>
 			                <form action="">

@@ -1,7 +1,5 @@
 package com.struts2_iw.todo.decorators;
 
-import javax.servlet.http.HttpServletRequest;
-
 import com.struts2_iw.interfaces.MethodsToDoUserLogout;
 
 public class LogoutDecorator implements MethodsToDoUserLogout{
@@ -12,7 +10,7 @@ public class LogoutDecorator implements MethodsToDoUserLogout{
 	}
 	
 	@Override
-	public void logoutUser(HttpServletRequest httpServletRequest) {
-		this.methodsToDoUserLogout.logoutUser(httpServletRequest);
+	public void logoutUser() {
+		this.methodsToDoUserLogout.logoutUser();
 	}
 }

@@ -1,15 +1,14 @@
 package com.struts2_iw.interfaces.impl;
 
-import javax.servlet.http.HttpServletRequest;
-
+import com.struts2_iw.interfaces.CustomServletActionContext;
 import com.struts2_iw.interfaces.MethodsToDoUserLogout;
 
-public class ImplMethodsLogout implements MethodsToDoUserLogout{
+public class ImplMethodsLogout implements MethodsToDoUserLogout, CustomServletActionContext{
 	
 	@Override
-	public void logoutUser(HttpServletRequest httpServletRequest) {
-		httpServletRequest.setAttribute("logoutUSER", httpServletRequest.getSession().getAttribute("USER"));
-		httpServletRequest.getSession().invalidate();
+	public void logoutUser() {
+		my_request.setAttribute("logoutUSER", my_session.getAttribute("USER"));
+		my_request.getSession().invalidate();
 	}
 	
 }
