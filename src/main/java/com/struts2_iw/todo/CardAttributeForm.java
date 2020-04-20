@@ -15,6 +15,7 @@ public class CardAttributeForm extends CardDecorator implements CustomServletAct
 	
 	@Override
 	public void methodToDoCard(String userName) {
+		LOGGER.info("--- LOGGER: method()");
 		try {
 			if(my_request.getParameter("actionCardContent") != null) {
 				if(my_request.getParameter("actionCardContent").equals("content")) {

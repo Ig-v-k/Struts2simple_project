@@ -6,10 +6,11 @@ import java.util.logging.Logger;
 public class Card {
 	private static final Logger LOGGER = Logger.getLogger(Card.class.getName());
 	private String bank = "";
-	private String numberCard = "";
-	private String numberCVC = "";
+	private int[] cardNumberArray = new int[]{0000, 0000, 0000, 0000};
+	private int numberCVC = 000;
+	private int numberPIN = 0000;
 	private String typeCard = "";
-	private String userName = "";
+	private String userFULLname = "";
 	private int state = 0;
 	private boolean evmChip = false;
 	private boolean contactlessChip = false;
@@ -20,11 +21,13 @@ public class Card {
 	private boolean secCode = false;
 	private Date date;
 	
-	public Card(String bank, 
-			String numberCard, 
-			String numberCVC,
+	public Card(
+			String bank, 
+			int[] card_number_int_array, 
+			byte numberCVC,
+			int numberPIN,
 			String typeCard,
-			String userName, 
+			String userFULLname,
 			int state, 
 			boolean evmChip,
 			boolean contactlessChip, 
@@ -35,9 +38,11 @@ public class Card {
 			boolean secCode, 
 			Date date) {
 		this.bank = bank;
-		this.numberCard = numberCard;
+		this.cardNumberArray = card_number_int_array;
+		this.numberCVC = numberCVC;
+		this.numberPIN = numberPIN;
 		this.typeCard = typeCard;
-		this.userName = userName;
+		this.userFULLname = userFULLname;
 		this.state = state;
 		this.evmChip = evmChip;
 		this.contactlessChip = contactlessChip;
@@ -52,17 +57,20 @@ public class Card {
 	public String getBank() {
 		return bank;
 	}
-	public String getNumberCard() {
-		return numberCard;
+	public int[] getNumberCard() {
+		return this.cardNumberArray;
 	}
-	public String getNumberCVC() {
+	public int getNumberCVC() {
 		return numberCVC;
+	}
+	public int getNumberPIN() {
+		return numberPIN;
 	}
 	public String getTypeCard() {
 		return typeCard;
 	}
-	public String getUserName() {
-		return userName;
+	public String getUserFULLName() {
+		return userFULLname;
 	}
 	public int getState() {
 		return state;

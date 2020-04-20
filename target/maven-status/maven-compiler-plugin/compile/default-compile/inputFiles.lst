@@ -18,6 +18,7 @@
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2_iw/action/LoginPostAction.java
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2_iw/todo/LogoutLoginedUser.java
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2_iw/todo/decorators/LoginDecorator.java
+/home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2_iw/todo/ProfileValidateData.java
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2_iw/interfaces/MethodsToDoUserSettings.java
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2_iw/todo/CardAttributeForm.java
 /home/iw/eclipse-workspace/java/struts2_web_iw/src/main/java/com/struts2_iw/interfaces/impl/ImplMethodsTransfer.java

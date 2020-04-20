@@ -43,11 +43,11 @@ public class RegistrationControllerAction extends ActionSupport {
 				}
 				else {
 					addActionError(getText("error.registration"));
-					return CustomActionsTexts.ERROR;
+					return CustomActionsTexts.MAIN_ERROR;
 				}
 			}
     	}
-		return CustomActionsTexts.ERROR;
+		return CustomActionsTexts.MAIN_ERROR;
 	} //method
 	
 	private void my_Attributes() {

@@ -78,7 +78,7 @@
 		                    <tr>
 		                        <th>Card Name</th>
 		                        <th>Card Type</th>
-		                        <th>Phone</th>
+		                        <th>Bank</th>
 		                        <th>State</th>
 		                    </tr>
 		                </thead>
@@ -87,7 +87,7 @@
 		                		 <tr>
 			                        <td><c:out value="${cardsMapId.value.cardName}"/></td>
 			                        <td><c:out value="${cardsMapId.value.cardType}"/></td>
-			                        <td><c:out value="${cardsMapId.value.userPhone}"/></td>
+			                        <td><c:out value="${cardsMapId.value.bank}"/></td>
 			                        <td><c:out value="${cardsMapId.value.state}"/></td>
 			                        <td>
 			                            <a class="edit" title="Edit" data-toggle="tooltip" href="<c:url value="profile_GET">
@@ -117,16 +117,16 @@
 		                            <hr>
 		                            <div class="alert alert-info p-2 pb-3">
 		                                <a class="close font-weight-normal initialism" data-dismiss="alert" href="#"><samp>&times;</samp></a> 
-		                                CVC code is required.
+		                                PIN code is required.
 		                            </div>
 		                            <form class="form" role="form" autocomplete="off" action="profile_POST" method="post">
-<!-- 		                                <div class="form-group">
+		                                <div class="form-group">
 		                                    <label for="cc_name">Card Holder's Name</label>
-		                                    <input type="text" class="form-control" id="cc_name" pattern="\w+ \w+.*" title="First and last name" required="required">
-		                                </div> -->
+		                                    <input type="text" name="userFLname" class="form-control" id="cc_name" pattern="\w+ \w+.*" title="First and last name" required="required">
+		                                </div>
 		                                <div class="form-group">
 		                                    <label>Card Number</label>
-		                                    <input type="text" class="form-control" autocomplete="off" maxlength="20" pattern="\d{16}" title="Credit card number" placeholder="0000 0000 0000 0000" name="card_number">
+		                                    <input type="text" required="required" class="form-control" autocomplete="off" maxlength="16" pattern="\d{16}" title="Credit card number" placeholder="0000 0000 0000 0000" name="card_number">
 		                                </div>
 		                                <div class="form-group row">
 		                                    <label class="col-md-12">Card Exp. Date</label>
@@ -153,23 +153,16 @@
 		                                            <option>2020</option>
 		                                            <option>2021</option>
 		                                            <option>2022</option>
+		                                            <option>2023</option>
+		                                            <option>2024</option>
+		                                            <option>2025</option>
+		                                            <option>2026</option>
 		                                        </select>
 		                                    </div>
 		                                    <div class="col-md-4">
-		                                        <input type="text" class="form-control" autocomplete="off" maxlength="3" pattern="\d{3}" title="Three digits at back of your card" placeholder="CVC">
+		                                        <input type="text" required="required" name="card_pin" class="form-control" autocomplete="off" maxlength="4" pattern="\d{4}" title="Four digits to your card" placeholder="PIN">
 		                                    </div>
 		                                </div>
-		                                <div class="row">
-		                                    <label class="col-md-12">Amount</label>
-		                                </div>
-		                                <div class="form-inline">
-		                                    <div class="input-group">
-		                                        <div class="input-group-prepend"><span class="input-group-text">$</span></div>
-		                                        <input type="text" class="form-control text-right" id="exampleInputAmount" placeholder="39">
-		                                        <div class="input-group-append"><span class="input-group-text">.00</span></div>
-		                                    </div>
-		                                </div>
-		                                <hr>
 		                                <div class="form-group row">
 		                                    <div class="col-md-6">
 		                                        <a href="profile_GET?actionMenu=cards&actionCardContent=cancel" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Cancel</a>

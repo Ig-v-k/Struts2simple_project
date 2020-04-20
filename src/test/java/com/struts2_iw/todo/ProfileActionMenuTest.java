@@ -18,34 +18,15 @@ public class ProfileActionMenuTest {
 	@Test
 	public void testConvertCardName() {
 		LOGGER.info("--- LOGGER: <testConvertCardName>");
+
+		assertTrue(" assertTrue ---> ", new ProfileValidateData().validate_cardNamber("1234123412341234"));
 		
-//		boolean[] a1 = new boolean[1];
-		boolean[] a2 = new boolean[1];
+		assertFalse(" assertFalse ---> ", new ProfileValidateData().validate_cardNamber("123412341234123"));
+
+		assertFalse(" assertFalse ---> ", new ProfileValidateData().validate_cardNamber("12341234123412a4"));
 		
-//		a1[0] = true;
-		a2[0] = new ProfileActionMenu().convertCardName("1234123412341234");
-		assertTrue(" assertTrue ---> ", a2[0]);
-//		assertArrayEquals(a1, a2);
+		assertFalse(" assertFalse ---> ", new ProfileValidateData().validate_cardNamber("1234123412/41234"));
 		
-//		a1[0] = true;
-		a2[0] = new ProfileActionMenu().convertCardName("123412341234123");
-		assertFalse(" assertTrue ---> ", a2[0]);
-//		assertArrayEquals(a1, a2);
-		
-//		a1[0] = true;
-		a2[0] = new ProfileActionMenu().convertCardName("12341234123412a4");
-		assertFalse(" assertTrue ---> ", a2[0]);
-//		assertArrayEquals(a1, a2);
-		
-//		a1[0] = true;
-		a2[0] = new ProfileActionMenu().convertCardName("1234123412/41234");
-		assertFalse(" assertTrue ---> ", a2[0]);
-//		assertArrayEquals(a1, a2);
-		
-//		a1[0] = true;
-		a2[0] = new ProfileActionMenu().convertCardName("123412341  41234");
-		assertFalse(" assertTrue ---> ", a2[0]);
-//		assertArrayEquals(a1, a2);
-		
+		assertFalse(" assertFalse ---> ", new ProfileValidateData().validate_cardNamber("123412341  41234"));
 	}
 }

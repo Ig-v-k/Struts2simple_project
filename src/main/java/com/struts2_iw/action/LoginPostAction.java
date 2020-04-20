@@ -40,7 +40,7 @@ public class LoginPostAction extends ActionSupport implements CustomServletActio
 			return CustomActionsTexts.SUCCESS;
 		}
     	addFieldError(getText("field.login.error"), getText("error.login.incorrect.usernameANDpassword"));
-    	return CustomActionsTexts.ERROR;
+    	return CustomActionsTexts.MAIN_ERROR;
     }
     
         

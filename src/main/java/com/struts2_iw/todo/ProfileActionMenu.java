@@ -46,15 +46,7 @@ public final class ProfileActionMenu {
 			break;
 		}
 	}
-	
-	public boolean convertCardName(final String cardName) {
-		LOGGER.info("--- LOGGER: method()");
-		return new ActCardNameIsSize(
-				new ActCardNameIntegerFourBoolean(
-						new ActCardNameIntegerArray(
-								new ActCardNameInteger())), cardName).getCardName().isArrayHasNumbers;
-	}
-	
+
 	private void basicProfile_Cards() {
 		LOGGER.info("--- LOGGER: method()");
 		new CardAttributeForm(
